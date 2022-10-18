@@ -1,0 +1,72 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.623);
+    border-radius: 10px;
+    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+        0 1px 1px rgba(128, 128, 128, 0.155),
+        0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+        0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+        0 12px 12px rgba(128, 128, 128, 0.35);
+
+    width: 35%;
+}
+
+.login-form>h1 {
+    margin: 0 0 24px 0;
+    font-family: inherit;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-wrapper {
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    position: relative;
+
+}
+
+.login-label {
+    font-family: inherit;
+    font-size: 20px;
+    margin-top: 4px;
+    margin-bottom: 9px;
+
+   
+}
+
+.login-input {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    font-size: 1.1rem;
+    margin-top: 4px;
+    padding: 1.2rem;
+    border-radius: 0.4rem;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    width: 100%;
+    display: block;
+    border-bottom: 0.3rem solid rgb(214, 214, 214);
+    /* transition: all 0.3s; */
+
+}
+
+.login-input :hover {
+    background-color: red;
+    /* transition: all 0.3s; */
+}
+
+@media screen and (max-width: 992px) {
+    .login-form {
+        width: 80%;
+    }
+
+    .login-form>h1 {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,13 @@
+.logo-header
+{
+    
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: 5%;
+    margin-top: 5%;
+    font-family: 'PT Sans', sans-serif;
+    
+}
