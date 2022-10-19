@@ -29,9 +29,7 @@ const LogIn_Form = () => {
   console.log(formik.values);
   return (
     <form className="login-form" onSubmit={formik.handleSubmit}>
-      {
-        success ? <a href='/dashboard'>Go to Home</a>:null
-      }
+      {/* {success ? <a href="/dashboard">Go to Home</a> : null} */}
 
       <h1>Log in</h1>
       <div className="login-wrapper">
@@ -60,14 +58,15 @@ const LogIn_Form = () => {
             value={formik.values.password}
           />
         </div>
-        <Button
-          text="log in"
-          type="submit"
-          buttonStyle="btn--form"
-          // onClick={() => alert(`${formik.values.email}`)}
-          buttonSize="btn--large"
-          to="/hazem"
-        />
+        <Link to='/dashboard'>
+          <Button
+            text="log in"
+            type="submit"
+            buttonStyle="btn--form"
+            // onClick={() => alert(`${formik.values.email}`)}
+            buttonSize="btn--large"
+          />
+        </Link>
       </div>
     </form>
   );

@@ -1,9 +1,10 @@
 import React from 'react'
+import DashBoard_interface from '../components/components-structure/DashBoard_interface';
 
 const DashBoard = () => {
   return (
     <div className="DashBoard">
-      <h1>Hello i'm a dashboard</h1>
+     <DashBoard_interface />
     </div>
   );
 }

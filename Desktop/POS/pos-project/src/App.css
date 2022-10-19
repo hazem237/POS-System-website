@@ -32,7 +32,8 @@
   background-repeat: no-repeat;
   color: #fff;
   /* font-size: 100px; */
-  background-color: red;
+
+  height: 100vh;
 }
 
 .sign-up {
