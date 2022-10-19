@@ -5,13 +5,14 @@
     color: white;
     background: rgba(0, 0, 0, 0.623);
     border-radius: 10px;
-    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+    box-shadow: 0 0.4px 0.4px rgba(245, 243, 243, 0.658),
         0 1px 1px rgba(128, 128, 128, 0.155),
         0 2.1px 2.1px rgba(128, 128, 128, 0.195),
         0 4.4px 4.4px rgba(128, 128, 128, 0.241),
         0 12px 12px rgba(128, 128, 128, 0.35);
 
     width: 35%;
+   
 }
 
 .login-form>h1 {
@@ -31,13 +32,18 @@
 
 }
 
+.login-input-container {
+
+    width: 95%;
+    padding: 12px;
+    
+}
+
 .login-label {
     font-family: inherit;
     font-size: 20px;
-    margin-top: 4px;
+    margin-top: 6px;
     margin-bottom: 9px;
-
-   
 }
 
 .login-input {

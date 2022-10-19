@@ -11,3 +11,17 @@
     font-family: 'PT Sans', sans-serif;
     
 }
+.fa-typo3
+{
+    color: red;
+}
+
+@media screen and (max-width: 992px) {
+.logo-header {
+
+        margin-left: 5%;
+        margin-top: 10%;
+    
+
+    }
+}

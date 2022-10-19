@@ -4,7 +4,7 @@ import "../components-style/Logo_header.css"
 const Logo_header = () => {
   return (
     <div className='logo-header'>
-     HPOS <i class="fab fa-typo3" />
+     HPOS <i className="fab fa-typo3" />
     </div>
   )
 }
