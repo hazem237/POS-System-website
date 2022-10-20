@@ -5,6 +5,7 @@ const Statistics = () => {
   const [buttonWelcome, setButtonWelcome] = useState(true);
   return (
     <div className="statistics-container">
+     
       <div className="Data-catcher">
         {buttonWelcome && (
           <div className="welcome-dashboard">
@@ -23,7 +24,7 @@ const Statistics = () => {
             <i className="fa fa-user" aria-hidden="true"></i>
             <h2>Users :</h2>
             <h6>Number of Users is </h6>
-            <h1>13</h1>
+            <h1></h1>
           </div>
           <div className="Data-container products-number">
             <i className="fa-solid fa-tag"></i>
