@@ -6,7 +6,7 @@ const DashBoard_interface = () => {
   return (
     <>
       <Navbar />
-      <Statistics/>
+      <Statistics />
 
     </>
   )
