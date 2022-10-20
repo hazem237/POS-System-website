@@ -3,7 +3,7 @@ import DashBoard_interface from "../components/components-structure/DashBoard_in
 
 const DashBoard = () => {
   return (
-    <div className="DashBoard">
+    <div >
       <DashBoard_interface />
     </div>
   );

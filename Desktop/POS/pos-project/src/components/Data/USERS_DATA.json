@@ -1,0 +1,138 @@
+[
+  {
+    "id": 1,
+    "name": "Elysha",
+    "gender": "F",
+    "phone": "623-545-2745",
+    "Subscription-date": "7/19/2022",
+    "discount-percentage": 3.2
+  },
+  {
+    "id": 2,
+    "name": "Mavis",
+    "gender": "F",
+    "phone": "855-445-1340",
+    "Subscription-date": "9/8/2022",
+    "discount-percentage": 7.6
+  },
+  {
+    "id": 3,
+    "name": "Leigha",
+    "gender": "F",
+    "phone": "975-511-3222",
+    "Subscription-date": "8/24/2021",
+    "discount-percentage": 2.6
+  },
+  {
+    "id": 4,
+    "name": "Brent",
+    "gender": "M",
+    "phone": "101-423-7648",
+    "Subscription-date": "5/30/2022",
+    "discount-percentage": 1.8
+  },
+  {
+    "id": 5,
+    "name": "Kerk",
+    "gender": "M",
+    "phone": "712-185-1794",
+    "Subscription-date": "4/27/2020",
+    "discount-percentage": 3.1
+  },
+  {
+    "id": 6,
+    "name": "Rachael",
+    "gender": "F",
+    "phone": "976-831-3843",
+    "Subscription-date": "8/31/2022",
+    "discount-percentage": 2.9
+  },
+  {
+    "id": 7,
+    "name": "Obie",
+    "gender": "M",
+    "phone": "202-557-3855",
+    "Subscription-date": "3/10/2021",
+    "discount-percentage": 6.2
+  },
+  {
+    "id": 8,
+    "name": "Jarrett",
+    "gender": "M",
+    "phone": "938-693-2714",
+    "Subscription-date": "7/7/2020",
+    "discount-percentage": 11.3
+  },
+  {
+    "id": 9,
+    "name": "Merridie",
+    "gender": "F",
+    "phone": "926-143-8090",
+    "Subscription-date": "1/26/2022",
+    "discount-percentage": 5.0
+  },
+  {
+    "id": 10,
+    "name": "Carolee",
+    "gender": "F",
+    "phone": "799-540-1414",
+    "Subscription-date": "8/8/2022",
+    "discount-percentage": 7.0
+  },
+  {
+    "id": 11,
+    "name": "Imelda",
+    "gender": "F",
+    "phone": "190-563-4738",
+    "Subscription-date": "8/7/2022",
+    "discount-percentage": 3.3
+  },
+  {
+    "id": 12,
+    "name": "Sosanna",
+    "gender": "F",
+    "phone": "413-493-0117",
+    "Subscription-date": "8/18/2021",
+    "discount-percentage": 6.8
+  },
+  {
+    "id": 13,
+    "name": "Denney",
+    "gender": "M",
+    "phone": "227-243-2245",
+    "Subscription-date": "5/3/2020",
+    "discount-percentage": 10.9
+  },
+  {
+    "id": 14,
+    "name": "Cazzie",
+    "gender": "M",
+    "phone": "915-196-1946",
+    "Subscription-date": "6/27/2021",
+    "discount-percentage": 4.9
+  },
+  {
+    "id": 15,
+    "name": "Bentlee",
+    "gender": "M",
+    "phone": "269-712-9294",
+    "Subscription-date": "2/25/2021",
+    "discount-percentage": 5.5
+  },
+  {
+    "id": 16,
+    "name": "Haslett",
+    "gender": "M",
+    "phone": "889-253-2232",
+    "Subscription-date": "12/25/2021",
+    "discount-percentage": 12.5
+  },
+  {
+    "id": 17,
+    "name": "Corella",
+    "gender": "F",
+    "phone": "663-698-8447",
+    "Subscription-date": "8/4/2020",
+    "discount-percentage": 11.3
+  }
+]

@@ -12,10 +12,11 @@
 
 .navbar-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     height: 80px;
     max-width: 1500px;
+
 }
 
 .navbar-logo {
@@ -27,6 +28,7 @@
     font-size: 2rem;
     display: flex;
     align-items: center;
+
 }
 
 .fa-typo3 {
@@ -36,7 +38,7 @@
 
 .nav-menu {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(5, auto);
     grid-gap: 10px;
     list-style: none;
     text-align: center;
@@ -48,14 +50,17 @@
 .nav-item {
     height: 80px;
 }
-.logOut-li
-{
-    margin-top: 10px;
+
+.logOut-li {
+    /* margin-top: 10px;
     position: absolute;
     bottom: 0;
-    margin-bottom: 18px;
+    margin-bottom: 19px;
     display: block;
+    right: 0;
+    margin-right: 55px; */
 }
+
 .nav-links {
     color: #fff;
     display: flex;

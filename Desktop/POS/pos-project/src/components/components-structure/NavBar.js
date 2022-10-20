@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "../components-structure/Button.js";
 import { Link } from "react-router-dom";
 import "../components-style/NavBar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -66,12 +67,15 @@ function Navbar() {
                 Categories
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/users" className="nav-links" onClick={closeMobileMenu}>
+                Users
+              </Link>
+            </li>
 
             <li>
-              <Link to="/" className="logOut-li" onClick={closeMobileMenu}>
-                <Button buttonStyle="btn--outline" text="Log out">
-                  Log Out
-                </Button>
+              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                Log Out
               </Link>
             </li>
           </ul>

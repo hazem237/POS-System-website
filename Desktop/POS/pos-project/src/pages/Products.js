@@ -4,10 +4,10 @@ import Products_table from '../components/components-structure/Products_table'
 
 const Products = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <Products_table />
-    </div>
+    </>
   )
 }
 

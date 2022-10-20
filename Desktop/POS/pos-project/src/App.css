@@ -6,8 +6,8 @@
 }
 
 .LogIn-page,
-.services,
-.products,
+.DashBoard,
+.user-page,
 .sign-up {
   display: flex;
   height: 90vh;
