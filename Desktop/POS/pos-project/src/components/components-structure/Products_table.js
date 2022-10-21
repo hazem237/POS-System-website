@@ -1,8 +1,9 @@
 import React, { useMemo, useEffect, useState } from "react";
 import { useTable } from "react-table";
-import { PRODUCT_COLUMNS } from "../components-structure/Products_columns";
+import { PRODUCT_COLUMNS } from "./Columns";
 import PRODUCTS_DATA from "../Data/PRODUCTS_DATA.json";
 import "../components-style/Users_table.css";
+import { Button } from "./Button";
 
 const Products_table = () => {
   const columns = useMemo(() => PRODUCT_COLUMNS, []);
@@ -17,6 +18,7 @@ const Products_table = () => {
 
   return (
     <table>
+    
       <table {...getTableProps()} className="user-table">
         <thead className="user-table-header">
           {headerGroups.map((headerGroup) => (

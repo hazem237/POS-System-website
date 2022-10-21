@@ -5,6 +5,7 @@ import DashBoard from "./pages/DashBoard";
 import Products from "./pages/Products";
 import { useEffect, useState } from "react";
 import Users from "./pages/Users";
+import Categories from "./pages/Categories";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<LogIn />} />
           <Route path="/dashboard" element={<DashBoard />} />
           <Route path="/product" element={<Products />} />
+          <Route path="/catagories" element={<Categories />} />
           <Route path="/users" element={<Users />} />
         </Routes>
       </Router>

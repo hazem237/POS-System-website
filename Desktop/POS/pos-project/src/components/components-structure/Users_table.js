@@ -1,25 +1,36 @@
 import React, { useMemo, useEffect, useState } from "react";
 import { useTable } from "react-table";
-import { COLUMNS } from "./Users_columns";
-import PRODUCTS_DATA from "../Data/USERS_DATA.json";
+import { USER_COLUMNS } from "./Columns";
 import "../components-style/Users_table.css";
 
 const Products_table = () => {
+  const [users, setUsers] = useState([]);
 
+  useEffect(() => {
+    const getUsers = async () => {
+      const userFromServer = await fetchUsers();
+      setUsers(userFromServer);
+    };
 
-  const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => PRODUCTS_DATA, []);
+    getUsers();
+  }, []);
 
+  //Fetch Users
+  const fetchUsers = async () => {
+    const res = await fetch("http://localhost:5000/users");
+    const data = await res.json();
+
+    return data;
+  };
 
   const tableInstance = useTable({
-    columns,
-    data,
+    columns: USER_COLUMNS,
+    data: users,
   });
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;
-  // console.log(headerGroups);
-  //   console.log(headerGroups);
+
   return (
     <div className="user-page">
       <table {...getTableProps()} className="user-table">
@@ -37,7 +48,7 @@ const Products_table = () => {
             prepareRow(row);
             return (
               <tr {...row.getRowProps()}>
-                {row.cells.map((cell ,index) => {
+                {row.cells.map((cell, index) => {
                   return (
                     <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
                   );
