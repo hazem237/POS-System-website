@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LogIn from "./pages/LogIn";
 import DashBoard from "./pages/DashBoard";
 import Products from "./pages/Products";
-import { useEffect, useState } from "react";
 import Users from "./pages/Users";
 import Categories from "./pages/Categories";
 

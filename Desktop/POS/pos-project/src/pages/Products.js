@@ -1,6 +1,6 @@
-import React from 'react'
-import Navbar from '../components/components-structure/NavBar'
-import Products_table from '../components/components-structure/Products_table'
+import React from "react";
+import Navbar from "../components/components-structure/Reusable components/NavBar";
+import Products_table from "../components/components-structure/Products_table";
 
 const Products = () => {
   return (
@@ -8,7 +8,7 @@ const Products = () => {
       <Navbar />
       <Products_table />
     </>
-  )
-}
+  );
+};
 
-export default Products
+export default Products;

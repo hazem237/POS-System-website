@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../components-style/Statistics.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 const Statistics = () => {
   const [buttonWelcome, setButtonWelcome] = useState(true);

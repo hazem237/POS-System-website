@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
-import { PRODUCT_COLUMNS } from "./Columns";
-import Table from "./Table";
+import { PRODUCT_COLUMNS } from "./Reusable components/Columns";
+import Table from "./Reusable components/Table";
 
 const Products_table = () => {
   const [products, setProducts] = useState([]);
@@ -23,8 +23,6 @@ const Products_table = () => {
     return data;
   };
 
-  products.map((product) => console.log(product.category));
-
   const tableInstance = useTable({
     columns: PRODUCT_COLUMNS,
     data: products,
@@ -32,7 +30,7 @@ const Products_table = () => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;
 
-  return (<Table tableInstance={tableInstance} />)
+  return <Table tableInstance={tableInstance} />;
 };
 
 export default Products_table;

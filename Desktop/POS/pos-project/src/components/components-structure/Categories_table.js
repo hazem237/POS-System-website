@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
-import { CATEGORIES_COLUMNS } from "./Columns";
-import Table from "./Table";
+import { CATEGORIES_COLUMNS } from "./Reusable components/Columns";
+import Table from "./Reusable components/Table";
 
 const Categories_table = () => {
   const [categories, setCategories] = useState([]);

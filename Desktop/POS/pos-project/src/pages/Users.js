@@ -1,10 +1,10 @@
 import React from "react";
 import Users_table from "../../src/components/components-structure/Users_table";
-import Navbar from "../components/components-structure/NavBar";
+import Navbar from "../components/components-structure/Reusable components/NavBar";
 
 const Users = () => {
   return (
-    <div >
+    <div>
       <Navbar />
       <Users_table />
     </div>

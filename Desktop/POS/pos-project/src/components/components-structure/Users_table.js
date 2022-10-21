@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
-import { USER_COLUMNS } from "./Columns";
-import Table from "./Table";
+import { USER_COLUMNS } from "./Reusable components/Columns";
+import Table from "./Reusable components/Table";
 
 const Products_table = () => {
   const [users, setUsers] = useState([]);
