@@ -1,42 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { useTable , useGlobalFilter , usePagination} from "react-table";
+import { useTable, useGlobalFilter, usePagination } from "react-table";
 import { USER_COLUMNS } from "./Reusable components/Columns";
 import Table from "./Reusable components/Table";
 
-
-const Products_table = () => {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    const getUsers = async () => {
-      const userFromServer = await fetchUsers();
-      setUsers(userFromServer);
-    };
-
-    getUsers();
-  }, []);
-
-  //Fetch Users
-  const fetchUsers = async () => {
-    const res = await fetch("http://localhost:5000/users");
-    const data = await res.json();
-
-    return data;
-  };
-
-  const tableInstance = useTable({
-    columns: USER_COLUMNS,
-    data: users,
-  } , useGlobalFilter , usePagination);
-
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    tableInstance;
+const Users_table = ({ usersData }) => {
+  const tableInstance = useTable(
+    {
+      columns: USER_COLUMNS,
+      data: usersData,
+    },
+    useGlobalFilter,
+    usePagination
+  );
 
   return (
     <div>
-      <Table tableInstance={tableInstance} numberOfRows={users.length} />
+      <Table tableInstance={tableInstance} numberOfRows={usersData.length} />
     </div>
   );
 };
 
-export default Products_table;
+export default Users_table;

@@ -18,7 +18,7 @@ const Table = ({ tableInstance, numberOfRows }) => {
     setGlobalFilter,
   } = tableInstance;
 
-  const { globalFilter, pageIndex, pageOption } = state;
+  const { globalFilter, pageIndex } = state;
   const numberOfPages = numberOfRows > 10 ? Math.ceil(numberOfRows / 10) : 1;
 
   return (
