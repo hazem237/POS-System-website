@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useTable } from "react-table";
+import { useTable, useGlobalFilter, usePagination } from "react-table";
 import { CATEGORIES_COLUMNS } from "./Reusable components/Columns";
 import Table from "./Reusable components/Table";
+
 
 const Categories_table = () => {
   const [categories, setCategories] = useState([]);
@@ -26,14 +27,14 @@ const Categories_table = () => {
   const tableInstance = useTable({
     columns: CATEGORIES_COLUMNS,
     data: categories,
-  });
+  } , useGlobalFilter ,usePagination);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;
 
   return (
-    <div className="user-page">
-      <Table tableInstance={tableInstance} />
+    <div >
+      <Table tableInstance={tableInstance} numberOfRows={categories} />
     </div>
   );
 };

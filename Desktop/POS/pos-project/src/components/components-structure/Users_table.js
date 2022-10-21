@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useTable } from "react-table";
+import { useTable , useGlobalFilter , usePagination} from "react-table";
 import { USER_COLUMNS } from "./Reusable components/Columns";
 import Table from "./Reusable components/Table";
+
 
 const Products_table = () => {
   const [users, setUsers] = useState([]);
@@ -26,14 +27,14 @@ const Products_table = () => {
   const tableInstance = useTable({
     columns: USER_COLUMNS,
     data: users,
-  });
+  } , useGlobalFilter , usePagination);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     tableInstance;
 
   return (
-    <div className="user-page">
-      <Table tableInstance={tableInstance} />
+    <div>
+      <Table tableInstance={tableInstance} numberOfRows={users.length} />
     </div>
   );
 };
