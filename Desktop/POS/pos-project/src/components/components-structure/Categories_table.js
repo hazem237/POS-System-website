@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useTable } from "react-table";
-import { USER_COLUMNS } from "./Columns";
+import { CATEGORIES_COLUMNS } from "./Columns";
 import Table from "./Table";
 
-const Products_table = () => {
-  const [users, setUsers] = useState([]);
+const Categories_table = () => {
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const getUsers = async () => {
       const userFromServer = await fetchUsers();
-      setUsers(userFromServer);
+      setCategories(userFromServer);
     };
 
     getUsers();
@@ -17,15 +17,15 @@ const Products_table = () => {
 
   //Fetch Users
   const fetchUsers = async () => {
-    const res = await fetch("http://localhost:5000/users");
+    const res = await fetch("http://localhost:5000/categories");
     const data = await res.json();
 
     return data;
   };
 
   const tableInstance = useTable({
-    columns: USER_COLUMNS,
-    data: users,
+    columns: CATEGORIES_COLUMNS,
+    data: categories,
   });
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
@@ -38,4 +38,4 @@ const Products_table = () => {
   );
 };
 
-export default Products_table;
+export default Categories_table;

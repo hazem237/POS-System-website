@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Button } from "../components-structure/Button.js";
 import { Link } from "react-router-dom";
 import "../components-style/NavBar.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Navbar() {
   const [click, setClick] = useState(false);

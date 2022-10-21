@@ -1,10 +1,12 @@
 import React from "react";
-import DashBoard_interface from "../components/components-structure/DashBoard_interface";
+import Navbar from "../components/components-structure/NavBar";
+import Statistics from "../components/components-structure/Statistics";
 
 const DashBoard = () => {
   return (
-    <div >
-      <DashBoard_interface />
+    <div>
+      <Navbar />
+      <Statistics />
     </div>
   );
 };

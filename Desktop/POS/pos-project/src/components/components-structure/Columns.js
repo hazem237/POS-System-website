@@ -54,3 +54,15 @@ export const PRODUCT_COLUMNS = [
     accessor: "price",
   },
 ];
+
+export const CATEGORIES_COLUMNS = [
+  {
+    Header: "Category Name",
+    accessor: "category",
+  },
+  {
+    Header: "Picture",
+    accessor: "image",
+    Cell: ({ value }) => <img src={value} />,
+  }
+];
