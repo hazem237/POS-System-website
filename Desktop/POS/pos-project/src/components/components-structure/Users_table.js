@@ -1,22 +1,33 @@
-import React, { useEffect, useState } from "react";
-import { useTable, useGlobalFilter, usePagination } from "react-table";
-import { USER_COLUMNS } from "./Reusable components/Columns";
-import Table from "./Reusable components/Table";
+import "../components-style/Table.css";
 
 const Users_table = ({ usersData }) => {
-  const tableInstance = useTable(
-    {
-      columns: USER_COLUMNS,
-      data: usersData,
-    },
-    useGlobalFilter,
-    usePagination
-  );
-
   return (
-    <div>
-      <Table tableInstance={tableInstance} numberOfRows={usersData.length} />
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Gender</th>
+          <th>Phone</th>
+          <th>Subscription Date</th>
+          <th>Discount percentage</th>
+        </tr>
+      </thead>
+      <tbody>
+        {usersData.map((user) => (
+          <tr>
+            <td>{user.id}</td>
+            <td>{user.first_name}</td>
+            <td>{user.last_name}</td>
+            <td>{user.gender}</td>
+            <td>{user.phone}</td>
+            <td>{user.Subscription_date}</td>
+            <td>{user.discount_percentage}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };
 

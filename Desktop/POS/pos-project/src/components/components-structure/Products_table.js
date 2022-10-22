@@ -1,20 +1,31 @@
-import React, { useEffect, useState } from "react";
-import { useTable, useGlobalFilter, usePagination } from "react-table";
-import { PRODUCT_COLUMNS } from "./Reusable components/Columns";
-import Table from "./Reusable components/Table";
+import "../components-style/Table.css";
 
 const Products_table = ({ productsData }) => {
-  const tableInstance = useTable(
-    {
-      columns: PRODUCT_COLUMNS,
-      data: productsData,
-    },
-    useGlobalFilter,
-    usePagination
-  );
-
   return (
-    <Table tableInstance={tableInstance} numberOfRows={productsData.length} />
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {productsData.map((product) => (
+          <tr>
+            <td>{product.id}</td>
+            <td>
+              <img src={product.thumbnail} />
+            </td>
+            <td>{product.title}</td>
+            <td>{product.category}</td>
+            <td>{product.price}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };
 

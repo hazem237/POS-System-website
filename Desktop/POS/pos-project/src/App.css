@@ -7,8 +7,7 @@
 
 .LogIn-page,
 .DashBoard,
-.user-page,
-.sign-up {
+.user-page {
   display: flex;
   height: 90vh;
   align-items: center;
@@ -36,11 +35,13 @@
   height: 100vh;
 }
 
-.sign-up {
+.Products-page {
 
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
+
+  height: 100vh;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
 }
