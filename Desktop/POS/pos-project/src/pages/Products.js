@@ -6,7 +6,7 @@ const Products = ({ productsData }) => {
   return (
     <>
       <Navbar />
-      <div className="Products-page">
+      <div >
         <Products_table productsData={productsData} />
       </div>
     </>

@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import "../components-style/Statistics.css";
 
-const Statistics = ({ productsData, categoriesData, userData }) => {
+
+
+const Statistics = () => {
   const [buttonWelcome, setButtonWelcome] = useState(true);
+
+
+
   return (
     <div className="DashBoard">
       <div className="statistics-container">
@@ -24,23 +29,24 @@ const Statistics = ({ productsData, categoriesData, userData }) => {
               <i className="fa fa-user" aria-hidden="true"></i>
               <h2>Users :</h2>
               <h6>Number of Users is </h6>
-              <h1>{userData.length}</h1>
+              <h1></h1>
             </div>
             <div className="Data-container products-number">
               <i className="fa-solid fa-tag"></i>
               <h2>Products :</h2>
               <h6>Number of Products is </h6>
-              <h1>{productsData.length}</h1>
+              <h1></h1>
             </div>
             <div className="Data-container categories-number">
               <i className="fa-solid fa-sitemap"></i>
               <h2>Categories :</h2>
               <h6>Number of Categories is </h6>
-              <h1>{categoriesData.length}</h1>
+              <h1></h1>
             </div>
           </div>
         </div>
       </div>
+      
     </div>
   );
 };
