@@ -1,10 +1,13 @@
 import "../components-style/Table.css";
 import { useState, useEffect } from "react";
 import { Button } from "./Reusable components/Button";
+import Pagination from "./Reusable components/Pagination";
 
 const Categories_table = () => {
   const [categories, setCategories] = useState([]);
   const [query, setQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(10);
 
   useEffect(() => {
     const getCategories = async () => {
@@ -30,6 +33,12 @@ const Categories_table = () => {
       keys.some((key) => item[key].toLowerCase().includes(query))
     );
   };
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = categories.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div>
       <input
@@ -63,6 +72,11 @@ const Categories_table = () => {
           ))}
         </tbody>
       </table>
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={categories.length}
+        paginate={paginate}
+      />
     </div>
   );
 };

@@ -1,10 +1,16 @@
 import "../components-style/Table.css";
 import { useState, useEffect } from "react";
 import { Button } from "./Reusable components/Button";
+import ReactPaginate from "react-paginate";
+import Pagination from "./Reusable components/Pagination";
 
 const Products_table = () => {
   const [products, setProducts] = useState([]);
   const [query, setQuery] = useState("");
+  const keys = ["title", "category"];
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(10);
 
   useEffect(() => {
     console.log("useEffect executed");
@@ -23,15 +29,26 @@ const Products_table = () => {
 
     getProducts();
   }, []);
+
   const removeProduct = (id) => {
     setProducts(products.filter((user) => user.id !== id));
   };
-  const keys = ["title", "category"];
+
   const search = (data) => {
     return data.filter((item) =>
       keys.some((key) => item[key].toLowerCase().includes(query))
     );
   };
+
+   const indexOfLastPost = currentPage * postsPerPage;
+   const indexOfFirstPost = indexOfLastPost - postsPerPage;
+   const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost);
+
+   // Change page
+   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+ 
+
   return (
     <div>
       <input
@@ -52,7 +69,7 @@ const Products_table = () => {
           </tr>
         </thead>
         <tbody>
-          {search(products).map((product) => (
+          {search(currentPosts).map((product) => (
             <tr key={product.id}>
               <td>{product.id}</td>
               <td>
@@ -71,6 +88,11 @@ const Products_table = () => {
           ))}
         </tbody>
       </table>
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={products.length}
+        paginate={paginate}
+      />
     </div>
   );
 };

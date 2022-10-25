@@ -1,10 +1,13 @@
 import "../components-style/Table.css";
 import { Button } from "./Reusable components/Button";
 import { useState, useEffect } from "react";
+import Pagination from "./Reusable components/Pagination";
 
 const Users_table = () => {
   const [users, setUsers] = useState([]);
   const [query, setQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(10);
 
   useEffect(() => {
     console.log("useEffect executed");
@@ -32,6 +35,13 @@ const Users_table = () => {
       keys.some((key) => item[key].toLowerCase().includes(query))
     );
   };
+
+   const indexOfLastPost = currentPage * postsPerPage;
+   const indexOfFirstPost = indexOfLastPost - postsPerPage;
+   const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
+
+   // Change page
+   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <div>
       <input
@@ -54,7 +64,7 @@ const Users_table = () => {
           </tr>
         </thead>
         <tbody>
-          {search(users).map((user) => (
+          {search(currentPosts).map((user) => (
             <tr key={user.id}>
               <td>{user.id}</td>
               <td>{user.first_name}</td>
@@ -70,6 +80,11 @@ const Users_table = () => {
           ))}
         </tbody>
       </table>
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={users.length}
+        paginate={paginate}
+      />
     </div>
   );
 };
