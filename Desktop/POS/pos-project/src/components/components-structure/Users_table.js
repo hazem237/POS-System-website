@@ -2,12 +2,15 @@ import "../components-style/Table.css";
 import { Button } from "./Reusable components/Button";
 import { useState, useEffect } from "react";
 import Pagination from "./Reusable components/Pagination";
+import { stringify } from "querystring";
+import AddUserForm from "./AddUserForm";
 
 const Users_table = () => {
   const [users, setUsers] = useState([]);
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(5);
+  const [openAdd, setOpenAdd] = useState(false);
 
   useEffect(() => {
     console.log("useEffect executed");
@@ -25,6 +28,19 @@ const Users_table = () => {
 
     getUsers();
   }, []);
+  const add = () => {
+    const u = {
+      id: 12213,
+      first_name: "hazem",
+      last_name: "Roden",
+      gender: "Male",
+      phone: "705-193-4576",
+      Subscription_date: "3/20/2022",
+      discount_percentage: 11.2,
+    };
+    setUsers([...users, u]);
+    localStorage.setItem("test", JSON.stringify(users));
+  };
 
   const removeUser = (id) => {
     setUsers(users.filter((user) => user.id !== id));
@@ -36,14 +52,17 @@ const Users_table = () => {
     );
   };
 
-   const indexOfLastPost = currentPage * postsPerPage;
-   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-   const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
 
-   // Change page
-   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const openAddModule = () => {
+    setOpenAdd(true);
+  };
   return (
-    <div>
+    <div className="table-container">
       <input
         type="text"
         placeholder="Search .. "
@@ -64,8 +83,8 @@ const Users_table = () => {
           </tr>
         </thead>
         <tbody>
-          {search(currentPosts).map((user) => (
-            <tr key={user.id}>
+          {search(currentPosts).map((user, index) => (
+            <tr key={index}>
               <td>{user.id}</td>
               <td>{user.first_name}</td>
               <td>{user.last_name}</td>
@@ -85,6 +104,20 @@ const Users_table = () => {
         totalPosts={users.length}
         paginate={paginate}
       />
+      <button onClick={() => add()}>Add</button>
+      <Button
+        text="Add User"
+        buttonStyle="btn--outline add"
+        buttonSize="btn--small"
+        onClick={() => openAddModule()}
+      />
+      {openAdd && (
+        <AddUserForm
+          setOppen={setOpenAdd}
+          userData={users}
+          setUserData={setUsers}
+        />
+      )}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react'
 import LogIn_Form from "../components/components-structure/LogIn_Form";
-import Logo_header from '../components/components-structure/Logo_header';
+import Logo_header from '../components/components-structure/Reusable components/Logo_header';
 
 const LogIn= () => {
   return (

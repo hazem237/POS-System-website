@@ -1,6 +1,7 @@
 .navbar {
-    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
-    height: 80px;
+    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgba(5, 0, 0, 0.753) 100%);
+    width: 200px;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,14 +9,29 @@
     position: sticky;
     top: 0;
     z-index: 999;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.815) 0px 30px 60px -30px;
+    padding:8px;
+
 }
 
 .navbar-container {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
-    height: 80px;
-    max-width: 1500px;
+    justify-content: space-around;
+
+    height: 90%;
+    width: 100%;
+
+
+    position: absolute;
+    top: 0;
+    padding: 20px;
+    font-size: 19px;
 
 }
 
@@ -28,6 +44,7 @@
     font-size: 2rem;
     display: flex;
     align-items: center;
+    margin-top: 20%;
 
 }
 
@@ -38,36 +55,62 @@
 
 .nav-menu {
     display: grid;
-    grid-template-columns: repeat(5, auto);
-    grid-gap: 10px;
+    grid-template-columns: repeat(1, auto);
     list-style: none;
     text-align: center;
-    width: 60vw;
-    justify-content: end;
-    margin-right: 2rem;
+    width: 100%;
+
+    height: 70%;
+
+
 }
 
 .nav-item {
-    height: 80px;
+    display: flex;
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
+
 }
 
-.logOut-li {
-    /* margin-top: 10px;
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 19px;
-    display: block;
-    right: 0;
-    margin-right: 55px; */
-}
 
 .nav-links {
     color: #fff;
     display: flex;
     align-items: center;
     text-decoration: none;
-    padding: 0.5rem 1rem;
-    height: 100%;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+
+
+
+}
+
+.log-out {
+
+    margin-top: 30%;
+    padding: 15px;
+    width: 120px;
+    border-radius: 5px;
+    border: 1px solid white;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.log-out :hover {
+    background-color: white;
+    color: black;
+    transition: all 0.2s ease-out;
+    box-shadow: #fff;
+}
+
+.log-out:visited {
+    color: white;
 }
 
 .nav-links:hover {

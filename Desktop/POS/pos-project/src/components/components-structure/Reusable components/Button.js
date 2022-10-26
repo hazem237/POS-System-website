@@ -1,8 +1,6 @@
 import React from "react";
 import "../../components-style/Button.css";
 
-
-
 export const Button = ({
   text,
   typeButton,
@@ -13,7 +11,7 @@ export const Button = ({
 }) => {
   return (
     <button
-      className={`btn ${buttonStyle}`}
+      className={`btn ${buttonStyle} ${buttonSize}`}
       onClick={onClick}
       type={typeButton}
       disabled={disable}

@@ -1,4 +1,5 @@
 import React from "react";
+import "../../components-style/Table.css"
 
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
@@ -11,8 +12,8 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
     <nav>
       <ul className="pagination">
         {pageNumbers.map((number) => (
-          <li key={number} className="page-item">
-            <button onClick={() => paginate(number)}>
+          <li key={number}  className="pagination-container">
+            <button onClick={() => paginate(number) }>
                 {number}
             </button>
           </li>

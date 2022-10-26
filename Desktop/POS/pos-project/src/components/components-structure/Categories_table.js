@@ -40,7 +40,7 @@ const Categories_table = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div>
+    <div className="table-container">
       <input
         type="text"
         placeholder="Search .. "

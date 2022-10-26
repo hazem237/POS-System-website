@@ -10,7 +10,7 @@ const Products_table = () => {
   const keys = ["title", "category"];
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(6);
 
   useEffect(() => {
     console.log("useEffect executed");
@@ -40,17 +40,15 @@ const Products_table = () => {
     );
   };
 
-   const indexOfLastPost = currentPage * postsPerPage;
-   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-   const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost);
 
-   // Change page
-   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
- 
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div>
+    <div className="table-container">
       <input
         type="text"
         placeholder="Search .. "

@@ -4,12 +4,12 @@ import Products_table from "../components/components-structure/Products_table";
 
 const Products = ({ productsData }) => {
   return (
-    <>
+    <div className="Products-page">
       <Navbar />
-      <div >
+      
         <Products_table productsData={productsData} />
-      </div>
-    </>
+     
+    </div>
   );
 };
 

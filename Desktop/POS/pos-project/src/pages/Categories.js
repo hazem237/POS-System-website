@@ -4,10 +4,10 @@ import Navbar from "../components/components-structure/Reusable components/NavBa
 
 const Categories = ({ categoriesData }) => {
   return (
-    <>
+    <div className="Categories-page">
       <Navbar />
       <Categories_table categoriesData={categoriesData} />
-    </>
+    </div>
   );
 };
 

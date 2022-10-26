@@ -6,6 +6,7 @@ import Products from "./pages/Products";
 import Users from "./pages/Users";
 import Categories from "./pages/Categories";
 import { useState, useEffect } from "react";
+import POS from "./pages/POS";
 
 function App() {
  
@@ -15,17 +16,11 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LogIn />} />
-          <Route
-            path="/dashboard"
-            element={
-              <DashBoard
-               
-              />
-            }
-          />
+          <Route path="/dashboard" element={<DashBoard />} />
           <Route path="/product" element={<Products />} />
           <Route path="/catagories" element={<Categories />} />
           <Route path="/users" element={<Users />} />
+          <Route path="/pos" element={<POS />} />
         </Routes>
       </Router>
     </>

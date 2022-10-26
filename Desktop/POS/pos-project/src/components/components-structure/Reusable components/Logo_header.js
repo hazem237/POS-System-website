@@ -1,5 +1,5 @@
 import React from 'react'
-import "../components-style/Logo_header.css"
+import "../../components-style/Logo_header.css"
 
 const Logo_header = () => {
   return (

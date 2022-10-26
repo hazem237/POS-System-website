@@ -1,18 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Poppins";
 
 }
 
-.LogIn-page,
-.DashBoard,
-.user-page {
-  display: flex;
-  height: 90vh;
-  align-items: center;
-  justify-content: center;
-}
+
 
 .LogIn-page {
   background-image: url("../public/imgs/login-background.jpg");
@@ -21,27 +17,24 @@
   background-repeat: no-repeat;
   color: #fff;
   height: 100vh;
+  display: flex;
 
-}
-
-.DashBoard {
-
-  background-position: center;
-  background-size: fill;
-  background-repeat: no-repeat;
-  color: #fff;
-  /* font-size: 100px; */
-
-  height: 100vh;
-}
-
-.Products-page {
-
-
-  height: 100vh;
-  display: flex; 
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+}
+
+
+
+.Products-page,
+.User-page,
+.Categories-page,
+.DashBoard {
+
+
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 
 }

@@ -1,36 +1,87 @@
+.table-container {
 
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
-.user-table {
-    width: 50%;
-  font-family: 'Source Sans Pro',
-    sans-serif;
+    width: 80%;
+    margin-left: 16%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+table
+{
+    width: 100%;
 
 }
 
 th {
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.856);
     color: white;
-    padding:5px;
+    padding: 9px;
 
 }
 
-td {
-    border: 1px solid black;
+td ,tbody {
     text-align: center;
-    max-width: max-content;
+    padding: 5px;
+border: 1px solid rgb(109, 109, 109);
 
 }
 
 img {
-    width: 80px;
+    width: 100px;
+
+    object-fit: fill;
 }
 
-.search-container
-{
-    background-color: yellow;
-    padding:5px;
+
+
+.search {
+    width: 50%;
+    margin-bottom: 10px;
+
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    padding: 10px 5px 10px 20px;
+    text-indent: 20px;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 2s;
+    transition: all 0.2s;
+
+
 }
-.search-input
-{
-    
+
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: 3px 3px 3px 3px;
+
+}
+
+.pagination-container>button {
+    width: 20px;
+    height: 25px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, 0.466);
+}
+
+
+
+.pagination {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }

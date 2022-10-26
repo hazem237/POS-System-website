@@ -6,7 +6,7 @@ const Users = ({userData}) => {
 
 
   return (
-    <div>
+    <div className="User-page">
       <Navbar />
       <Users_table usersData={userData} />
     </div>
