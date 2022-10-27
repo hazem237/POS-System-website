@@ -3,11 +3,15 @@ import "../../components-style/Add_Form.css";
 import { Button } from "../Reusable components/Button";
 
 const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
+
+    /* Fetch The Category Form LS to be shown in Select input*/
+  const categories = JSON.parse(localStorage.getItem("categories"));
+
+  /* Functions*/
   const closeForm = () => {
     setOppen(false);
   };
 
-  const categories = JSON.parse(localStorage.getItem("categories"));
   return (
     <div className="modalBackground">
       <div className="modalContainer modalProductContainer">

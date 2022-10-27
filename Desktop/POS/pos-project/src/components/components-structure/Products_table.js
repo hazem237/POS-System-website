@@ -6,13 +6,21 @@ import Pagination from "./Reusable components/Pagination";
 import AddProductForm from "./Pop-Up/AddProductForm";
 
 const Products_table = () => {
+  /* The Variables used By User Table */
+
   const [products, setProducts] = useState([]);
   const [query, setQuery] = useState("");
   const keys = ["title", "category"];
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
- const [openAdd, setOpenAdd] = useState(false);
+  const [openAdd, setOpenAdd] = useState(false);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost);
+
+  /* Fetching Products Data From JSON Server */
+
   useEffect(() => {
     console.log("useEffect executed");
 
@@ -24,12 +32,13 @@ const Products_table = () => {
     const fetchProducts = async () => {
       const res = await fetch("http://localhost:5000/products");
       const data = await res.json();
-
       return data;
     };
 
     getProducts();
   }, []);
+
+  /* Functions Used By Products Table */
 
   const removeProduct = (id) => {
     setProducts(products.filter((user) => user.id !== id));
@@ -41,16 +50,13 @@ const Products_table = () => {
     );
   };
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost);
-
-  // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const openAddModule = () => {
     setOpenAdd(true);
   };
+
+  /* Return The Component */
 
   return (
     <div className="table-container">
@@ -60,7 +66,6 @@ const Products_table = () => {
         className="search"
         onChange={(e) => setQuery(e.target.value)}
       />
-
       <table>
         <thead>
           <tr>

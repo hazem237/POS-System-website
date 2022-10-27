@@ -2,15 +2,26 @@ import "../components-style/Table.css";
 import { useState, useEffect } from "react";
 import { Button } from "./Reusable components/Button";
 import Pagination from "./Reusable components/Pagination";
-import AddUserForm from "./Pop-Up/AddUserForm";
 import AddCategoryForm from "./Pop-Up/AddCategoryForm";
 
 const Categories_table = () => {
+  /* The Variables used By Category Table */
+
   const [categories, setCategories] = useState([]);
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
   const [openForm, setOpenForm] = useState(false);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = categories.slice(indexOfFirstPost, indexOfLastPost);
+  const keys = ["category"];
+
+  /* Sending The data to LS */
+
+  localStorage.setItem("categories", JSON.stringify(categories));
+
+  /* Fetching Categories Data From JSON Server */
 
   useEffect(() => {
     const getCategories = async () => {
@@ -21,28 +32,27 @@ const Categories_table = () => {
     const fetchCategories = async () => {
       const res = await fetch("http://localhost:5000/categories");
       const data = await res.json();
-
       return data;
     };
 
     getCategories();
   }, []);
+
+  /* Functions Used By Categories Table */
+
   const removeCategories = (category) => {
     setCategories(categories.filter((c) => c.category !== category));
   };
-  const keys = ["category"];
+
   const search = (data) => {
     return data.filter((item) =>
       keys.some((key) => item[key].toLowerCase().includes(query))
     );
   };
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = categories.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  localStorage.setItem("categories", JSON.stringify(categories));
+  /* Return The Component */
 
   return (
     <div className="table-container">
@@ -52,7 +62,6 @@ const Categories_table = () => {
         className="search"
         onChange={(e) => setQuery(e.target.value)}
       />
-
       <table>
         <thead>
           <tr>

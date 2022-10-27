@@ -2,18 +2,26 @@ import "../components-style/Table.css";
 import { Button } from "./Reusable components/Button";
 import { useState, useEffect } from "react";
 import Pagination from "./Reusable components/Pagination";
-import { stringify } from "querystring";
 import AddUserForm from "./Pop-Up/AddUserForm";
 
 const Users_table = () => {
+  /* The Variables used By User Table */
+
   const [users, setUsers] = useState([]);
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5);
   const [openAdd, setOpenAdd] = useState(false);
+  const keys = ["first_name", "last_name", "phone", "Subscription_date"];
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
+
+  /* Fetching User Data From JSON Server */
 
   useEffect(() => {
     console.log("useEffect executed");
+
     const getUsers = async () => {
       const userFromServer = await fetchUsers();
       setUsers(userFromServer);
@@ -22,45 +30,31 @@ const Users_table = () => {
     const fetchUsers = async () => {
       const res = await fetch("http://localhost:5000/users");
       const data = await res.json();
-
       return data;
     };
 
     getUsers();
   }, []);
-  const add = () => {
-    const u = {
-      id: 12213,
-      first_name: "hazem",
-      last_name: "Roden",
-      gender: "Male",
-      phone: "705-193-4576",
-      Subscription_date: "3/20/2022",
-      discount_percentage: 11.2,
-    };
-    setUsers([...users, u]);
-    localStorage.setItem("test", JSON.stringify(users));
-  };
+
+  /* Functions Used By User Table */
 
   const removeUser = (id) => {
     setUsers(users.filter((user) => user.id !== id));
   };
-  const keys = ["first_name", "last_name", "phone", "Subscription_date"];
+
   const search = (data) => {
     return data.filter((item) =>
       keys.some((key) => item[key].toLowerCase().includes(query))
     );
   };
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
-
-  // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const openAddModule = () => {
     setOpenAdd(true);
   };
+
+  /* Return The Component */
+
   return (
     <div className="table-container">
       <input
@@ -69,7 +63,6 @@ const Users_table = () => {
         className="search"
         onChange={(e) => setQuery(e.target.value)}
       />
-
       <table>
         <thead>
           <tr>
