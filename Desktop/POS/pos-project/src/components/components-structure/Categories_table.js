@@ -2,12 +2,15 @@ import "../components-style/Table.css";
 import { useState, useEffect } from "react";
 import { Button } from "./Reusable components/Button";
 import Pagination from "./Reusable components/Pagination";
+import AddUserForm from "./Pop-Up/AddUserForm";
+import AddCategoryForm from "./Pop-Up/AddCategoryForm";
 
 const Categories_table = () => {
   const [categories, setCategories] = useState([]);
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
+  const [openForm, setOpenForm] = useState(false);
 
   useEffect(() => {
     const getCategories = async () => {
@@ -38,6 +41,8 @@ const Categories_table = () => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = categories.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  localStorage.setItem("categories", JSON.stringify(categories));
 
   return (
     <div className="table-container">
@@ -77,6 +82,13 @@ const Categories_table = () => {
         totalPosts={categories.length}
         paginate={paginate}
       />
+      <Button
+        text="Add category "
+        buttonStyle="btn--outline"
+        buttonSize="but--small"
+        onClick={() => setOpenForm(true)}
+      />
+      {openForm && <AddCategoryForm setOppen={setOpenForm} />}
     </div>
   );
 };

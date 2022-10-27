@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Button } from "./Reusable components/Button";
 import ReactPaginate from "react-paginate";
 import Pagination from "./Reusable components/Pagination";
+import AddProductForm from "./Pop-Up/AddProductForm";
 
 const Products_table = () => {
   const [products, setProducts] = useState([]);
@@ -11,7 +12,7 @@ const Products_table = () => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
-
+ const [openAdd, setOpenAdd] = useState(false);
   useEffect(() => {
     console.log("useEffect executed");
 
@@ -46,6 +47,10 @@ const Products_table = () => {
 
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const openAddModule = () => {
+    setOpenAdd(true);
+  };
 
   return (
     <div className="table-container">
@@ -91,6 +96,19 @@ const Products_table = () => {
         totalPosts={products.length}
         paginate={paginate}
       />
+      <Button
+        text="Add Product"
+        buttonStyle="btn--outline add"
+        buttonSize="btn--small"
+        onClick={() => openAddModule()}
+      />
+      {openAdd && (
+        <AddProductForm
+          setOppen={setOpenAdd}
+          userData={products}
+          setUserData={setProducts}
+        />
+      )}
     </div>
   );
 };

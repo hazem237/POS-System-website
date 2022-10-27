@@ -1,3 +1,5 @@
+/* Shared properties For all Pop-Up Forms */
+
 .modalBackground {
     width: 100%;
     height: 100vh;
@@ -10,7 +12,7 @@
 
 .modalContainer {
     width: 500px;
-    height: 730px;
+    height: 750px;
     border-radius: 12px;
     background-color: rgb(233, 231, 231);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -23,7 +25,7 @@
     display: inline-block;
     text-align: center;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 }
 
 .titleCloseBtn {
@@ -38,7 +40,6 @@
     cursor: pointer;
     color: red;
 }
-
 
 .modalContainer .footer {
     flex: 20%;
@@ -63,13 +64,13 @@
     background-color: crimson;
 }
 
-.providerUserName {
+/* User Form */
 
+.providerUserName {
     display: flex;
     padding: 15px;
     justify-content: space-evenly;
     align-items: center;
-
 }
 
 .first-name-container,
@@ -82,24 +83,18 @@
 .providerUserPhone {
 
     margin-top: 5px;
-    width: 80%;
     padding: 18px;
     display: flex;
     flex-direction: column;
 }
 
 .providerUserDiscount {
-
     margin-top: 5px;
-    width: 80%;
     padding: 18px;
     display: flex;
-
 }
 
-
 .percentage {
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,7 +102,7 @@
     font-size: 25px;
     width: fit-content;
     height: fit-content;
-    margin-top: 13%;
+    margin-top: 13%;   
 }
 
 .providerUserGender {
@@ -115,26 +110,16 @@
     justify-content: space-between;
     width: 60%;
     padding: 18px;
-  
 }
-.male 
-{
+
+.male {
     display: flex;
     width: 40%;
 }
 
-.female
-{
+.female {
     display: flex;
-        width: 45%;
-}
-label {
-    font-size: 19px;
-
-}
-
-input {
-    border: 1px solid gray;
+    width: 45%;
 }
 
 .button-container {
@@ -143,4 +128,40 @@ input {
     justify-content: space-evenly;
     width: 90%;
     margin-top: 20px;
+}
+
+/* Product Form */
+
+.modalProductContainer {
+    height: 700px;
+    padding: 40px;
+}
+
+.providerProductCategory>select {
+    color: #333;
+    font-size: 1.1rem;
+    margin-top: 4px;
+    padding: 1.2rem;
+    border-radius: 0.4rem;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    width: 100%;
+    display: block;
+    border-bottom: 0.3rem solid rgb(214, 214, 214);
+}
+
+.fa-box-open {
+    color: rgb(177, 108, 5);
+}
+
+/* Category Form */
+
+.modalCategoryContainer {
+    height: 510px;
+    padding: 40px;
+}
+
+.fa-code-branch
+{
+    color: rgb(0, 60, 116);
 }

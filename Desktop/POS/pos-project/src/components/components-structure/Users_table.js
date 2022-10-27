@@ -3,7 +3,7 @@ import { Button } from "./Reusable components/Button";
 import { useState, useEffect } from "react";
 import Pagination from "./Reusable components/Pagination";
 import { stringify } from "querystring";
-import AddUserForm from "./AddUserForm";
+import AddUserForm from "./Pop-Up/AddUserForm";
 
 const Users_table = () => {
   const [users, setUsers] = useState([]);
@@ -104,7 +104,7 @@ const Users_table = () => {
         totalPosts={users.length}
         paginate={paginate}
       />
-      <button onClick={() => add()}>Add</button>
+      {/* <button onClick={() => add()}>Add</button> */}
       <Button
         text="Add User"
         buttonStyle="btn--outline add"

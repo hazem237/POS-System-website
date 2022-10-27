@@ -9,7 +9,8 @@
     justify-content: center;
     padding: 15px;
 }
-table
+
+/* table
 {
     width: 100%;
 
@@ -27,6 +28,28 @@ td ,tbody {
     padding: 5px;
 border: 1px solid rgb(109, 109, 109);
 
+} */
+table {
+    counter-reset: section;
+}
+
+td {
+    height: 65px;
+}
+
+table,
+th,
+td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    width: 900px;
+    text-align: center;
+}
+
+thead,
+tfoot {
+    background-color: rgb(196, 195, 195);
+    height: 35px;
 }
 
 img {

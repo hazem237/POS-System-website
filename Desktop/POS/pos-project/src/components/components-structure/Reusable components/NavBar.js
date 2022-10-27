@@ -45,7 +45,7 @@ function Navbar() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Dashboard 
+                Dashboard
               </Link>
             </li>
             <li className="nav-item">
@@ -77,8 +77,13 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          <Link to="/" className="  log-out" onClick={closeMobileMenu}>
-            Log Out
+          <Link to="/" >
+            <Button
+              text="Log Out"
+              buttonStyle="btn--primary"
+              buttonSize="btn--medium"
+              onClick={closeMobileMenu}
+            />
           </Link>
         </div>
       </nav>

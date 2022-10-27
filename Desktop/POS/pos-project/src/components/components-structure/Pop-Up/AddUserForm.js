@@ -1,13 +1,11 @@
 import React from "react";
-import "../components-style/AddUserForm.css";
-import { Button } from "./Reusable components/Button";
+import "../../components-style/Add_Form.css";
+import { Button } from "../Reusable components/Button";
 
-const AddUserForm = ({setOppen , userData , setUserData}) => {
-
-    const  closeForm =()=>
-    {
-        setOppen(false)
-    }
+const AddUserForm = ({ setOppen, userData, setUserData }) => {
+  const closeForm = () => {
+    setOppen(false);
+  };
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -15,7 +13,9 @@ const AddUserForm = ({setOppen , userData , setUserData}) => {
           <Button text="X" onClick={() => closeForm()} />
         </div>
         <div className="title">
-          <h2>Add new User</h2>
+          <h2>
+            Add new User <i class="fa-solid fa-user"></i>
+          </h2>
         </div>
         <div className="body">
           <form>
