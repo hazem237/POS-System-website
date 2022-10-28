@@ -3,24 +3,25 @@ import { useState, useEffect, useContext } from "react";
 import { Button } from "./Reusable components/Button";
 import Pagination from "./Reusable components/Pagination";
 import AddCategoryForm from "./Pop-Up/AddCategoryForm";
-import { DataContex } from "../../DataBase/DataContex";
+import { DataContext } from "../../DataBase/DataContext";
 
 const Categories_table = () => {
+  /* Get Categories from DataContex */
+
+  const { categoriesData, setCategoriesData } = useContext(DataContext);
+
   /* The Variables used By Category Table */
 
-  const {categoriesData ,setCategoriesData}=useContext(DataContex)
-  // const value = JSON.parse(localStorage.getItem("categories"));
-  // const [categories, setCategories] = useState(value);
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(6);
   const [openForm, setOpenForm] = useState(false);
+  const keys = ["category"];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = categoriesData.slice(indexOfFirstPost, indexOfLastPost);
-  const keys = ["category"];
 
-  /* Functions Used By Categories Table */
+  /* Functions  */
 
   const removeCategories = (category) => {
     setCategoriesData(categoriesData.filter((c) => c.category !== category));
@@ -59,7 +60,7 @@ const Categories_table = () => {
           </tr>
         </thead>
         <tbody>
-          {search(categoriesData).map((category) => (
+          {search(currentPosts).map((category) => (
             <tr>
               <td>{category.category}</td>
               <td>

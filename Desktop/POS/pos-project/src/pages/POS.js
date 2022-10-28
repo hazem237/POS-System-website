@@ -1,14 +1,15 @@
 import React from 'react'
+import Products_Gallery from '../components/components-structure/Products_Gallery'
 
 import Navbar from '../components/components-structure/Reusable components/NavBar'
 
 const POS = () => {
-    const value = JSON.parse(localStorage.getItem("test"));
-    console.log(value)
+   
   return (
-    < >
+    <div className='Pos-page'>
       <Navbar />
-    </>
+      <Products_Gallery/>
+    </ div>
   )
 }
 

@@ -3,13 +3,15 @@ import { Button } from "./Reusable components/Button";
 import { useState, useEffect, useContext } from "react";
 import Pagination from "./Reusable components/Pagination";
 import AddUserForm from "./Pop-Up/AddUserForm";
-import { DataContex } from "../../DataBase/DataContex";
+import { DataContext } from "../../DataBase/DataContext";
 
 const Users_table = () => {
-  /* The Variables used By User Table */
-  // const value = JSON.parse(localStorage.getItem("users"));
-  // const [users, setUsers] = useState([]);
-  const { usersData, setUsersData } = useContext(DataContex);
+  /*  Get the Data From DataContext */
+
+  const { usersData, setUsersData } = useContext(DataContext);
+
+  /* Variables used by Users Table */
+
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5);
@@ -18,6 +20,8 @@ const Users_table = () => {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = usersData.slice(indexOfFirstPost, indexOfLastPost);
+
+  /* Functions  */
 
   const removeUser = (id) => {
     setUsersData(usersData.filter((user) => user.id !== id));
@@ -78,7 +82,6 @@ const Users_table = () => {
         totalPosts={usersData.length}
         paginate={paginate}
       />
-      {/* <button onClick={() => add()}>Add</button> */}
       <Button
         text="Add User"
         buttonStyle="btn--outline add"

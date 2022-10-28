@@ -1,13 +1,11 @@
 import React, { useContext, useState } from "react";
-import { DataContex } from "../../DataBase/DataContex";
+import { DataContext } from "../../DataBase/DataContext";
 import "../components-style/Statistics.css";
 
 const Statistics = () => {
   const [buttonWelcome, setButtonWelcome] = useState(true);
-  // const userData = JSON.parse(localStorage.getItem("users"));
-  // const productData = JSON.parse(localStorage.getItem("products"));
-  // const categoriesData = JSON.parse(localStorage.getItem("categories"));
-  const { usersData, productsData, categoriesData } = useContext(DataContex);
+
+  const { usersData, productsData, categoriesData } = useContext(DataContext);
 
   return (
     <div className="DashBoard">

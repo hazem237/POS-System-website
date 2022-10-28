@@ -28,11 +28,14 @@
 .Products-page,
 .User-page,
 .Categories-page,
-.DashBoard {
+.DashBoard,
+.Pos-page {
 
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 
 }
+

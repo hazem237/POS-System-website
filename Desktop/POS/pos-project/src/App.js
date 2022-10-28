@@ -7,7 +7,7 @@ import Users from "./pages/Users";
 import Categories from "./pages/Categories";
 import POS from "./pages/POS";
 import FetchedData from "./DataBase/FetchedData";
-import { DataContex } from "./DataBase/DataContex";
+import { DataContext } from "./DataBase/DataContext";
 
 function App() {
   /* Making The Data a global for all pages Using LS*/
@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <Router>
-        <DataContex.Provider value={FetchedData()}>
+        <DataContext.Provider value={FetchedData()}>
           <Routes>
             s
             <Route path="/" element={<LogIn />} />
@@ -29,7 +29,7 @@ function App() {
             <Route path="/users" element={<Users />} />
             <Route path="/pos" element={<POS />} />
           </Routes>
-        </DataContex.Provider>
+        </DataContext.Provider>
       </Router>
     </>
   );

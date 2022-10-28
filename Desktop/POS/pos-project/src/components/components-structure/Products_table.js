@@ -3,13 +3,15 @@ import { useState, useEffect, useContext } from "react";
 import { Button } from "./Reusable components/Button";
 import Pagination from "./Reusable components/Pagination";
 import AddProductForm from "./Pop-Up/AddProductForm";
-import { DataContex } from "../../DataBase/DataContex";
+import { DataContext} from "../../DataBase/DataContext";
 
 const Products_table = () => {
-  /* The Variables used By User Table */
-  // const value = JSON.parse(localStorage.getItem("products"));
-  // const [products, setProducts] = useState(value);
-  const { productsData, setProductsData } = useContext(DataContex);
+  /*  Get the Data From DataContex */
+
+  const { productsData, setProductsData } = useContext(DataContext);
+
+  /* Variables used by Products Table */
+
   const [query, setQuery] = useState("");
   const keys = ["title", "category"];
   const [loading, setLoading] = useState(false);
@@ -20,9 +22,7 @@ const Products_table = () => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = productsData.slice(indexOfFirstPost, indexOfLastPost);
 
-  
-
-  /* Functions Used By Products Table */
+  /* Functions */
 
   const removeProduct = (id) => {
     setProductsData(productsData.filter((user) => user.id !== id));

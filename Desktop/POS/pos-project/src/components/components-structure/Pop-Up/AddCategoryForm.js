@@ -8,11 +8,10 @@ const AddCategoryForm = ({
   setOppen,
   categoriesData,
   setCategoriesData,
-  update,
 }) => {
   const [stroeData, setStoreData] = useState(categoriesData);
 
-  const AddCategoryForm = useFormik({
+  const categoryForm = useFormik({
     initialValues: {
       category: "",
       image: "",
@@ -30,24 +29,14 @@ const AddCategoryForm = ({
       localStorage.setItem("categories", JSON.stringify(stroeData));
       const newCategories = JSON.parse(localStorage.getItem("categories"));
       setCategoriesData(newCategories);
-
-      //   update();
     },
   });
 
-  const closeForm = () => {
-    setOppen(false);
-  };
-  //   console.log(AddCategoryForm.values);
-  //   console.log(AddCategoryForm.errors.category);
-  //   console.log(AddCategoryForm.touched.category);
-  //    console.log(AddCategoryForm.touched.image);
-  const categories = JSON.parse(localStorage.getItem("categories"));
   return (
     <div className="modalBackground">
       <div className="modalContainer modalCategoryContainer">
         <div className="titleCloseBtn ">
-          <Button text="X" onClick={() => closeForm()} />
+          <Button text="X" onClick={() => setOppen(false)} />
         </div>
         <div className="title">
           <h2>
@@ -56,7 +45,7 @@ const AddCategoryForm = ({
         </div>
 
         <div className="body">
-          <form onSubmit={AddCategoryForm.handleSubmit}>
+          <form onSubmit={categoryForm.handleSubmit}>
             <div className="providerCategoriesName">
               <div className="category-name-container">
                 <label>Category Name</label>
@@ -66,16 +55,13 @@ const AddCategoryForm = ({
                   name="category"
                   placeholder="exp : Books "
                   className="login-input"
-                  onChange={AddCategoryForm.handleChange}
-                  onBlur={AddCategoryForm.handleBlur}
-                  value={AddCategoryForm.values.category}
+                  onChange={categoryForm.handleChange}
+                  onBlur={categoryForm.handleBlur}
+                  value={categoryForm.values.category}
                 />
               </div>
-              {AddCategoryForm.touched.category &&
-              AddCategoryForm.errors.category ? (
-                <p style={{ color: "red" }}>
-                  {AddCategoryForm.errors.category}
-                </p>
+              {categoryForm.touched.category && categoryForm.errors.category ? (
+                <p style={{ color: "red" }}>{categoryForm.errors.category}</p>
               ) : null}
             </div>
             <div className="providerCategoryImage">
@@ -86,13 +72,13 @@ const AddCategoryForm = ({
                 name="image"
                 placeholder="URL "
                 className="login-input"
-                onChange={AddCategoryForm.handleChange}
-                onBlur={AddCategoryForm.handleBlur}
-                value={AddCategoryForm.values.image}
+                onChange={categoryForm.handleChange}
+                onBlur={categoryForm.handleBlur}
+                value={categoryForm.values.image}
               />
             </div>
-            {AddCategoryForm.touched.image && AddCategoryForm.errors.image ? (
-              <p style={{ color: "red" }}>{AddCategoryForm.errors.image}</p>
+            {categoryForm.touched.image && categoryForm.errors.image ? (
+              <p style={{ color: "red" }}>{categoryForm.errors.image}</p>
             ) : null}
             <div className="button-container">
               <Button
@@ -105,7 +91,7 @@ const AddCategoryForm = ({
                 text="Cancel"
                 buttonStyle="btn--outline cancel"
                 buttonSize="btn--medium"
-                onClick={() => closeForm()}
+                onClick={() => setOppen(false)}
               />
             </div>
           </form>

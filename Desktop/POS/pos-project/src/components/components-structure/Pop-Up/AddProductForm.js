@@ -1,21 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../../components-style/Add_Form.css";
 import { Button } from "../Reusable components/Button";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { DataContext } from "../../../DataBase/DataContext";
 
 const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
-  /* Fetch The Category Form LS to be shown in Select input*/
-  const categories = JSON.parse(localStorage.getItem("categories"));
+  const { categoriesData } = useContext(DataContext);
 
   /* Functions*/
   const closeForm = () => {
     setOppen(false);
   };
 
-  const [stroeData, setStoreData] = useState(productsData);
-
-  const AddProductForm = useFormik({
+  const productForm = useFormik({
     initialValues: {
       id: Math.floor(Math.random() * 1000 + 1),
       title: "",
@@ -30,16 +28,11 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
       thumbnail: Yup.string().url().required("Required"),
     }),
     onSubmit: (value) => {
-         setStoreData([...stroeData, value]);
-       console.log(stroeData);
-        localStorage.setItem("products", JSON.stringify(stroeData));
-        setProductsData(JSON.parse(localStorage.getItem("products")));
-        //   update();
       console.log(value);
     },
   });
 
-//  console.log(AddProductForm.values);
+  //  console.log(AddProductForm.values);
   return (
     <div className="modalBackground">
       <div className="modalContainer modalProductContainer">
@@ -52,7 +45,7 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
           </h2>
         </div>
         <div className="body">
-          <form onSubmit={AddProductForm.handleSubmit}>
+          <form onSubmit={productForm.handleSubmit}>
             <div className="providerProductName">
               <div className="product-name-container">
                 <label>Product Name</label>
@@ -62,13 +55,13 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
                   name="title"
                   placeholder="exp : Potato "
                   className="login-input"
-                  onChange={AddProductForm.handleChange}
-                  onBlur={AddProductForm.handleBlur}
-                  value={AddProductForm.values.title}
+                  onChange={productForm.handleChange}
+                  onBlur={productForm.handleBlur}
+                  value={productForm.values.title}
                 />
               </div>
-              {AddProductForm.touched.title && AddProductForm.errors.title ? (
-                <p style={{ color: "red" }}>{AddProductForm.errors.title}</p>
+              {productForm.touched.title && productForm.errors.title ? (
+                <p style={{ color: "red" }}>{productForm.errors.title}</p>
               ) : null}
             </div>
             <div className="providerProductCategory">
@@ -76,11 +69,11 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
               <select
                 id="category"
                 name="category"
-                onChange={AddProductForm.handleChange}
-                onBlur={AddProductForm.handleBlur}
-                value={AddProductForm.values.category}
+                onChange={productForm.handleChange}
+                onBlur={productForm.handleBlur}
+                value={productForm.values.category}
               >
-                {categories.map((item, index) => (
+                {categoriesData.map((item, index) => (
                   <option key={index}> {item.category}</option>
                 ))}
               </select>
@@ -93,13 +86,13 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
                 name="price"
                 placeholder="100$"
                 className="login-input"
-                onChange={AddProductForm.handleChange}
-                onBlur={AddProductForm.handleBlur}
-                value={AddProductForm.values.price}
+                onChange={productForm.handleChange}
+                onBlur={productForm.handleBlur}
+                value={productForm.values.price}
               />
             </div>
-            {AddProductForm.touched.price && AddProductForm.errors.price ? (
-              <p style={{ color: "red" }}>{AddProductForm.errors.price}</p>
+            {productForm.touched.price && productForm.errors.price ? (
+              <p style={{ color: "red" }}>{productForm.errors.price}</p>
             ) : null}
             <div className="providerProductImage">
               <label>Image URL</label>
@@ -109,14 +102,13 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
                 name="thumbnail"
                 placeholder="URL "
                 className="login-input"
-                onChange={AddProductForm.handleChange}
-                onBlur={AddProductForm.handleBlur}
-                value={AddProductForm.values.thumbnail}
+                onChange={productForm.handleChange}
+                onBlur={productForm.handleBlur}
+                value={productForm.values.thumbnail}
               />
             </div>
-            {AddProductForm.touched.thumbnail &&
-            AddProductForm.errors.thumbnail ? (
-              <p style={{ color: "red" }}>{AddProductForm.errors.thumbnail}</p>
+            {productForm.touched.thumbnail && productForm.errors.thumbnail ? (
+              <p style={{ color: "red" }}>{productForm.errors.thumbnail}</p>
             ) : null}
             <div className="button-container">
               <Button
@@ -125,7 +117,7 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
                 buttonStyle="btn--outline add"
                 buttonSize="btn--medium "
               />
-            
+
               <Button
                 text="Cancel"
                 buttonStyle="btn--outline cancel"
