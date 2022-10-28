@@ -1,47 +1,30 @@
 import "../components-style/Table.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Button } from "./Reusable components/Button";
 import Pagination from "./Reusable components/Pagination";
 import AddCategoryForm from "./Pop-Up/AddCategoryForm";
+import { DataContex } from "../../DataBase/DataContex";
 
 const Categories_table = () => {
   /* The Variables used By Category Table */
 
-  const [categories, setCategories] = useState([]);
+  const {categoriesData ,setCategoriesData}=useContext(DataContex)
+  // const value = JSON.parse(localStorage.getItem("categories"));
+  // const [categories, setCategories] = useState(value);
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
   const [openForm, setOpenForm] = useState(false);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = categories.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = categoriesData.slice(indexOfFirstPost, indexOfLastPost);
   const keys = ["category"];
-
-  /* Sending The data to LS */
-
-  localStorage.setItem("categories", JSON.stringify(categories));
-
-  /* Fetching Categories Data From JSON Server */
-
-  useEffect(() => {
-    const getCategories = async () => {
-      const userFromServer = await fetchCategories();
-      setCategories(userFromServer);
-    };
-
-    const fetchCategories = async () => {
-      const res = await fetch("http://localhost:5000/categories");
-      const data = await res.json();
-      return data;
-    };
-
-    getCategories();
-  }, []);
 
   /* Functions Used By Categories Table */
 
   const removeCategories = (category) => {
-    setCategories(categories.filter((c) => c.category !== category));
+    setCategoriesData(categoriesData.filter((c) => c.category !== category));
+    localStorage.setItem("categories", JSON.stringify(categoriesData));
   };
 
   const search = (data) => {
@@ -51,6 +34,12 @@ const Categories_table = () => {
   };
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const UpdateData = () => {
+    console.log(categoriesData);
+    setCategoriesData(localStorage.getItem(JSON.stringify("categories")));
+    console.log(categoriesData);
+  };
 
   /* Return The Component */
 
@@ -70,7 +59,7 @@ const Categories_table = () => {
           </tr>
         </thead>
         <tbody>
-          {search(categories).map((category) => (
+          {search(categoriesData).map((category) => (
             <tr>
               <td>{category.category}</td>
               <td>
@@ -88,7 +77,7 @@ const Categories_table = () => {
       </table>
       <Pagination
         postsPerPage={postsPerPage}
-        totalPosts={categories.length}
+        totalPosts={categoriesData.length}
         paginate={paginate}
       />
       <Button
@@ -97,7 +86,14 @@ const Categories_table = () => {
         buttonSize="but--small"
         onClick={() => setOpenForm(true)}
       />
-      {openForm && <AddCategoryForm setOppen={setOpenForm} />}
+      {openForm && (
+        <AddCategoryForm
+          setOppen={setOpenForm}
+          categoriesData={categoriesData}
+          setCategoriesData={setCategoriesData}
+          update={UpdateData}
+        />
+      )}
     </div>
   );
 };

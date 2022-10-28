@@ -4,7 +4,7 @@ import Statistics from "../components/components-structure/Statistics";
 
 const DashBoard = () => {
   return (
-    <div>
+    <div >
       <Navbar />
       <Statistics></Statistics>
     </div>

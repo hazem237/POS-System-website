@@ -17,6 +17,7 @@ const LogIn_Form = () => {
     },
     validationSchema: Yup.object({
       email: Yup.string().email().required("Required"),
+      // password:Yup.required("Required"),
     }),
     onSubmit: (value) => {
       value.email === defaultEmail && value.password === defaultPassword

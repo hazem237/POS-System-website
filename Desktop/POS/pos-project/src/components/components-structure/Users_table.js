@@ -1,13 +1,15 @@
 import "../components-style/Table.css";
 import { Button } from "./Reusable components/Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Pagination from "./Reusable components/Pagination";
 import AddUserForm from "./Pop-Up/AddUserForm";
+import { DataContex } from "../../DataBase/DataContex";
 
 const Users_table = () => {
   /* The Variables used By User Table */
-
-  const [users, setUsers] = useState([]);
+  // const value = JSON.parse(localStorage.getItem("users"));
+  // const [users, setUsers] = useState([]);
+  const { usersData, setUsersData } = useContext(DataContex);
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5);
@@ -15,31 +17,10 @@ const Users_table = () => {
   const keys = ["first_name", "last_name", "phone", "Subscription_date"];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
-
-  /* Fetching User Data From JSON Server */
-
-  useEffect(() => {
-    console.log("useEffect executed");
-
-    const getUsers = async () => {
-      const userFromServer = await fetchUsers();
-      setUsers(userFromServer);
-    };
-
-    const fetchUsers = async () => {
-      const res = await fetch("http://localhost:5000/users");
-      const data = await res.json();
-      return data;
-    };
-
-    getUsers();
-  }, []);
-
-  /* Functions Used By User Table */
+  const currentPosts = usersData.slice(indexOfFirstPost, indexOfLastPost);
 
   const removeUser = (id) => {
-    setUsers(users.filter((user) => user.id !== id));
+    setUsersData(usersData.filter((user) => user.id !== id));
   };
 
   const search = (data) => {
@@ -94,7 +75,7 @@ const Users_table = () => {
       </table>
       <Pagination
         postsPerPage={postsPerPage}
-        totalPosts={users.length}
+        totalPosts={usersData.length}
         paginate={paginate}
       />
       {/* <button onClick={() => add()}>Add</button> */}
@@ -107,8 +88,8 @@ const Users_table = () => {
       {openAdd && (
         <AddUserForm
           setOppen={setOpenAdd}
-          userData={users}
-          setUserData={setUsers}
+          userData={usersData}
+          setUserData={setUsersData}
         />
       )}
     </div>

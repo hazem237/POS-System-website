@@ -1,14 +1,15 @@
 import "../components-style/Table.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Button } from "./Reusable components/Button";
-import ReactPaginate from "react-paginate";
 import Pagination from "./Reusable components/Pagination";
 import AddProductForm from "./Pop-Up/AddProductForm";
+import { DataContex } from "../../DataBase/DataContex";
 
 const Products_table = () => {
   /* The Variables used By User Table */
-
-  const [products, setProducts] = useState([]);
+  // const value = JSON.parse(localStorage.getItem("products"));
+  // const [products, setProducts] = useState(value);
+  const { productsData, setProductsData } = useContext(DataContex);
   const [query, setQuery] = useState("");
   const keys = ["title", "category"];
   const [loading, setLoading] = useState(false);
@@ -17,31 +18,14 @@ const Products_table = () => {
   const [openAdd, setOpenAdd] = useState(false);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = productsData.slice(indexOfFirstPost, indexOfLastPost);
 
-  /* Fetching Products Data From JSON Server */
-
-  useEffect(() => {
-    console.log("useEffect executed");
-
-    const getProducts = async () => {
-      const userFromServer = await fetchProducts();
-      setProducts(userFromServer);
-    };
-
-    const fetchProducts = async () => {
-      const res = await fetch("http://localhost:5000/products");
-      const data = await res.json();
-      return data;
-    };
-
-    getProducts();
-  }, []);
+  
 
   /* Functions Used By Products Table */
 
   const removeProduct = (id) => {
-    setProducts(products.filter((user) => user.id !== id));
+    setProductsData(productsData.filter((user) => user.id !== id));
   };
 
   const search = (data) => {
@@ -98,7 +82,7 @@ const Products_table = () => {
       </table>
       <Pagination
         postsPerPage={postsPerPage}
-        totalPosts={products.length}
+        totalPosts={productsData.length}
         paginate={paginate}
       />
       <Button
@@ -110,8 +94,8 @@ const Products_table = () => {
       {openAdd && (
         <AddProductForm
           setOppen={setOpenAdd}
-          userData={products}
-          setUserData={setProducts}
+          userData={productsData}
+          setUserData={setProductsData}
         />
       )}
     </div>
