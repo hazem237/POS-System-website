@@ -18,16 +18,24 @@ const FetchedData = () => {
       const data = await res.json();
       return data;
     };
-    const getProducts = async () => {
-      const userFromServer = await fetchProducts();
-      setProductsData(userFromServer);
-    };
+    // const getProducts = async () => {
+    //   const userFromServer = await fetchProducts();
+    //   setProductsData(userFromServer);
+    // };
 
-    const fetchProducts = async () => {
-      const res = await fetch("http://localhost:5000/products");
-      const data = await res.json();
-      return data;
-    };
+    // const fetchProducts = async () => {
+    //   const res = await fetch("http://localhost:5000/products");
+    //   const data = await res.json();
+    //   return data;
+    // };
+    fetch("http://localhost:5000/products")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setProductsData(data);
+      });
+
     const getCategories = async () => {
       const userFromServer = await fetchCategories();
       setCategoriesData(userFromServer);
@@ -40,7 +48,7 @@ const FetchedData = () => {
     };
 
     getCategories();
-    getProducts();
+    // getProducts();
     getUsers();
   }, []);
 

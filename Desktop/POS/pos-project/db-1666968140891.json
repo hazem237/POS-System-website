@@ -13,7 +13,6 @@
       "thumbnail": "https://th.bing.com/th/id/R.aed84b03045ac355446b2d305307c40d?rik=c98fCmkh%2fGisVw&pid=ImgRaw&r=0",
       "images": "https://dummyjson.com/image/i/products/1/1.jpg"
     },
-
     {
       "id": 2,
       "title": "iPhone X",
@@ -24,7 +23,7 @@
       "stock": 34,
       "brand": "Apple",
       "category": "smartphones",
-      "thumbnail": "https://dummyjson.com/image/i/products/2/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.dc5cd600eee32d4322728234c53b079f?rik=R%2fpcejujVhixcQ&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/2/1.jpg",
         "https://dummyjson.com/image/i/products/2/2.jpg",
@@ -42,8 +41,10 @@
       "stock": 36,
       "brand": "Samsung",
       "category": "smartphones",
-      "thumbnail": "https://dummyjson.com/image/i/products/3/thumbnail.jpg",
-      "images": ["https://dummyjson.com/image/i/products/3/1.jpg"]
+      "thumbnail": "https://th.bing.com/th/id/OIP.cfBk1OvqlQN6GfhjRkiZLAHaHa?pid=ImgDet&rs=1",
+      "images": [
+        "https://dummyjson.com/image/i/products/3/1.jpg"
+      ]
     },
     {
       "id": 4,
@@ -55,7 +56,7 @@
       "stock": 123,
       "brand": "OPPO",
       "category": "smartphones",
-      "thumbnail": "https://dummyjson.com/image/i/products/4/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/OIP.iovf0b3BIi8pfMEAIcaxWwHaEK?pid=ImgDet&rs=1",
       "images": [
         "https://dummyjson.com/image/i/products/4/1.jpg",
         "https://dummyjson.com/image/i/products/4/2.jpg",
@@ -74,7 +75,7 @@
       "stock": 32,
       "brand": "Huawei",
       "category": "smartphones",
-      "thumbnail": "https://dummyjson.com/image/i/products/5/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.3f5202efb848336297b94c9d624ae952?rik=GXZjHQFybRrKDw&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/5/1.jpg",
         "https://dummyjson.com/image/i/products/5/2.jpg",
@@ -91,7 +92,7 @@
       "stock": 83,
       "brand": "APPle",
       "category": "laptops",
-      "thumbnail": "https://dummyjson.com/image/i/products/6/thumbnail.png",
+      "thumbnail": "https://th.bing.com/th/id/R.f8e315a257e36acddda955b35d313664?rik=Wfwd%2fh0IN1HDXA&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/6/1.png",
         "https://dummyjson.com/image/i/products/6/2.jpg",
@@ -109,7 +110,7 @@
       "stock": 50,
       "brand": "Samsung",
       "category": "laptops",
-      "thumbnail": "https://dummyjson.com/image/i/products/7/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/OIP._n_JtFQmobynTnePObrezwHaFy?pid=ImgDet&w=640&h=500&rs=1",
       "images": [
         "https://dummyjson.com/image/i/products/7/1.jpg",
         "https://dummyjson.com/image/i/products/7/2.jpg",
@@ -127,7 +128,7 @@
       "stock": 68,
       "brand": "Microsoft Surface",
       "category": "laptops",
-      "thumbnail": "https://dummyjson.com/image/i/products/8/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.dcf2bb2141317c5d3511758b567572a1?rik=11Dh2K6Kpwe5KQ&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/8/1.jpg",
         "https://dummyjson.com/image/i/products/8/2.jpg",
@@ -146,7 +147,7 @@
       "stock": 96,
       "brand": "Infinix",
       "category": "laptops",
-      "thumbnail": "https://dummyjson.com/image/i/products/9/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.388026e6a8fcc73a4e39c8ceb9568aa6?rik=92fUmmjRyIbkeA&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/9/1.jpg",
         "https://dummyjson.com/image/i/products/9/2.png",
@@ -165,7 +166,7 @@
       "stock": 89,
       "brand": "HP Pavilion",
       "category": "laptops",
-      "thumbnail": "https://dummyjson.com/image/i/products/10/thumbnail.jpeg",
+      "thumbnail": "https://th.bing.com/th/id/R.47c22a34f837ac4d13a9913ee182e9ef?rik=jCQoXR8sLmyzkw&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/10/1.jpg",
         "https://dummyjson.com/image/i/products/10/2.jpg",
@@ -183,7 +184,7 @@
       "stock": 65,
       "brand": "Impression of Acqua Di Gio",
       "category": "fragrances",
-      "thumbnail": "https://dummyjson.com/image/i/products/11/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.7a2be42a56c9558d497833cd717880f2?rik=MI6wuMU2N4wfhQ&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/11/1.jpg",
         "https://dummyjson.com/image/i/products/11/2.jpg",
@@ -201,7 +202,7 @@
       "stock": 52,
       "brand": "Royal_Mirage",
       "category": "fragrances",
-      "thumbnail": "https://dummyjson.com/image/i/products/12/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.412e5873789a98deba0ee9b8a1fcfe44?rik=Lq0KQY%2fgI5A7Sw&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/12/1.jpg",
         "https://dummyjson.com/image/i/products/12/2.jpg",
@@ -220,7 +221,7 @@
       "stock": 61,
       "brand": "Fog Scent Xpressio",
       "category": "fragrances",
-      "thumbnail": "https://dummyjson.com/image/i/products/13/thumbnail.webp",
+      "thumbnail": "https://th.bing.com/th/id/R.35191bcb2f9474bf076e004f831d4606?rik=6h91EmswwUCRXQ&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/13/1.jpg",
         "https://dummyjson.com/image/i/products/13/2.png",
@@ -239,7 +240,7 @@
       "stock": 114,
       "brand": "Al Munakh",
       "category": "fragrances",
-      "thumbnail": "https://dummyjson.com/image/i/products/14/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.31512b4a374ac4deb622fbae6e72f7c5?rik=2c6jmy0VOkQJ7w&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/14/1.jpg",
         "https://dummyjson.com/image/i/products/14/2.jpg",
@@ -257,7 +258,7 @@
       "stock": 105,
       "brand": "Lord - Al-Rehab",
       "category": "fragrances",
-      "thumbnail": "https://dummyjson.com/image/i/products/15/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.2f4f72def7d8cff9acf76d6f0c9012cf?rik=Zjjz1qSVtIOxmg&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/15/1.jpg",
         "https://dummyjson.com/image/i/products/15/2.jpg",
@@ -276,7 +277,7 @@
       "stock": 110,
       "brand": "L'Oreal Paris",
       "category": "skincare",
-      "thumbnail": "https://dummyjson.com/image/i/products/16/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/OIP.u52Dz-5Ycb75mnx-CEcqIQHaHa?pid=ImgDet&rs=1",
       "images": [
         "https://dummyjson.com/image/i/products/16/1.png",
         "https://dummyjson.com/image/i/products/16/2.webp",
@@ -295,7 +296,7 @@
       "stock": 78,
       "brand": "Hemani Tea",
       "category": "skincare",
-      "thumbnail": "https://dummyjson.com/image/i/products/17/thumbnail.jpg",
+      "thumbnail": "https://i2.wp.com/urbanmakes.com/wp-content/uploads/2016/01/nowteatree.jpg?fit=1600%2C1600&ssl=1",
       "images": [
         "https://dummyjson.com/image/i/products/17/1.jpg",
         "https://dummyjson.com/image/i/products/17/2.jpg",
@@ -313,7 +314,7 @@
       "stock": 88,
       "brand": "Dermive",
       "category": "skincare",
-      "thumbnail": "https://dummyjson.com/image/i/products/18/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.1e9101f17fe166394e9ab6614ba74608?rik=OyXu9ZJMYg0%2bYA&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/18/1.jpg",
         "https://dummyjson.com/image/i/products/18/2.jpg",
@@ -332,7 +333,7 @@
       "stock": 54,
       "brand": "ROREC White Rice",
       "category": "skincare",
-      "thumbnail": "https://dummyjson.com/image/i/products/19/thumbnail.jpg",
+      "thumbnail": "https://cf.shopee.ph/file/b63c401976f5b23aa5928bf6e71931e6",
       "images": [
         "https://dummyjson.com/image/i/products/19/1.jpg",
         "https://dummyjson.com/image/i/products/19/2.jpg",
@@ -350,7 +351,7 @@
       "stock": 140,
       "brand": "Fair & Clear",
       "category": "skincare",
-      "thumbnail": "https://dummyjson.com/image/i/products/20/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.357b129e7e4ea8c2a6eb8e3af67c035f?rik=9h8mMAdnXJ7r7Q&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/20/1.jpg",
         "https://dummyjson.com/image/i/products/20/2.jpg",
@@ -369,7 +370,7 @@
       "stock": 133,
       "brand": "Saaf & Khaas",
       "category": "groceries",
-      "thumbnail": "https://dummyjson.com/image/i/products/21/thumbnail.png",
+      "thumbnail": "https://www.altshop.no/media/catalog/product/cache/1/thumbnail/9df78eab33525d08d6e5fb8d27136e95/p/u/pu267-red-lentils-500g_1.jpg",
       "images": [
         "https://dummyjson.com/image/i/products/21/1.png",
         "https://dummyjson.com/image/i/products/21/2.jpg",
@@ -386,7 +387,7 @@
       "stock": 146,
       "brand": "Bake Parlor Big",
       "category": "groceries",
-      "thumbnail": "https://dummyjson.com/image/i/products/22/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.5661982bc6ab4631cf18453667d0d707?rik=h%2bE5NzL42gi3gA&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/22/1.jpg",
         "https://dummyjson.com/image/i/products/22/2.jpg",
@@ -403,7 +404,7 @@
       "stock": 26,
       "brand": "Baking Food Items",
       "category": "groceries",
-      "thumbnail": "https://dummyjson.com/image/i/products/23/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.15fe9220dffdb4bbf906ee33bbd91383?rik=BzsaoB879VK9nw&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/23/1.jpg",
         "https://dummyjson.com/image/i/products/23/2.jpg",
@@ -422,7 +423,7 @@
       "stock": 113,
       "brand": "fauji",
       "category": "groceries",
-      "thumbnail": "https://dummyjson.com/image/i/products/24/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.9c0b8737d7dc914a78c3d66fb021d22e?rik=L%2b4LVePQobEA9w&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/24/1.jpg",
         "https://dummyjson.com/image/i/products/24/2.jpg",
@@ -441,7 +442,7 @@
       "stock": 47,
       "brand": "Dry Rose",
       "category": "groceries",
-      "thumbnail": "https://dummyjson.com/image/i/products/25/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.48db1c25088bb9e3dd9ef20fe5d630d0?rik=mkyx2p6CYDkfYA&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/25/1.png",
         "https://dummyjson.com/image/i/products/25/2.jpg",
@@ -460,7 +461,7 @@
       "stock": 131,
       "brand": "Boho Decor",
       "category": "home-decoration",
-      "thumbnail": "https://dummyjson.com/image/i/products/26/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.a079bb785a60b170b67630d0ceea3d07?rik=cGn%2blWfp8T58jw&riu=http%3a%2f%2fwww.sumcoco.com%2fwp-content%2fuploads%2f2019%2f01%2fYarn-Art-30.jpg&ehk=HNVIBUvm7E9GZgky7JlaPI88MbukN6UEVPZeFiZ1BAo%3d&risl=&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/26/1.jpg",
         "https://dummyjson.com/image/i/products/26/2.jpg",
@@ -480,7 +481,7 @@
       "stock": 17,
       "brand": "Flying Wooden",
       "category": "home-decoration",
-      "thumbnail": "https://dummyjson.com/image/i/products/27/thumbnail.webp",
+      "thumbnail": "https://th.bing.com/th/id/R.17ccd9da782adc9e25cbbe3ba8d78eef?rik=lq1ZnnrjuSfXdw&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/27/1.jpg",
         "https://dummyjson.com/image/i/products/27/2.jpg",
@@ -499,7 +500,7 @@
       "stock": 54,
       "brand": "LED Lights",
       "category": "home-decoration",
-      "thumbnail": "https://dummyjson.com/image/i/products/28/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.fbfedc256b884b5707145adfd55ade85?rik=1iP5NvKO8q7keg&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/28/1.jpg",
         "https://dummyjson.com/image/i/products/28/2.jpg",
@@ -518,7 +519,7 @@
       "stock": 7,
       "brand": "luxury palace",
       "category": "home-decoration",
-      "thumbnail": "https://www.antiquepottery.co.uk/wp-content/uploads/2019/08/1532526.jpg",
+      "thumbnail": "https://th.bing.com/th/id/OIP.nPZbw9p_gNYfdfqIRxMNTwHaHa?pid=ImgDet&rs=1",
       "images": [
         "https://dummyjson.com/image/i/products/29/1.jpg",
         "https://dummyjson.com/image/i/products/29/2.jpg",
@@ -537,7 +538,7 @@
       "stock": 54,
       "brand": "Golden",
       "category": "home-decoration",
-      "thumbnail": "https://dummyjson.com/image/i/products/30/thumbnail.jpg",
+      "thumbnail": "https://th.bing.com/th/id/R.5a216edbe79a54199ee5b318592d6514?rik=0MruBurMzg%2fHWQ&pid=ImgRaw&r=0",
       "images": [
         "https://dummyjson.com/image/i/products/30/1.jpg",
         "https://dummyjson.com/image/i/products/30/2.jpg",
@@ -554,7 +555,7 @@
       "gender": "Female",
       "phone": "790-395-8626",
       "Subscription_date": "7/9/2022",
-      "discount_percentage": 9.0
+      "discount_percentage": 9
     },
     {
       "id": 2572,

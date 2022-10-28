@@ -1,0 +1,766 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "iPhone 8",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "discountPercentage": 12.96,
+      "rating": 4.69,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://th.bing.com/th/id/R.aed84b03045ac355446b2d305307c40d?rik=c98fCmkh%2fGisVw&pid=ImgRaw&r=0",
+      "images": "https://dummyjson.com/image/i/products/1/1.jpg"
+    },
+
+    {
+      "id": 2,
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": 899,
+      "discountPercentage": 17.94,
+      "rating": 4.44,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://th.bing.com/th/id/R.dc5cd600eee32d4322728234c53b079f?rik=R%2fpcejujVhixcQ&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/2/1.jpg",
+        "https://dummyjson.com/image/i/products/2/2.jpg",
+        "https://dummyjson.com/image/i/products/2/3.jpg",
+        "https://dummyjson.com/image/i/products/2/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Samsung Universe 9",
+      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
+      "price": 1249,
+      "discountPercentage": 15.46,
+      "rating": 4.09,
+      "stock": 36,
+      "brand": "Samsung",
+      "category": "smartphones",
+      "thumbnail": "https://th.bing.com/th/id/OIP.cfBk1OvqlQN6GfhjRkiZLAHaHa?pid=ImgDet&rs=1",
+      "images": ["https://dummyjson.com/image/i/products/3/1.jpg"]
+    },
+    {
+      "id": 4,
+      "title": "OPPOF19",
+      "description": "OPPO F19 is officially announced on April 2021.",
+      "price": 280,
+      "discountPercentage": 17.91,
+      "rating": 4.3,
+      "stock": 123,
+      "brand": "OPPO",
+      "category": "smartphones",
+      "thumbnail": "https://th.bing.com/th/id/OIP.iovf0b3BIi8pfMEAIcaxWwHaEK?pid=ImgDet&rs=1",
+      "images": [
+        "https://dummyjson.com/image/i/products/4/1.jpg",
+        "https://dummyjson.com/image/i/products/4/2.jpg",
+        "https://dummyjson.com/image/i/products/4/3.jpg",
+        "https://dummyjson.com/image/i/products/4/4.jpg",
+        "https://dummyjson.com/image/i/products/4/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Huawei P30",
+      "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+      "price": 499,
+      "discountPercentage": 10.58,
+      "rating": 4.09,
+      "stock": 32,
+      "brand": "Huawei",
+      "category": "smartphones",
+      "thumbnail": "https://th.bing.com/th/id/R.3f5202efb848336297b94c9d624ae952?rik=GXZjHQFybRrKDw&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/5/1.jpg",
+        "https://dummyjson.com/image/i/products/5/2.jpg",
+        "https://dummyjson.com/image/i/products/5/3.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "MacBook Pro",
+      "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+      "price": 1749,
+      "discountPercentage": 11.02,
+      "rating": 4.57,
+      "stock": 83,
+      "brand": "APPle",
+      "category": "laptops",
+      "thumbnail": "https://th.bing.com/th/id/R.f8e315a257e36acddda955b35d313664?rik=Wfwd%2fh0IN1HDXA&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/6/1.png",
+        "https://dummyjson.com/image/i/products/6/2.jpg",
+        "https://dummyjson.com/image/i/products/6/3.png",
+        "https://dummyjson.com/image/i/products/6/4.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Samsung Galaxy Book",
+      "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+      "price": 1499,
+      "discountPercentage": 4.15,
+      "rating": 4.25,
+      "stock": 50,
+      "brand": "Samsung",
+      "category": "laptops",
+      "thumbnail": "https://th.bing.com/th/id/OIP._n_JtFQmobynTnePObrezwHaFy?pid=ImgDet&w=640&h=500&rs=1",
+      "images": [
+        "https://dummyjson.com/image/i/products/7/1.jpg",
+        "https://dummyjson.com/image/i/products/7/2.jpg",
+        "https://dummyjson.com/image/i/products/7/3.jpg",
+        "https://dummyjson.com/image/i/products/7/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Microsoft Surface Laptop 4",
+      "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+      "price": 1499,
+      "discountPercentage": 10.23,
+      "rating": 4.43,
+      "stock": 68,
+      "brand": "Microsoft Surface",
+      "category": "laptops",
+      "thumbnail": "https://th.bing.com/th/id/R.dcf2bb2141317c5d3511758b567572a1?rik=11Dh2K6Kpwe5KQ&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/8/1.jpg",
+        "https://dummyjson.com/image/i/products/8/2.jpg",
+        "https://dummyjson.com/image/i/products/8/3.jpg",
+        "https://dummyjson.com/image/i/products/8/4.jpg",
+        "https://dummyjson.com/image/i/products/8/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Infinix INBOOK",
+      "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+      "price": 1099,
+      "discountPercentage": 11.83,
+      "rating": 4.54,
+      "stock": 96,
+      "brand": "Infinix",
+      "category": "laptops",
+      "thumbnail": "https://th.bing.com/th/id/R.388026e6a8fcc73a4e39c8ceb9568aa6?rik=92fUmmjRyIbkeA&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/9/1.jpg",
+        "https://dummyjson.com/image/i/products/9/2.png",
+        "https://dummyjson.com/image/i/products/9/3.png",
+        "https://dummyjson.com/image/i/products/9/4.jpg",
+        "https://dummyjson.com/image/i/products/9/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "HP Pavilion 15-DK1056WM",
+      "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+      "price": 1099,
+      "discountPercentage": 6.18,
+      "rating": 4.43,
+      "stock": 89,
+      "brand": "HP Pavilion",
+      "category": "laptops",
+      "thumbnail": "https://th.bing.com/th/id/R.47c22a34f837ac4d13a9913ee182e9ef?rik=jCQoXR8sLmyzkw&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/10/1.jpg",
+        "https://dummyjson.com/image/i/products/10/2.jpg",
+        "https://dummyjson.com/image/i/products/10/3.jpg",
+        "https://dummyjson.com/image/i/products/10/thumbnail.jpeg"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "perfume Oil",
+      "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
+      "price": 13,
+      "discountPercentage": 8.4,
+      "rating": 4.26,
+      "stock": 65,
+      "brand": "Impression of Acqua Di Gio",
+      "category": "fragrances",
+      "thumbnail": "https://th.bing.com/th/id/R.7a2be42a56c9558d497833cd717880f2?rik=MI6wuMU2N4wfhQ&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/11/1.jpg",
+        "https://dummyjson.com/image/i/products/11/2.jpg",
+        "https://dummyjson.com/image/i/products/11/3.jpg",
+        "https://dummyjson.com/image/i/products/11/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Brown Perfume",
+      "description": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
+      "price": 40,
+      "discountPercentage": 15.66,
+      "rating": 4,
+      "stock": 52,
+      "brand": "Royal_Mirage",
+      "category": "fragrances",
+      "thumbnail": "https://th.bing.com/th/id/R.412e5873789a98deba0ee9b8a1fcfe44?rik=Lq0KQY%2fgI5A7Sw&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/12/1.jpg",
+        "https://dummyjson.com/image/i/products/12/2.jpg",
+        "https://dummyjson.com/image/i/products/12/3.png",
+        "https://dummyjson.com/image/i/products/12/4.jpg",
+        "https://dummyjson.com/image/i/products/12/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Fog Scent Xpressio Perfume",
+      "description": "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
+      "price": 13,
+      "discountPercentage": 8.14,
+      "rating": 4.59,
+      "stock": 61,
+      "brand": "Fog Scent Xpressio",
+      "category": "fragrances",
+      "thumbnail": "https://th.bing.com/th/id/R.35191bcb2f9474bf076e004f831d4606?rik=6h91EmswwUCRXQ&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/13/1.jpg",
+        "https://dummyjson.com/image/i/products/13/2.png",
+        "https://dummyjson.com/image/i/products/13/3.jpg",
+        "https://dummyjson.com/image/i/products/13/4.jpg",
+        "https://dummyjson.com/image/i/products/13/thumbnail.webp"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Non-Alcoholic Concentrated Perfume Oil",
+      "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
+      "price": 120,
+      "discountPercentage": 15.6,
+      "rating": 4.21,
+      "stock": 114,
+      "brand": "Al Munakh",
+      "category": "fragrances",
+      "thumbnail": "https://th.bing.com/th/id/R.31512b4a374ac4deb622fbae6e72f7c5?rik=2c6jmy0VOkQJ7w&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/14/1.jpg",
+        "https://dummyjson.com/image/i/products/14/2.jpg",
+        "https://dummyjson.com/image/i/products/14/3.jpg",
+        "https://dummyjson.com/image/i/products/14/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Eau De Perfume Spray",
+      "description": "Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality",
+      "price": 30,
+      "discountPercentage": 10.99,
+      "rating": 4.7,
+      "stock": 105,
+      "brand": "Lord - Al-Rehab",
+      "category": "fragrances",
+      "thumbnail": "https://th.bing.com/th/id/R.2f4f72def7d8cff9acf76d6f0c9012cf?rik=Zjjz1qSVtIOxmg&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/15/1.jpg",
+        "https://dummyjson.com/image/i/products/15/2.jpg",
+        "https://dummyjson.com/image/i/products/15/3.jpg",
+        "https://dummyjson.com/image/i/products/15/4.jpg",
+        "https://dummyjson.com/image/i/products/15/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Hyaluronic Acid Serum",
+      "description": "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
+      "price": 19,
+      "discountPercentage": 13.31,
+      "rating": 4.83,
+      "stock": 110,
+      "brand": "L'Oreal Paris",
+      "category": "skincare",
+      "thumbnail": "https://th.bing.com/th/id/OIP.u52Dz-5Ycb75mnx-CEcqIQHaHa?pid=ImgDet&rs=1",
+      "images": [
+        "https://dummyjson.com/image/i/products/16/1.png",
+        "https://dummyjson.com/image/i/products/16/2.webp",
+        "https://dummyjson.com/image/i/products/16/3.jpg",
+        "https://dummyjson.com/image/i/products/16/4.jpg",
+        "https://dummyjson.com/image/i/products/16/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Tree Oil 30ml",
+      "description": "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
+      "price": 12,
+      "discountPercentage": 4.09,
+      "rating": 4.52,
+      "stock": 78,
+      "brand": "Hemani Tea",
+      "category": "skincare",
+      "thumbnail": "https://i2.wp.com/urbanmakes.com/wp-content/uploads/2016/01/nowteatree.jpg?fit=1600%2C1600&ssl=1",
+      "images": [
+        "https://dummyjson.com/image/i/products/17/1.jpg",
+        "https://dummyjson.com/image/i/products/17/2.jpg",
+        "https://dummyjson.com/image/i/products/17/3.jpg",
+        "https://dummyjson.com/image/i/products/17/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Oil Free Moisturizer 100ml",
+      "description": "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
+      "price": 40,
+      "discountPercentage": 13.1,
+      "rating": 4.56,
+      "stock": 88,
+      "brand": "Dermive",
+      "category": "skincare",
+      "thumbnail": "https://th.bing.com/th/id/R.1e9101f17fe166394e9ab6614ba74608?rik=OyXu9ZJMYg0%2bYA&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/18/1.jpg",
+        "https://dummyjson.com/image/i/products/18/2.jpg",
+        "https://dummyjson.com/image/i/products/18/3.jpg",
+        "https://dummyjson.com/image/i/products/18/4.jpg",
+        "https://dummyjson.com/image/i/products/18/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Skin Beauty Serum.",
+      "description": "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
+      "price": 46,
+      "discountPercentage": 10.68,
+      "rating": 4.42,
+      "stock": 54,
+      "brand": "ROREC White Rice",
+      "category": "skincare",
+      "thumbnail": "https://cf.shopee.ph/file/b63c401976f5b23aa5928bf6e71931e6",
+      "images": [
+        "https://dummyjson.com/image/i/products/19/1.jpg",
+        "https://dummyjson.com/image/i/products/19/2.jpg",
+        "https://dummyjson.com/image/i/products/19/3.png",
+        "https://dummyjson.com/image/i/products/19/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Freckle Treatment Cream- 15gm",
+      "description": "Fair & Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.",
+      "price": 70,
+      "discountPercentage": 16.99,
+      "rating": 4.06,
+      "stock": 140,
+      "brand": "Fair & Clear",
+      "category": "skincare",
+      "thumbnail": "https://th.bing.com/th/id/R.357b129e7e4ea8c2a6eb8e3af67c035f?rik=9h8mMAdnXJ7r7Q&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/20/1.jpg",
+        "https://dummyjson.com/image/i/products/20/2.jpg",
+        "https://dummyjson.com/image/i/products/20/3.jpg",
+        "https://dummyjson.com/image/i/products/20/4.jpg",
+        "https://dummyjson.com/image/i/products/20/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 21,
+      "title": "- Daal Masoor 500 grams",
+      "description": "Fine quality Branded Product Keep in a cool and dry place",
+      "price": 20,
+      "discountPercentage": 4.81,
+      "rating": 4.44,
+      "stock": 133,
+      "brand": "Saaf & Khaas",
+      "category": "groceries",
+      "thumbnail": "https://www.altshop.no/media/catalog/product/cache/1/thumbnail/9df78eab33525d08d6e5fb8d27136e95/p/u/pu267-red-lentils-500g_1.jpg",
+      "images": [
+        "https://dummyjson.com/image/i/products/21/1.png",
+        "https://dummyjson.com/image/i/products/21/2.jpg",
+        "https://dummyjson.com/image/i/products/21/3.jpg"
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Elbow Macaroni - 400 gm",
+      "description": "Product details of Bake Parlor Big Elbow Macaroni - 400 gm",
+      "price": 14,
+      "discountPercentage": 15.58,
+      "rating": 4.57,
+      "stock": 146,
+      "brand": "Bake Parlor Big",
+      "category": "groceries",
+      "thumbnail": "https://th.bing.com/th/id/R.5661982bc6ab4631cf18453667d0d707?rik=h%2bE5NzL42gi3gA&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/22/1.jpg",
+        "https://dummyjson.com/image/i/products/22/2.jpg",
+        "https://dummyjson.com/image/i/products/22/3.jpg"
+      ]
+    },
+    {
+      "id": 23,
+      "title": "Orange Essence Food Flavou",
+      "description": "Specifications of Orange Essence Food Flavour For Cakes and Baking Food Item",
+      "price": 14,
+      "discountPercentage": 8.04,
+      "rating": 4.85,
+      "stock": 26,
+      "brand": "Baking Food Items",
+      "category": "groceries",
+      "thumbnail": "https://th.bing.com/th/id/R.15fe9220dffdb4bbf906ee33bbd91383?rik=BzsaoB879VK9nw&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/23/1.jpg",
+        "https://dummyjson.com/image/i/products/23/2.jpg",
+        "https://dummyjson.com/image/i/products/23/3.jpg",
+        "https://dummyjson.com/image/i/products/23/4.jpg",
+        "https://dummyjson.com/image/i/products/23/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 24,
+      "title": "cereals muesli fruit nuts",
+      "description": "original fauji cereal muesli 250gm box pack original fauji cereals muesli fruit nuts flakes breakfast cereal break fast faujicereals cerels cerel foji fouji",
+      "price": 46,
+      "discountPercentage": 16.8,
+      "rating": 4.94,
+      "stock": 113,
+      "brand": "fauji",
+      "category": "groceries",
+      "thumbnail": "https://th.bing.com/th/id/R.9c0b8737d7dc914a78c3d66fb021d22e?rik=L%2b4LVePQobEA9w&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/24/1.jpg",
+        "https://dummyjson.com/image/i/products/24/2.jpg",
+        "https://dummyjson.com/image/i/products/24/3.jpg",
+        "https://dummyjson.com/image/i/products/24/4.jpg",
+        "https://dummyjson.com/image/i/products/24/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Gulab Powder 50 Gram",
+      "description": "Dry Rose Flower Powder Gulab Powder 50 Gram • Treats Wounds",
+      "price": 70,
+      "discountPercentage": 13.58,
+      "rating": 4.87,
+      "stock": 47,
+      "brand": "Dry Rose",
+      "category": "groceries",
+      "thumbnail": "https://th.bing.com/th/id/R.48db1c25088bb9e3dd9ef20fe5d630d0?rik=mkyx2p6CYDkfYA&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/25/1.png",
+        "https://dummyjson.com/image/i/products/25/2.jpg",
+        "https://dummyjson.com/image/i/products/25/3.png",
+        "https://dummyjson.com/image/i/products/25/4.jpg",
+        "https://dummyjson.com/image/i/products/25/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 26,
+      "title": "Plant Hanger For Home",
+      "description": "Boho Decor Plant Hanger For Home Wall Decoration Macrame Wall Hanging Shelf",
+      "price": 41,
+      "discountPercentage": 17.86,
+      "rating": 4.08,
+      "stock": 131,
+      "brand": "Boho Decor",
+      "category": "home-decoration",
+      "thumbnail": "https://th.bing.com/th/id/R.a079bb785a60b170b67630d0ceea3d07?rik=cGn%2blWfp8T58jw&riu=http%3a%2f%2fwww.sumcoco.com%2fwp-content%2fuploads%2f2019%2f01%2fYarn-Art-30.jpg&ehk=HNVIBUvm7E9GZgky7JlaPI88MbukN6UEVPZeFiZ1BAo%3d&risl=&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/26/1.jpg",
+        "https://dummyjson.com/image/i/products/26/2.jpg",
+        "https://dummyjson.com/image/i/products/26/3.jpg",
+        "https://dummyjson.com/image/i/products/26/4.jpg",
+        "https://dummyjson.com/image/i/products/26/5.jpg",
+        "https://dummyjson.com/image/i/products/26/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 27,
+      "title": "Flying Wooden Bird",
+      "description": "Package Include 6 Birds with Adhesive Tape Shape: 3D Shaped Wooden Birds Material: Wooden MDF, Laminated 3.5mm",
+      "price": 51,
+      "discountPercentage": 15.58,
+      "rating": 4.41,
+      "stock": 17,
+      "brand": "Flying Wooden",
+      "category": "home-decoration",
+      "thumbnail": "https://th.bing.com/th/id/R.17ccd9da782adc9e25cbbe3ba8d78eef?rik=lq1ZnnrjuSfXdw&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/27/1.jpg",
+        "https://dummyjson.com/image/i/products/27/2.jpg",
+        "https://dummyjson.com/image/i/products/27/3.jpg",
+        "https://dummyjson.com/image/i/products/27/4.jpg",
+        "https://dummyjson.com/image/i/products/27/thumbnail.webp"
+      ]
+    },
+    {
+      "id": 28,
+      "title": "3D Embellishment Art Lamp",
+      "description": "3D led lamp sticker Wall sticker 3d wall art light on/off button  cell operated (included)",
+      "price": 20,
+      "discountPercentage": 16.49,
+      "rating": 4.82,
+      "stock": 54,
+      "brand": "LED Lights",
+      "category": "home-decoration",
+      "thumbnail": "https://th.bing.com/th/id/R.fbfedc256b884b5707145adfd55ade85?rik=1iP5NvKO8q7keg&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/28/1.jpg",
+        "https://dummyjson.com/image/i/products/28/2.jpg",
+        "https://dummyjson.com/image/i/products/28/3.png",
+        "https://dummyjson.com/image/i/products/28/4.jpg",
+        "https://dummyjson.com/image/i/products/28/thumbnail.jpg"
+      ]
+    },
+    {
+      "id": 29,
+      "title": "Handcraft Chinese style",
+      "description": "Handcraft Chinese style art luxury palace hotel villa mansion home decor ceramic vase with brass fruit plate",
+      "price": 60,
+      "discountPercentage": 15.34,
+      "rating": 4.44,
+      "stock": 7,
+      "brand": "luxury palace",
+      "category": "home-decoration",
+      "thumbnail": "https://th.bing.com/th/id/OIP.nPZbw9p_gNYfdfqIRxMNTwHaHa?pid=ImgDet&rs=1",
+      "images": [
+        "https://dummyjson.com/image/i/products/29/1.jpg",
+        "https://dummyjson.com/image/i/products/29/2.jpg",
+        "https://dummyjson.com/image/i/products/29/3.webp",
+        "https://dummyjson.com/image/i/products/29/4.webp",
+        "https://dummyjson.com/image/i/products/29/thumbnail.webp"
+      ]
+    },
+    {
+      "id": 30,
+      "title": "Key Holder",
+      "description": "Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality",
+      "price": 30,
+      "discountPercentage": 2.92,
+      "rating": 4.92,
+      "stock": 54,
+      "brand": "Golden",
+      "category": "home-decoration",
+      "thumbnail": "https://th.bing.com/th/id/R.5a216edbe79a54199ee5b318592d6514?rik=0MruBurMzg%2fHWQ&pid=ImgRaw&r=0",
+      "images": [
+        "https://dummyjson.com/image/i/products/30/1.jpg",
+        "https://dummyjson.com/image/i/products/30/2.jpg",
+        "https://dummyjson.com/image/i/products/30/3.jpg",
+        "https://dummyjson.com/image/i/products/30/thumbnail.jpg"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 4258,
+      "first_name": "Rosalyn",
+      "last_name": "Beat",
+      "gender": "Female",
+      "phone": "790-395-8626",
+      "Subscription_date": "7/9/2022",
+      "discount_percentage": 9.0
+    },
+    {
+      "id": 2572,
+      "first_name": "Auria",
+      "last_name": "Rollett",
+      "gender": "Female",
+      "phone": "415-885-4502",
+      "Subscription_date": "5/11/2021",
+      "discount_percentage": 12.7
+    },
+    {
+      "id": 6836,
+      "first_name": "Earvin",
+      "last_name": "MacKim",
+      "gender": "Male",
+      "phone": "966-620-8566",
+      "Subscription_date": "7/9/2020",
+      "discount_percentage": 7.7
+    },
+    {
+      "id": 4060,
+      "first_name": "Trevar",
+      "last_name": "Adan",
+      "gender": "Male",
+      "phone": "296-478-1178",
+      "Subscription_date": "12/1/2020",
+      "discount_percentage": 12.3
+    },
+    {
+      "id": 9110,
+      "first_name": "Tripp",
+      "last_name": "Pelfer",
+      "gender": "Male",
+      "phone": "108-232-2211",
+      "Subscription_date": "10/2/2019",
+      "discount_percentage": 10.9
+    },
+    {
+      "id": 2349,
+      "first_name": "Darrick",
+      "last_name": "Roden",
+      "gender": "Male",
+      "phone": "705-193-4576",
+      "Subscription_date": "3/20/2022",
+      "discount_percentage": 11.2
+    },
+    {
+      "id": 3058,
+      "first_name": "Gibbie",
+      "last_name": "Cavanaugh",
+      "gender": "Male",
+      "phone": "248-763-2914",
+      "Subscription_date": "7/18/2021",
+      "discount_percentage": 8.6
+    },
+    {
+      "id": 9759,
+      "first_name": "Nicholas",
+      "last_name": "Gerckens",
+      "gender": "Male",
+      "phone": "419-710-6887",
+      "Subscription_date": "8/23/2020",
+      "discount_percentage": 8.1
+    },
+    {
+      "id": 7135,
+      "first_name": "Benjamen",
+      "last_name": "Fairchild",
+      "gender": "Male",
+      "phone": "132-865-4945",
+      "Subscription_date": "9/18/2019",
+      "discount_percentage": 7.5
+    },
+    {
+      "id": 3086,
+      "first_name": "Aleksandr",
+      "last_name": "Friar",
+      "gender": "Male",
+      "phone": "872-303-1667",
+      "Subscription_date": "11/5/2020",
+      "discount_percentage": 7.6
+    },
+    {
+      "id": 7533,
+      "first_name": "Reta",
+      "last_name": "Voice",
+      "gender": "Female",
+      "phone": "722-549-3784",
+      "Subscription_date": "1/18/2020",
+      "discount_percentage": 5.1
+    },
+    {
+      "id": 7494,
+      "first_name": "Arri",
+      "last_name": "McKeighan",
+      "gender": "Male",
+      "phone": "532-180-7639",
+      "Subscription_date": "7/7/2019",
+      "discount_percentage": 10.6
+    },
+    {
+      "id": 1598,
+      "first_name": "Delaney",
+      "last_name": "Gilffilland",
+      "gender": "Male",
+      "phone": "246-657-4022",
+      "Subscription_date": "6/20/2020",
+      "discount_percentage": 9.6
+    },
+    {
+      "id": 4525,
+      "first_name": "Faunie",
+      "last_name": "McIlenna",
+      "gender": "Female",
+      "phone": "702-117-1691",
+      "Subscription_date": "8/10/2021",
+      "discount_percentage": 3.1
+    },
+    {
+      "id": 9305,
+      "first_name": "Geneva",
+      "last_name": "Woodford",
+      "gender": "Female",
+      "phone": "542-663-8876",
+      "Subscription_date": "2/9/2022",
+      "discount_percentage": 6.9
+    },
+    {
+      "id": 9184,
+      "first_name": "Jacky",
+      "last_name": "Jessope",
+      "gender": "Male",
+      "phone": "713-449-1890",
+      "Subscription_date": "11/8/2020",
+      "discount_percentage": 3.9
+    },
+    {
+      "id": 5686,
+      "first_name": "Tersina",
+      "last_name": "Sabbin",
+      "gender": "Female",
+      "phone": "425-426-8150",
+      "Subscription_date": "6/7/2020",
+      "discount_percentage": 2.1
+    },
+    {
+      "id": 8104,
+      "first_name": "Amalea",
+      "last_name": "Edensor",
+      "gender": "Female",
+      "phone": "274-207-1615",
+      "Subscription_date": "1/1/2022",
+      "discount_percentage": 9.5
+    },
+    {
+      "id": 8753,
+      "first_name": "Millie",
+      "last_name": "Brownrigg",
+      "gender": "Female",
+      "phone": "279-129-0340",
+      "Subscription_date": "5/11/2020",
+      "discount_percentage": 9.6
+    },
+    {
+      "id": 3183,
+      "first_name": "Nico",
+      "last_name": "Thurnham",
+      "gender": "Male",
+      "phone": "545-448-3985",
+      "Subscription_date": "6/30/2020",
+      "discount_percentage": 5.3
+    },
+    {
+      "id": 3897,
+      "first_name": "Cordi",
+      "last_name": "Ledekker",
+      "gender": "Female",
+      "phone": "816-714-1949",
+      "Subscription_date": "8/19/2019",
+      "discount_percentage": 9.7
+    }
+  ],
+  "categories": [
+    {
+      "category": "smartphones",
+      "image": "https://www.apple.com/newsroom/images/product/iphone/geo/Apple-iPhone-14-iPhone-14-Plus-2up-blue-220907-geo_inline.jpg.large.jpg"
+    },
+    {
+      "category": "laptops",
+      "image": "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4LqQX?ver=fe80&q=90&m=6&h=705&w=1253&b=%23FFFFFFFF&f=jpg&o=f&p=140&aim=true"
+    },
+    {
+      "category": "fragrances",
+      "image": "https://www.boucheron.com/media/wysiwyg/Boucheron_Collection_Gamme_Topshot_9_FRAGRANCES_2020_POS_141.jpg"
+    },
+    {
+      "category": "skincare",
+      "image": "https://www.skincenterofsouthmiami.com/wp-content/uploads/2018/06/Skin-Center-of-South-Miami-Facials-and-Skin-Care.jpg"
+    },
+    {
+      "category": "groceries",
+      "image": "https://hips.hearstapps.com/hmg-prod/images/healthy-groceries-1525213305.jpg"
+    },
+    {
+      "category": "home-decoration",
+      "image": "https://st.hzcdn.com/simgs/53b185b004d6c78f_4-1175/contemporary-living-room.jpg"
+    }
+  ]
+}
