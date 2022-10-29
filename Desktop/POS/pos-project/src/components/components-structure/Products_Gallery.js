@@ -20,7 +20,10 @@ const ProductsGallery = () => {
   const [openCategoryWindow, setOpenCategoryWindow] = useState(false);
   const [openCustomProductWindow, setOpenCustomProductWindow] = useState(false);
   const [requiredCategory, setRequiredCategory] = useState(null);
+
+  /* Variables responsible for Passing data to POS Bar */
   const [dataRiver, setDataRiver] = useState([]);
+  const [sumProductsPrice, setSumProductPrice] = useState(0);
 
   /* Search variables */
   const [searchQuery, setSearchQuery] = useState("");
@@ -69,6 +72,11 @@ const ProductsGallery = () => {
   };
   const handlerProductClick = (productObject) => {
     setDataRiver([...dataRiver, productObject]);
+    let sum = 0;
+    for (let i = 0; i < dataRiver.length; i++) {
+      sum = sum + dataRiver[i].price;
+    }
+    setSumProductPrice(sum);
   };
   const searchForProduct = (data) => {
     return data.filter((item) =>
@@ -183,7 +191,7 @@ const ProductsGallery = () => {
                   <img src={product.thumbnail} className="gallery-img" />
                   <div
                     className="overlay"
-                    onClick={() => console.log(product.title)}
+                    onClick={() => handlerProductClick(product)}
                   >
                     <div className="content">
                       <h3>{product.title}</h3>
@@ -224,7 +232,11 @@ const ProductsGallery = () => {
       {/* Ends of Gallery Bar , Stating with POS Bar  */}
 
       <div className="POS-operator">
-        <POS_Gallery clickedProduct={dataRiver} />
+        <POS_Gallery
+          clickedProduct={dataRiver}
+          setClickProduct={setDataRiver}
+          productsCost={sumProductsPrice}
+        />
       </div>
     </div>
   );
