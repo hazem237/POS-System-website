@@ -3,7 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { Button } from "./Reusable components/Button";
 import Pagination from "./Reusable components/Pagination";
 import AddProductForm from "./Pop-Up/AddProductForm";
-import { DataContext} from "../../DataBase/DataContext";
+import { DataContext } from "../../DataBase/DataContext";
 
 const Products_table = () => {
   /*  Get the Data From DataContex */
@@ -44,12 +44,21 @@ const Products_table = () => {
 
   return (
     <div className="table-container">
-      <input
-        type="text"
-        placeholder="Search .. "
-        className="search"
-        onChange={(e) => setQuery(e.target.value)}
-      />
+      <div className="table-nav">
+        <Button
+          text="Add Product"
+          buttonStyle="btn--outline add"
+          buttonSize="btn--small"
+          onClick={() => openAddModule()}
+        />
+        <input
+          type="text"
+          placeholder="Search .. "
+          className="search"
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -71,10 +80,7 @@ const Products_table = () => {
               <td>{product.category}</td>
               <td>{product.price}</td>
               <td>
-                <Button
-                  text="Delete"
-                  onClick={() => removeProduct(product.id)}
-                />
+                <i class="fa-light fa-xmark"></i>
               </td>
             </tr>
           ))}
@@ -85,17 +91,12 @@ const Products_table = () => {
         totalPosts={productsData.length}
         paginate={paginate}
       />
-      <Button
-        text="Add Product"
-        buttonStyle="btn--outline add"
-        buttonSize="btn--small"
-        onClick={() => openAddModule()}
-      />
+
       {openAdd && (
         <AddProductForm
           setOppen={setOpenAdd}
-          userData={productsData}
-          setUserData={setProductsData}
+          productsData={productsData}
+          setProductsData={setProductsData}
         />
       )}
     </div>

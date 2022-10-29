@@ -4,12 +4,8 @@ import { Button } from "../Reusable components/Button";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-const AddCategoryForm = ({
-  setOppen,
-  categoriesData,
-  setCategoriesData,
-}) => {
-  const [stroeData, setStoreData] = useState(categoriesData);
+const AddCategoryForm = ({ setOppen, categoriesData, setCategoriesData }) => {
+ 
 
   const categoryForm = useFormik({
     initialValues: {
@@ -23,12 +19,8 @@ const AddCategoryForm = ({
       image: Yup.string().url().required("Required"),
     }),
     onSubmit: (value) => {
-      //   console.log(value);
-      setStoreData([...stroeData, value]);
-      console.log(stroeData);
-      localStorage.setItem("categories", JSON.stringify(stroeData));
-      const newCategories = JSON.parse(localStorage.getItem("categories"));
-      setCategoriesData(newCategories);
+      setCategoriesData([...categoriesData, value]);
+      setOppen(false)
     },
   });
 

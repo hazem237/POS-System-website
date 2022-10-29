@@ -92,7 +92,6 @@ const Categories_table = () => {
           setOppen={setOpenForm}
           categoriesData={categoriesData}
           setCategoriesData={setCategoriesData}
-          update={UpdateData}
         />
       )}
     </div>

@@ -33,7 +33,7 @@
 
 .add {
     border: none;
-   
+
 }
 
 .but--small {
@@ -62,7 +62,8 @@
     border: 1px solid black;
 }
 
-.cancel:hover {
+.cancel:hover,
+.btn--cancel:hover {
     transition: all 0.3s ease-out;
     background: rgb(255, 255, 255);
     color: #ff0000;
@@ -76,10 +77,26 @@
     width: 150px;
 
 }
-.btn--form:hover{
-transition: all 0.3s ease-out;
+
+.btn--form:hover {
+    transition: all 0.3s ease-out;
     background: transparent;
     color: #fffb00;
     transition: 250ms;
     border: 1px solid rgb(253, 249, 1);
+}
+
+.btn--cancel {
+    width: 40%;
+    background-color: rgb(241, 57, 57);
+}
+
+.btn--purchase {
+    width: 40%;
+    background-color: rgb(3, 126, 3);
+}
+
+.btn--purchase:hover {
+    color: green;
+    border: 1px solid green;
 }

@@ -3,6 +3,7 @@ import { DataContext } from "../../DataBase/DataContext";
 import "../components-style/Products_Gallery.css";
 import { Button } from "./Reusable components/Button";
 import Pagination from "./Reusable components/Pagination";
+import POS_Gallery from "./POS_Gallery";
 
 const ProductsGallery = () => {
   /* The Required Data */
@@ -12,13 +13,14 @@ const ProductsGallery = () => {
   /* States For Gallery Bar Pagination */
   const [currentPage, setCurrentPage] = useState(1);
   const [productPerPage] = useState(10);
-  const [categoryPerPage] = useState(5);
+  const [categoryPerPage] = useState(6);
 
   /* States to control all the windows inside Product Gallery Bar */
   const [openProductsWindow, setOpenProductWindow] = useState(true);
   const [openCategoryWindow, setOpenCategoryWindow] = useState(false);
   const [openCustomProductWindow, setOpenCustomProductWindow] = useState(false);
   const [requiredCategory, setRequiredCategory] = useState(null);
+  const [dataRiver, setDataRiver] = useState([]);
 
   /* Search variables */
   const [searchQuery, setSearchQuery] = useState("");
@@ -41,17 +43,18 @@ const ProductsGallery = () => {
     indexOfLastCategory
   );
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
   /* Handler Functions */
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const handleCategoryWindow = () => {
     setOpenCategoryWindow(true);
     setOpenProductWindow(false);
+    setOpenCustomProductWindow(false);
     setCurrentPage(1);
   };
   const handleProductWindow = () => {
     setOpenCategoryWindow(false);
     setOpenProductWindow(true);
+    setOpenCustomProductWindow(false);
     setCurrentPage(1);
   };
   const handleCategoryClicked = (clickedCategory) => {
@@ -63,6 +66,9 @@ const ProductsGallery = () => {
   const handleBackToCategory = () => {
     setOpenCategoryWindow(true);
     setOpenCustomProductWindow(false);
+  };
+  const handlerProductClick = (productObject) => {
+    setDataRiver([...dataRiver, productObject]);
   };
   const searchForProduct = (data) => {
     return data.filter((item) =>
@@ -79,12 +85,35 @@ const ProductsGallery = () => {
     <div className="productGalleryContainer">
       <div className="catalogs">
         <div className="productGallery-nav">
-          <input
-            type="text"
-            placeholder="Search .. "
-            className="search"
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
+          {/* Search For Each Gallery Window Case (Product , Category , Custom Product) */}
+
+          {openProductsWindow && (
+            <input
+              type="text"
+              placeholder="Search for Product .. "
+              className="search"
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          )}
+          {openCategoryWindow && (
+            <input
+              type="text"
+              placeholder="Search for Category .. "
+              className="search"
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          )}
+          {openCustomProductWindow && (
+            <input
+              type="text"
+              placeholder="Search for Product .. "
+              className="search"
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          )}
+
+          {/* Nav Button Container  */}
+
           <div className="buttons-container">
             <Button
               text="All Products"
@@ -98,6 +127,9 @@ const ProductsGallery = () => {
             />
           </div>
         </div>
+
+        {/* Gallery Items Based on Each Window Case (Product , Category , Custom Product)  */}
+
         {openProductsWindow && (
           <div className="products-container">
             {searchForProduct(currentProduct).map((product, index) => (
@@ -105,7 +137,7 @@ const ProductsGallery = () => {
                 <img src={product.thumbnail} className="gallery-img" />
                 <div
                   className="overlay"
-                  onClick={() => console.log(product.title)}
+                  onClick={() => handlerProductClick(product)}
                 >
                   <div className="content">
                     <h3>{product.title}</h3>
@@ -121,6 +153,7 @@ const ProductsGallery = () => {
             {searchForCategory(currentCategory).map((category, index) => (
               <div className="productContainer" key={index}>
                 <img src={category.image} className="gallery-img" />
+                {/* <h6 className="Category-name-guide">{category.category}</h6> */}
                 <div
                   className="overlay"
                   onClick={() => handleCategoryClicked(category.category)}
@@ -161,6 +194,8 @@ const ProductsGallery = () => {
               ))}
           </div>
         )}
+        {/* Pagenation Handler For Gallery  */}
+
         {openProductsWindow && (
           <Pagination
             postsPerPage={productPerPage}
@@ -175,8 +210,22 @@ const ProductsGallery = () => {
             paginate={paginate}
           />
         )}
+        {openCustomProductWindow && (
+          <Pagination
+            postsPerPage={productPerPage}
+            totalPosts={
+              productsData.filter((p) => p.category === requiredCategory).length
+            }
+            paginate={paginate}
+          />
+        )}
       </div>
-      <div className="POS-operator"></div>
+
+      {/* Ends of Gallery Bar , Stating with POS Bar  */}
+
+      <div className="POS-operator">
+        <POS_Gallery clickedProduct={dataRiver} />
+      </div>
     </div>
   );
 };

@@ -27,12 +27,17 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
       categories: Yup.string().required("Required"),
       thumbnail: Yup.string().url().required("Required"),
     }),
-    onSubmit: (value) => {
-      console.log(value);
-    },
+   
   });
 
-  //  console.log(AddProductForm.values);
+  const handleSubmit =()=>
+  {
+     setProductsData([...productsData, productForm.values]);
+     closeForm()
+  }
+ 
+  console.log(productForm.values)
+
   return (
     <div className="modalBackground">
       <div className="modalContainer modalProductContainer">
