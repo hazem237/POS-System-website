@@ -70,7 +70,7 @@ const Products_table = () => {
           </tr>
         </thead>
         <tbody>
-          {search(currentPosts).map((product) => (
+          {(query ? search(productsData) : currentPosts).map((product) => (
             <tr key={product.id}>
               <td>{product.id}</td>
               <td>

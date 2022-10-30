@@ -190,3 +190,8 @@
     align-items: center;
     justify-content: center;
 }
+
+.empty-message {
+    text-align: center;
+    font-size: 22px;
+}

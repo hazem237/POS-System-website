@@ -2,10 +2,21 @@ import React, { useContext, useState } from "react";
 import "../../components-style/Add_Form.css";
 import { Button } from "../Reusable components/Button";
 
-const AddProductForm = ({ cartWindow, clickedProduct, setClickProduct }) => {
+const AddProductForm = ({
+  cartWindow,
+  clickedProduct,
+  setClickProduct,
+  setProductCose,
+  productCost,
+}) => {
   console.log(clickedProduct);
-  const handlerDeleteProduct = (id) => {
+  const handlerDeleteProduct = (id, price) => {
     setClickProduct(clickedProduct.filter((user) => user.id !== id));
+    setProductCose(productCost - price);
+  };
+  const handleResetCart = () => {
+    setClickProduct([]);
+    setProductCose(0);
   };
   return (
     <div className="modalBackgroundCart">
@@ -22,17 +33,38 @@ const AddProductForm = ({ cartWindow, clickedProduct, setClickProduct }) => {
             ></i>
           </h2>
         </div>
+        <div className="reset-button-container">
+          {Boolean(clickedProduct.length) && (
+            <Button
+              text="Reset"
+              buttonStyle="btn--outline"
+              buttonSize="btn--small"
+              onClick={() => handleResetCart()}
+            />
+          )}
+        </div>
         <div className="body bodyCart">
-          {clickedProduct.map((product ,index) => (
-            <div className="cart-product-container" key={index}>
-              <div className="trash-container">
-                <i
-                  className="fa-sharp fa-solid fa-trash"
-                  onClick={() => handlerDeleteProduct(product.id)}
-                ></i>
+          {clickedProduct.length != 0 ? (
+            clickedProduct.map((product, index) => (
+              <div className="cart-product-container" key={index}>
+                <div className="trash-container">
+                  <i
+                    className="fa-sharp fa-solid fa-trash"
+                    onClick={() =>
+                      handlerDeleteProduct(product.id, product.price)
+                    }
+                  ></i>
+                </div>
+                <div className="product-price-container">
+                  {" "}
+                  {product.price} $
+                </div>
+                <div className="product-name-container">{product.title}</div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <p className="empty-message"> Cart is Empty</p>
+          )}
         </div>
         <div className="cart-button-container">
           <Button

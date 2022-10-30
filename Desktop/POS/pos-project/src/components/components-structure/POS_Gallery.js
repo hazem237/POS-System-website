@@ -2,14 +2,18 @@ import React, { useContext, useState } from "react";
 import { DataContext } from "../../DataBase/DataContext";
 import { Button } from "./Reusable components/Button";
 import OpenCart from "../../components/components-structure/Pop-Up/OpenCart";
-import { useFormik } from "formik";
 
-const POS_Gallery = ({ clickedProduct, productsCost, setClickProduct }) => {
+const POS_Gallery = ({
+  clickedProduct,
+  productsCost,
+  setProductCose ,
+  setClickProduct,
+}) => {
   const { usersData } = useContext(DataContext);
   const [openCartWindow, setOpenCartWindow] = useState(false);
   const [openEditTax, setOpenEditTax] = useState(false);
-  const [texValue, setTextValue] = useState(0);
-  const [userDiscount, setUserDiscount] = useState(0);
+  const [taxValue, setTaxtValue] = useState(26);
+  const [keyCheckDiscount, setKeyCheckDiscount] = useState(null);
 
   const handleEditTax = () => {
     setOpenEditTax(false);
@@ -17,16 +21,30 @@ const POS_Gallery = ({ clickedProduct, productsCost, setClickProduct }) => {
   const isEmpty = () => {
     return clickedProduct.length === 0;
   };
-  console.log(productsCost);
+  const getDiscount = () => {
+    return keyCheckDiscount
+      ? usersData.filter((u) => u.first_name === keyCheckDiscount)[0]
+          .discount_percentage
+      : 0;
+  };
+  const getTotal = () => {
+    return (
+      +taxValue +
+      +productsCost -
+      (+taxValue + +productsCost) * (+getDiscount() / 100)
+    ).toFixed(2);
+  };
+
   return (
     <div className="POS-gallery">
       <nav className="user-input-container">
-        <select id="discount">
+        <select
+          value={keyCheckDiscount}
+          onChange={(e) => setKeyCheckDiscount(e.target.value)}
+        >
           <option selected>No User</option>
           {usersData.map((user, index) => (
-            <option key={index} value={user.discount_percentage}>
-              {user.first_name} {user.last_name}
-            </option>
+            <option key={index}>{user.first_name}</option>
           ))}
         </select>
       </nav>
@@ -50,14 +68,14 @@ const POS_Gallery = ({ clickedProduct, productsCost, setClickProduct }) => {
           <p className="slider-paragraph">
             Tax <i className="fa-solid fa-coins"></i>
           </p>
-          <div className="money-numbers">{texValue} $</div>
+          <div className="money-numbers">{taxValue} $</div>
           <div className="tax-slider">
             {openEditTax && (
               <div className="tax-edit">
                 <input
                   type="number"
                   placeholder="Edit"
-                  onChange={(e) => setTextValue(e.target.value)}
+                  onChange={(e) => setTaxtValue(e.target.value)}
                 />
                 <Button
                   text="Done"
@@ -77,13 +95,14 @@ const POS_Gallery = ({ clickedProduct, productsCost, setClickProduct }) => {
           <p className="slider-paragraph">
             User Discount <i class="fa-solid fa-user"></i>
           </p>
-          <div className="money-numbers"> </div>
+          <div className="money-numbers">{getDiscount()} %</div>
         </div>
       </div>
       <div className="total-amount-container">
         <p>
           Total <i className="fa-solid fa-sack-dollar"></i>{" "}
         </p>
+        <div className="money-numbers">{getTotal()}</div>
       </div>
       <div className="POS-buttons-container">
         <Button
@@ -102,6 +121,8 @@ const POS_Gallery = ({ clickedProduct, productsCost, setClickProduct }) => {
           cartWindow={setOpenCartWindow}
           setClickProduct={setClickProduct}
           clickedProduct={clickedProduct}
+          productCost={productsCost}
+          setProductCose={setProductCose}
         />
       )}
     </div>

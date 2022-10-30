@@ -60,7 +60,7 @@ const Categories_table = () => {
           </tr>
         </thead>
         <tbody>
-          {search(currentPosts).map((category) => (
+          {(query ? search(categoriesData) : currentPosts).map((category) => (
             <tr>
               <td>{category.category}</td>
               <td>

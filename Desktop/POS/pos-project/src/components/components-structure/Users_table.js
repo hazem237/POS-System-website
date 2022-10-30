@@ -61,7 +61,7 @@ const Users_table = () => {
           </tr>
         </thead>
         <tbody>
-          {search(currentPosts).map((user, index) => (
+          {(query ? search(usersData) : currentPosts).map((user, index) => (
             <tr key={index}>
               <td>{user.id}</td>
               <td>{user.first_name}</td>

@@ -140,7 +140,10 @@ const ProductsGallery = () => {
 
         {openProductsWindow && (
           <div className="products-container">
-            {searchForProduct(currentProduct).map((product, index) => (
+            {(searchQuery
+              ? searchForProduct(productsData)
+              : currentProduct
+            ).map((product, index) => (
               <div className="productContainer" key={index}>
                 <img src={product.thumbnail} className="gallery-img" />
                 <div
@@ -158,7 +161,10 @@ const ProductsGallery = () => {
         )}
         {openCategoryWindow && (
           <div className="categories-container">
-            {searchForCategory(currentCategory).map((category, index) => (
+            {(searchQuery
+              ? searchForProduct(categoriesData)
+              : currentCategory
+            ).map((category, index) => (
               <div className="productContainer" key={index}>
                 <img src={category.image} className="gallery-img" />
                 {/* <h6 className="Category-name-guide">{category.category}</h6> */}
@@ -236,6 +242,7 @@ const ProductsGallery = () => {
           clickedProduct={dataRiver}
           setClickProduct={setDataRiver}
           productsCost={sumProductsPrice}
+          setProductCose={setSumProductPrice}
         />
       </div>
     </div>
