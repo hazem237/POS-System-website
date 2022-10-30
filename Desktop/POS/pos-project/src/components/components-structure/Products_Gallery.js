@@ -23,7 +23,6 @@ const ProductsGallery = () => {
 
   /* Variables responsible for Passing data to POS Bar */
   const [dataRiver, setDataRiver] = useState([]);
-  const [sumProductsPrice, setSumProductPrice] = useState(0);
 
   /* Search variables */
   const [searchQuery, setSearchQuery] = useState("");
@@ -72,11 +71,6 @@ const ProductsGallery = () => {
   };
   const handlerProductClick = (productObject) => {
     setDataRiver([...dataRiver, productObject]);
-    let sum = 0;
-    for (let i = 0; i < dataRiver.length; i++) {
-      sum = sum + dataRiver[i].price;
-    }
-    setSumProductPrice(sum);
   };
   const searchForProduct = (data) => {
     return data.filter((item) =>
@@ -140,7 +134,7 @@ const ProductsGallery = () => {
 
         {openProductsWindow && (
           <div className="products-container">
-            {(searchQuery
+            {(searchQuery.length > 2
               ? searchForProduct(productsData)
               : currentProduct
             ).map((product, index) => (
@@ -161,8 +155,8 @@ const ProductsGallery = () => {
         )}
         {openCategoryWindow && (
           <div className="categories-container">
-            {(searchQuery
-              ? searchForProduct(categoriesData)
+            {(searchQuery.length > 2
+              ? searchForCategory(categoriesData)
               : currentCategory
             ).map((category, index) => (
               <div className="productContainer" key={index}>
@@ -241,8 +235,6 @@ const ProductsGallery = () => {
         <POS_Gallery
           clickedProduct={dataRiver}
           setClickProduct={setDataRiver}
-          productsCost={sumProductsPrice}
-          setProductCose={setSumProductPrice}
         />
       </div>
     </div>

@@ -60,20 +60,22 @@ const Categories_table = () => {
           </tr>
         </thead>
         <tbody>
-          {(query ? search(categoriesData) : currentPosts).map((category) => (
-            <tr>
-              <td>{category.category}</td>
-              <td>
-                <img src={category.image} />
-              </td>
-              <td>
-                <Button
-                  onClick={() => removeCategories(category.category)}
-                  text="Delete"
-                />
-              </td>
-            </tr>
-          ))}
+          {(query.length > 2 ? search(categoriesData) : currentPosts).map(
+            (category) => (
+              <tr>
+                <td>{category.category}</td>
+                <td>
+                  <img src={category.image} />
+                </td>
+                <td>
+                  <Button
+                    onClick={() => removeCategories(category.category)}
+                    text="Delete"
+                  />
+                </td>
+              </tr>
+            )
+          )}
         </tbody>
       </table>
       <Pagination

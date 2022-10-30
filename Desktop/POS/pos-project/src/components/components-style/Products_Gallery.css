@@ -162,7 +162,9 @@
     border: 1px solid gray;
     border-radius: 7px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
 }
+
 
 .sliders-container {
     width: 100%;
@@ -236,6 +238,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 8px;
 }
 
 .tax-edit {
@@ -266,6 +269,7 @@
 
 .cart-button-container {
     margin-top: 2%;
+
 }
 
 .trash-container {
@@ -277,6 +281,7 @@
     color: rgb(238, 26, 26);
     font-size: 22px;
     cursor: pointer;
+
 }
 
 .product-price-container,
@@ -285,9 +290,44 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 15px;
+    margin-left: 11%;
+
+
 }
 
 .product-price-container {
     color: rgb(1, 83, 1);
+}
+
+.cart-nav {
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.quantity-container {
+
+    display: flex;
+    width: 16%;
+    margin-left: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 12%;
+
+}
+
+.quantity-container>p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+}
+
+.quantity-container>button {
+    background-color: rgba(139, 157, 180, 0.411);
+    height: 60%;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

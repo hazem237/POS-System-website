@@ -61,20 +61,22 @@ const Users_table = () => {
           </tr>
         </thead>
         <tbody>
-          {(query ? search(usersData) : currentPosts).map((user, index) => (
-            <tr key={index}>
-              <td>{user.id}</td>
-              <td>{user.first_name}</td>
-              <td>{user.last_name}</td>
-              <td>{user.gender}</td>
-              <td>{user.phone}</td>
-              <td>{user.Subscription_date}</td>
-              <td>{user.discount_percentage}</td>
-              <td>
-                <Button text="Delete" onClick={() => removeUser(user.id)} />
-              </td>
-            </tr>
-          ))}
+          {(query.length > 2 ? search(usersData) : currentPosts).map(
+            (user, index) => (
+              <tr key={index}>
+                <td>{user.id}</td>
+                <td>{user.first_name}</td>
+                <td>{user.last_name}</td>
+                <td>{user.gender}</td>
+                <td>{user.phone}</td>
+                <td>{user.Subscription_date}</td>
+                <td>{user.discount_percentage}</td>
+                <td>
+                  <Button text="Delete" onClick={() => removeUser(user.id)} />
+                </td>
+              </tr>
+            )
+          )}
         </tbody>
       </table>
       <Pagination

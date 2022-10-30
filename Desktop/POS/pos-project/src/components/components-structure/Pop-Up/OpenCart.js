@@ -1,3 +1,4 @@
+import { get } from "http";
 import React, { useContext, useState } from "react";
 import "../../components-style/Add_Form.css";
 import { Button } from "../Reusable components/Button";
@@ -9,15 +10,22 @@ const AddProductForm = ({
   setProductCose,
   productCost,
 }) => {
-  console.log(clickedProduct);
+  const quantityArray = Array(clickedProduct.length).fill(1);
+  console.log(quantityArray);
   const handlerDeleteProduct = (id, price) => {
     setClickProduct(clickedProduct.filter((user) => user.id !== id));
     setProductCose(productCost - price);
   };
   const handleResetCart = () => {
     setClickProduct([]);
-    setProductCose(0);
   };
+  const handlerPlusClick = (index) => {
+    console.log(quantityArray[index]);
+    quantityArray[index]++;
+    console.log(quantityArray[index]);
+  };
+ 
+
   return (
     <div className="modalBackgroundCart">
       <div className="modalContainer modalCartContainer">
@@ -33,16 +41,24 @@ const AddProductForm = ({
             ></i>
           </h2>
         </div>
-        <div className="reset-button-container">
-          {Boolean(clickedProduct.length) && (
+        {Boolean(clickedProduct.length) && (
+          <nav className="cart-nav">
+            <div>
+              <p>Cart Size : {clickedProduct.length}</p>
+              <p>
+                Cart Bill :{" "}
+                {clickedProduct.reduce((acc, curr) => acc + curr.price, 0)} $
+              </p>
+            </div>
             <Button
               text="Reset"
               buttonStyle="btn--outline"
               buttonSize="btn--small"
               onClick={() => handleResetCart()}
             />
-          )}
-        </div>
+          </nav>
+        )}
+
         <div className="body bodyCart">
           {clickedProduct.length != 0 ? (
             clickedProduct.map((product, index) => (
@@ -54,6 +70,11 @@ const AddProductForm = ({
                       handlerDeleteProduct(product.id, product.price)
                     }
                   ></i>
+                </div>
+                <div className="quantity-container">
+                  <Button text="-" />
+                  <p>1</p>
+                  <Button text="+" onClick={() => handlerPlusClick(index)} />
                 </div>
                 <div className="product-price-container">
                   {" "}

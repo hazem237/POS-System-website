@@ -3,26 +3,26 @@ import { DataContext } from "../../DataBase/DataContext";
 import { Button } from "./Reusable components/Button";
 import OpenCart from "../../components/components-structure/Pop-Up/OpenCart";
 
-const POS_Gallery = ({
-  clickedProduct,
-  productsCost,
-  setProductCose ,
-  setClickProduct,
-}) => {
+const POS_Gallery = ({ clickedProduct, setClickProduct }) => {
   const { usersData } = useContext(DataContext);
   const [openCartWindow, setOpenCartWindow] = useState(false);
   const [openEditTax, setOpenEditTax] = useState(false);
-  const [taxValue, setTaxtValue] = useState(26);
+  const [taxValue, setTaxtValue] = useState(4.5);
   const [keyCheckDiscount, setKeyCheckDiscount] = useState(null);
 
   const handleEditTax = () => {
     setOpenEditTax(false);
   };
+  const handleCancelPurchase = () => {
+    setClickProduct([]);
+    setKeyCheckDiscount(null);
+    setTaxtValue(4.5);
+  };
   const isEmpty = () => {
     return clickedProduct.length === 0;
   };
   const getDiscount = () => {
-    return keyCheckDiscount
+    return keyCheckDiscount && keyCheckDiscount != "No User"
       ? usersData.filter((u) => u.first_name === keyCheckDiscount)[0]
           .discount_percentage
       : 0;
@@ -30,8 +30,9 @@ const POS_Gallery = ({
   const getTotal = () => {
     return (
       +taxValue +
-      +productsCost -
-      (+taxValue + +productsCost) * (+getDiscount() / 100)
+      +clickedProduct.reduce((acc, curr) => acc + curr.price, 0) -
+      (+taxValue + +clickedProduct.reduce((acc, curr) => acc + curr.price, 0)) *
+        (+getDiscount() / 100)
     ).toFixed(2);
   };
 
@@ -56,7 +57,9 @@ const POS_Gallery = ({
             {clickedProduct.length}
           </p>
 
-          <div className="money-numbers">{productsCost} $</div>
+          <div className="money-numbers">
+            {clickedProduct.reduce((acc, curr) => acc + curr.price, 0)} $
+          </div>
           <div className="cart-slider">
             <i
               class="fa-solid fa-arrow-up-right-from-square"
@@ -102,13 +105,14 @@ const POS_Gallery = ({
         <p>
           Total <i className="fa-solid fa-sack-dollar"></i>{" "}
         </p>
-        <div className="money-numbers">{getTotal()}</div>
+        <div className="money-numbers">{getTotal()} $</div>
       </div>
       <div className="POS-buttons-container">
         <Button
           text="Cancel"
           buttonStyle="btn--outline btn--cancel"
           buttonSize="btn--medium"
+          onClick={() => handleCancelPurchase()}
         />
         <Button
           text="Purchase"
@@ -121,8 +125,6 @@ const POS_Gallery = ({
           cartWindow={setOpenCartWindow}
           setClickProduct={setClickProduct}
           clickedProduct={clickedProduct}
-          productCost={productsCost}
-          setProductCose={setProductCose}
         />
       )}
     </div>
