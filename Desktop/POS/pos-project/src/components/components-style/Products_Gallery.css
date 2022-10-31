@@ -2,7 +2,7 @@
     /* background-color: gold; */
     width: 900px;
     height: 100%;
-    padding: 22px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -11,16 +11,17 @@
 }
 
 .catalogs {
-
     width: 100%;
     height: 45%;
-
+    border: 1px solid black;
+    border-top: none;
 }
 
 .POS-operator {
     border: 1px solid black;
     width: 100%;
     height: 50%;
+    margin-top: 5%;
 }
 
 .productContainer {
@@ -72,7 +73,6 @@
     grid-template-columns: repeat(5, auto);
     /* background-color: blue; */
     padding: 10px;
-    border: 1px solid black;
     height: 330px;
     margin-bottom: 5px;
 }
@@ -128,6 +128,7 @@
 
 .search {
     margin-left: 49%;
+    width: 440px;
 }
 
 .Category-name-guide {
@@ -274,15 +275,13 @@
 }
 
 .trash-container {
-
     width: 9%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(238, 26, 26);
+    color: rgba(238, 26, 26, 0.699);
     font-size: 22px;
     cursor: pointer;
-
 }
 
 .product-price-container,

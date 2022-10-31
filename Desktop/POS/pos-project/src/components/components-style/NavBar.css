@@ -1,5 +1,5 @@
 .navbar {
-    background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgba(5, 0, 0, 0.753) 100%);
+    background-color: black;
     width: 200px;
     height: 100%;
     display: flex;
@@ -14,8 +14,11 @@
     position: absolute;
     left: 0;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.815) 0px 30px 60px -30px;
-    padding:8px;
+    padding: 8px;
+}
 
+i {
+    margin-left: 9px;
 }
 
 .navbar-container {
@@ -23,20 +26,16 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-
     height: 90%;
     width: 100%;
-
-
     position: absolute;
     top: 0;
     padding: 20px;
     font-size: 19px;
-
 }
 
 .navbar-logo {
-    color: #fff;
+    color: rgb(255, 255, 255);
     justify-self: start;
     margin-left: 20px;
     cursor: pointer;
@@ -45,7 +44,6 @@
     display: flex;
     align-items: center;
     margin-top: 20%;
-
 }
 
 .fa-typo3 {
@@ -59,52 +57,49 @@
     list-style: none;
     text-align: center;
     width: 100%;
-
     height: 70%;
-
-
+    color: rgb(255, 255, 255);
+    font-size: 17px;
 }
 
 .nav-item {
     display: flex;
-
     text-align: center;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-   
-
+    color: rgb(255, 255, 255);
+    width: 100%;
 }
 
-
 .nav-links {
-    color: #fff;
+    color: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     text-decoration: none;
     width: fit-content;
     height: fit-content;
     padding: 10px;
-
-
-
+    justify-content: space-between;
 }
 
 .log-out {
-
     margin-top: 30%;
     padding: 15px;
-    width: 120px;
+    width: 150px;
     border-radius: 5px;
     border: 1px solid white;
+    color: rgb(255, 255, 255);
+    background-color: transparent;
     text-decoration: none;
     text-align: center;
     cursor: pointer;
+    transition: all 0.5s ease-out;
 }
 
 .log-out :hover {
-    background-color: white;
-    color: black;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
     transition: all 0.2s ease-out;
     box-shadow: #fff;
 }
@@ -119,7 +114,7 @@
 }
 
 .fa-bars {
-    color: #fff;
+    color: rgb(0, 0, 0);
 }
 
 .nav-links-mobile {

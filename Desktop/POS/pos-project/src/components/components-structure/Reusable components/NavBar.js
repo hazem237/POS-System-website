@@ -45,7 +45,11 @@ function Navbar() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Dashboard
+                Dashboard{" "}
+                <i
+                  className="fa-solid fa-gauge"
+                  style={{ color: "white" }}
+                ></i>
               </Link>
             </li>
             <li className="nav-item">
@@ -54,7 +58,7 @@ function Navbar() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Products
+                Products <i className="fa-solid fa-box"></i>
               </Link>
             </li>
             <li className="nav-item">
@@ -64,23 +68,27 @@ function Navbar() {
                 onClick={closeMobileMenu}
               >
                 Categories
+                <i
+                  className="fa-solid fa-code-branch"
+                  style={{ color: "white" }}
+                ></i>
               </Link>
             </li>
             <li className="nav-item">
               <Link to="/users" className="nav-links" onClick={closeMobileMenu}>
-                Users
+                Users <i className="fa-regular fa-user"></i>
               </Link>
             </li>
             <li className="nav-item">
               <Link to="/pos" className="nav-links" onClick={closeMobileMenu}>
-                POS
+                POS <i className="fa-solid fa-cart-plus"></i>
               </Link>
             </li>
           </ul>
-          <Link to="/" >
+          <Link to="/">
             <Button
               text="Log Out"
-              buttonStyle="btn--primary"
+              buttonStyle="btn--primary log-out"
               buttonSize="btn--medium"
               onClick={closeMobileMenu}
             />

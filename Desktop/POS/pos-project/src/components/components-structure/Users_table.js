@@ -8,22 +8,21 @@ import Table_nav from "./Reusable components/Table_nav";
 
 const Users_table = () => {
   /*  Get the Data From DataContext */
-
   const { usersData, setUsersData } = useContext(DataContext);
 
   /* Variables used by Users Table */
-
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5);
   const [openAdd, setOpenAdd] = useState(false);
+  const [openRemove, setOpenRemove] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
   const keys = ["first_name", "last_name", "phone", "Subscription_date"];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = usersData.slice(indexOfFirstPost, indexOfLastPost);
 
   /* Functions  */
-
   const removeUser = (id) => {
     setUsersData(usersData.filter((user) => user.id !== id));
   };
@@ -35,19 +34,31 @@ const Users_table = () => {
   };
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   const openAddModule = () => {
     setOpenAdd(true);
+  };
+  const openDeleteModule = () => {
+    setOpenRemove(true);
+    setOpenEdit(false);
+  };
+  const openEditModule = () => {
+    setOpenRemove(false);
+    setOpenEdit(true);
   };
 
   const isMale = (gender) => {
     return gender === "Male";
   };
-  /* Return The Component */
 
   return (
     <div className="table-container">
       <nav className="table-nav">
-        <Table_nav addButtonHandler={openAddModule} />
+        <Table_nav
+          addButtonHandler={openAddModule}
+          deleteButtonHandler={openDeleteModule}
+          EditButtonHandler={openEditModule}
+        />
         <div className="search-div-container">
           <input
             type="text"
@@ -66,6 +77,22 @@ const Users_table = () => {
             <th>Gender</th>
             <th>Subscription Date</th>
             <th>Discount percentage</th>
+            {openRemove && (
+              <th>
+                <i
+                  class="fa-solid fa-check"
+                  onClick={() => setOpenRemove(false)}
+                ></i>
+              </th>
+            )}
+            {openEdit && (
+              <th>
+                <i
+                  class="fa-solid fa-check"
+                  onClick={() => setOpenEdit(false)}
+                ></i>
+              </th>
+            )}
           </tr>
         </thead>
         <tbody>
@@ -87,12 +114,19 @@ const Users_table = () => {
                   </td>
                   <td>{user.Subscription_date}</td>
                   <td>{user.discount_percentage}</td>
-                  <td>
-                    <i
-                      className="fa-solid fa-xmark delete-icon"
-                      onClick={() => removeUser(user.id)}
-                    ></i>
-                  </td>
+                  {openRemove && (
+                    <td>
+                      <i
+                        className="fa-solid fa-xmark delete-icon"
+                        onClick={() => removeUser(user.id)}
+                      ></i>
+                    </td>
+                  )}
+                  {openEdit && (
+                    <td>
+                      <i class="fa-solid fa-pen-to-square" ></i>
+                    </td>
+                  )}
                 </tr>
               )
             )

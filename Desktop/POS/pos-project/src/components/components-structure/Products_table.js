@@ -17,8 +17,10 @@ const Products_table = () => {
   const keys = ["title", "category"];
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(5);
-  const [openAdd, setOpenAdd] = useState(false);
+  const [postsPerPage] = useState(4);
+   const [openAdd, setOpenAdd] = useState(false);
+   const [openRemove, setOpenRemove] = useState(false);
+   const [openEdit, setOpenEdit] = useState(false);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = productsData.slice(indexOfFirstPost, indexOfLastPost);
@@ -40,13 +42,25 @@ const Products_table = () => {
   const openAddModule = () => {
     setOpenAdd(true);
   };
+  const openDeleteModule = () => {
+    setOpenRemove(true);
+    setOpenEdit(false);
+  };
+  const openEditModule = () => {
+    setOpenRemove(false);
+    setOpenEdit(true);
+  };
 
   /* Return The Component */
 
   return (
     <div className="table-container">
       <nav className="table-nav">
-        <Table_nav addButtonHandler={openAddModule} />
+        <Table_nav
+          addButtonHandler={openAddModule}
+          deleteButtonHandler={openDeleteModule}
+          EditButtonHandler={openEditModule}
+        />
         <div className="search-div-container">
           <input
             type="text"
@@ -65,6 +79,22 @@ const Products_table = () => {
             <th>Name</th>
             <th>Category</th>
             <th>Price</th>
+            {openRemove && (
+              <th>
+                <i
+                  class="fa-solid fa-check"
+                  onClick={() => setOpenRemove(false)}
+                ></i>
+              </th>
+            )}
+            {openEdit && (
+              <th>
+                <i
+                  class="fa-solid fa-check"
+                  onClick={() => setOpenEdit(false)}
+                ></i>
+              </th>
+            )}
           </tr>
         </thead>
         <tbody>
@@ -78,12 +108,14 @@ const Products_table = () => {
                 <td>{product.title}</td>
                 <td>{product.category}</td>
                 <td>{product.price}</td>
-                <td>
-                  <i
-                    className="fa-solid fa-xmark delete-icon"
-                    onClick={() => removeProduct(product.id)}
-                  ></i>
-                </td>
+                {openRemove && (
+                  <td>
+                    <i
+                      className="fa-solid fa-xmark delete-icon"
+                      onClick={() => removeProduct(product.id)}
+                    ></i>
+                  </td>
+                )}
               </tr>
             )
           )}

@@ -88,12 +88,15 @@
 
 .btn--cancel {
     width: 40%;
-    background-color: rgb(241, 57, 57);
+    background-color: rgba(255, 0, 0, 0.644);
+    border: red;
 }
 
 .btn--purchase {
     width: 40%;
-    background-color: rgb(3, 126, 3);
+    background-color: rgba(66, 163, 66, 0.856);
+    border: green;
+    
 }
 
 .btn--purchase:hover {

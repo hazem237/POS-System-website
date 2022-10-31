@@ -1,6 +1,4 @@
-.logo-header
-{
-    
+.logo-header {
     color: rgb(255, 255, 255);
     font-size: 50px;
     position: absolute;
@@ -9,19 +7,15 @@
     margin-left: 5%;
     margin-top: 5%;
     font-family: 'PT Sans', sans-serif;
-    
 }
-.fa-typo3
-{
-    color: red;
+
+.fa-typo3 {
+    color: rgb(248, 177, 177);
 }
 
 @media screen and (max-width: 992px) {
-.logo-header {
-
+    .logo-header {
         margin-left: 5%;
         margin-top: 10%;
-    
-
     }
 }

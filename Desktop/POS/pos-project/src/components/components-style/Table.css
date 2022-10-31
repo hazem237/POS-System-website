@@ -8,6 +8,11 @@ td {
     text-align: center;
     padding: 5px;
     border-radius: 4px;
+    height: 70px;
+}
+
+table {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 thead {
@@ -85,6 +90,8 @@ img {
     -moz-transition: all 2s;
     transition: all 0.2s;
     width: 100%;
+    box-shadow: rgba(100, 100, 111, 0.144) 0px 7px 29px 0px;
+
 }
 
 .search-div-container {
@@ -105,6 +112,7 @@ img {
     color: black;
     border-radius: 5px;
     font-size: 14px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .table-nav-buttons-container>button:first-child {
@@ -161,5 +169,15 @@ img {
 .delete-icon {
     color: red;
     font-size: 26px;
+    cursor: pointer;
+}
+
+.fa-check {
+    font-size: 22px;
+    color: rgb(5, 117, 5);
+    cursor: pointer;
+}
+
+.fa-pen-to-square {
     cursor: pointer;
 }
