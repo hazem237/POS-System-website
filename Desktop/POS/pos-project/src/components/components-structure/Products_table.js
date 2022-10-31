@@ -16,7 +16,7 @@ const Products_table = () => {
   const keys = ["title", "category"];
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(6);
+  const [postsPerPage] = useState(5);
   const [openAdd, setOpenAdd] = useState(false);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -44,20 +44,34 @@ const Products_table = () => {
 
   return (
     <div className="table-container">
-      <div className="table-nav">
-        <Button
-          text="Add Product"
-          buttonStyle="btn--outline add"
-          buttonSize="btn--small"
-          onClick={() => openAddModule()}
-        />
-        <input
-          type="text"
-          placeholder="Search .. "
-          className="search"
-          onChange={(e) => setQuery(e.target.value)}
-        />
-      </div>
+      <nav className="table-nav">
+        <div className="table-nav-buttons-container">
+          <Button
+            text="Add"
+            buttonStyle="btn--outline add"
+            buttonSize="btn--small"
+            onClick={() => openAddModule()}
+          />
+          <Button
+            text="Delete "
+            buttonStyle="btn--outline"
+            buttonSize="but--small"
+          />
+          <Button
+            text="Edit "
+            buttonStyle="btn--outline"
+            buttonSize="but--small"
+          />
+        </div>
+        <div className="search-div-container">
+          <input
+            type="text"
+            placeholder="Search .. "
+            className="search"
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </div>
+      </nav>
 
       <table>
         <thead>
@@ -70,20 +84,22 @@ const Products_table = () => {
           </tr>
         </thead>
         <tbody>
-          {(query.length>2 ? search(productsData) : currentPosts).map((product) => (
-            <tr key={product.id}>
-              <td>{product.id}</td>
-              <td>
-                <img src={product.thumbnail} />
-              </td>
-              <td>{product.title}</td>
-              <td>{product.category}</td>
-              <td>{product.price}</td>
-              <td>
-                <i class="fa-light fa-xmark"></i>
-              </td>
-            </tr>
-          ))}
+          {(query.length > 2 ? search(productsData) : currentPosts).map(
+            (product) => (
+              <tr key={product.id}>
+                <td>{product.id}</td>
+                <td>
+                  <img src={product.thumbnail} />
+                </td>
+                <td>{product.title}</td>
+                <td>{product.category}</td>
+                <td>{product.price}</td>
+                <td>
+                  <i className="fa-solid fa-xmark delete-icon"></i>
+                </td>
+              </tr>
+            )
+          )}
         </tbody>
       </table>
       <Pagination
@@ -91,7 +107,6 @@ const Products_table = () => {
         totalPosts={productsData.length}
         paginate={paginate}
       />
-
       {openAdd && (
         <AddProductForm
           setOppen={setOpenAdd}

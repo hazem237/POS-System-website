@@ -6,36 +6,43 @@
     justify-content: center;
     align-items: center;
 
+
 }
 
 .Data-catcher {
-    width: 90%;
+    width: 75%;
     height: 90%;
     /* background-color: rgb(167, 212, 5); */
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    margin-left: 15%;
     flex-direction: column;
-
-
 }
 
-.Data-wrapper {
+.hey-part {
+    width: 100%;
+    height: 40%;
+    /* background-color: rgb(182, 120, 26); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+
+
+.Data-wrapper {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    flex-direction: column;
-    margin-top: 40px;
-
+    /* background-color: pink; */
+    padding: 9px;
+    justify-content: space-evenly;
 }
 
 .welcome-dashboard {
-    width: 100%;
-    height: 20%;
-    background-color: transparent;
+    width: max-content;
+    height: max-content;
+    /* background-color: rebeccapurple; */
     border: 1px solid black;
     box-shadow: rgba(240, 46, 46, 0.4) 5px 5px, rgba(240, 46, 46, 0.3) 10px 10px, rgba(240, 46, 46, 0.2) 15px 15px, rgba(240, 46, 46, 0.1) 20px 20px, rgba(240, 46, 46, 0.05) 25px 25px;
     border-radius: 17px;
@@ -45,11 +52,26 @@
     position: relative;
 }
 
+
+.greeting {
+    width: 300px;
+    height: 210px;
+    border: 1px solid black;
+}
+
+.chart {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
 .fa-gauge {
     color: rgb(226, 101, 101);
 }
 
-.fa-xmark {
+.welcomeCancel {
     color: red;
     font-size: 30px;
     cursor: pointer;
@@ -62,18 +84,19 @@
 }
 
 .Data-container {
-    width: 300px;
-    height: 200px;
+    width: 17rem;
+    height: 12rem;
     border-radius: 11px;
     -webkit-box-shadow: inset 50px 35px 50px -5px rgba(0, 0, 0, 0.2);
     box-shadow: inset 50px 35px 50px -5px rgba(0, 0, 0, 0.2);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding: 14px;
+    padding: 18px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 100%;
     color: white;
-
+    margin-bottom: 15px;
+    font-size: 1.1rem;
 }
 
 
@@ -81,9 +104,6 @@
 .users-number {
     background-color: rgb(1, 62, 73);
     /* background-image: url(../../../public/imgs/user-background.jpg); */
-
-
-
 }
 
 .products-number {
@@ -106,10 +126,6 @@
 
 }
 
-/* img {
-    height: 100%;
-    width: auto
-} */
 
 @media screen and (max-width: 960px) {
     .Data-wrapper {

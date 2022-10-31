@@ -24,19 +24,14 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
     validationSchema: Yup.object({
       title: Yup.string().required("Required"),
       price: Yup.number().required("Required"),
-      categories: Yup.string().required("Required"),
+      // categories: Yup.string().required("Required"),
       thumbnail: Yup.string().url().required("Required"),
     }),
-   
+    onSubmit: () => {
+      setProductsData([...productsData, productForm.values]);
+      closeForm();
+    },
   });
-
-  const handleSubmit =()=>
-  {
-     setProductsData([...productsData, productForm.values]);
-     closeForm()
-  }
- 
-  console.log(productForm.values)
 
   return (
     <div className="modalBackground">
@@ -121,6 +116,7 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
                 text="Add"
                 buttonStyle="btn--outline add"
                 buttonSize="btn--medium "
+                // onClick={() => handleSubmit()}
               />
 
               <Button

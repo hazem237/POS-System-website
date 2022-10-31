@@ -10,75 +10,38 @@
     padding: 15px;
 }
 
-/* table
-{
-    width: 100%;
-
-}
-
-th {
-    background-color: rgba(0, 0, 0, 0.856);
-    color: white;
-    padding: 9px;
-
-}
-
-td ,tbody {
-    text-align: center;
-    padding: 5px;
-border: 1px solid rgb(109, 109, 109);
-
-} */
-table {
-    counter-reset: section;
-}
-
-td {
-    height: 65px;
-}
-
 table,
 th,
 td {
-    border: 1px solid grey;
+    border: 1px solid rgba(128, 128, 128, 0.315);
     border-collapse: collapse;
-    width: 900px;
+    width: 888px;
     text-align: center;
+    padding: 5px;
 }
 
-thead,
-tfoot {
+thead {
     background-color: rgb(196, 195, 195);
     height: 35px;
 }
 
 img {
     width: 100px;
-
     object-fit: fill;
 }
 
-
-
 .search {
-    width: 50%;
-    margin-bottom: 10px;
 
     background-position: 10px center;
     background-repeat: no-repeat;
     border: 1px solid #ccc;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    -o-border-radius: 4px;
     border-radius: 4px;
     padding: 10px 5px 10px 20px;
     text-indent: 20px;
     -webkit-transition: all 0.2s;
     -moz-transition: all 2s;
     transition: all 0.2s;
-
-
+    width: 100%;
 }
 
 .pagination-container {
@@ -87,7 +50,6 @@ img {
     justify-content: center;
     list-style: none;
     margin: 3px 3px 3px 3px;
-
 }
 
 .pagination-container>button {
@@ -96,24 +58,66 @@ img {
     border-radius: 3px;
     border: none;
     cursor: pointer;
-    background-color: rgba(128, 128, 128, 0.466);
+    background-color: rgba(146, 146, 146, 0.466);
 }
 
-
+.pagination-container>button:hover {
+    background-color: rgb(160, 159, 159);
+}
 
 .pagination {
-
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .table-nav {
-
     width: 90%;
+    height: 100px;
     display: flex;
-    justify-content: space-between;
     margin-bottom: 15px;
+  
 }
 
+.table-nav-buttons-container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.search-div-container {
+
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gender-warper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.male-blue,
+.female-pink {
+    background-color: rgba(98, 154, 228, 0.411);
+    width: max-content;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+}
+
+.female-pink {
+    background-color: pink;
+}
+
+.delete-icon {
+    color: red;
+    font-size: 26px;
+    cursor: pointer;
+}

@@ -1,9 +1,9 @@
-import { get } from "http";
 import React, { useContext, useState } from "react";
 import "../../components-style/Add_Form.css";
 import { Button } from "../Reusable components/Button";
+import Pagination from "../Reusable components/Pagination";
 
-const AddProductForm = ({
+const OpenCart = ({
   cartWindow,
   clickedProduct,
   setClickProduct,
@@ -11,6 +11,12 @@ const AddProductForm = ({
   productCost,
 }) => {
   const quantityArray = Array(clickedProduct.length).fill(1);
+  const [test, setTest] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(5);
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = clickedProduct.slice(indexOfFirstPost, indexOfLastPost);
   console.log(quantityArray);
   const handlerDeleteProduct = (id, price) => {
     setClickProduct(clickedProduct.filter((user) => user.id !== id));
@@ -20,12 +26,13 @@ const AddProductForm = ({
     setClickProduct([]);
   };
   const handlerPlusClick = (index) => {
-    console.log(quantityArray[index]);
-    quantityArray[index]++;
-    console.log(quantityArray[index]);
+    const a = test + 1;
+    setTest(a);
   };
- 
-
+  const getQuantity = (index) => {
+    return quantityArray[index];
+  };
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <div className="modalBackgroundCart">
       <div className="modalContainer modalCartContainer">
@@ -61,7 +68,7 @@ const AddProductForm = ({
 
         <div className="body bodyCart">
           {clickedProduct.length != 0 ? (
-            clickedProduct.map((product, index) => (
+            currentPosts.map((product, index) => (
               <div className="cart-product-container" key={index}>
                 <div className="trash-container">
                   <i
@@ -73,12 +80,12 @@ const AddProductForm = ({
                 </div>
                 <div className="quantity-container">
                   <Button text="-" />
-                  <p>1</p>
+                  <p>{test}</p>
                   <Button text="+" onClick={() => handlerPlusClick(index)} />
                 </div>
                 <div className="product-price-container">
                   {" "}
-                  {product.price} $
+                  {product.price * test} $
                 </div>
                 <div className="product-name-container">{product.title}</div>
               </div>
@@ -87,6 +94,11 @@ const AddProductForm = ({
             <p className="empty-message"> Cart is Empty</p>
           )}
         </div>
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={clickedProduct.length}
+          paginate={paginate}
+        />
         <div className="cart-button-container">
           <Button
             text="Cancel"
@@ -100,4 +112,4 @@ const AddProductForm = ({
   );
 };
 
-export default AddProductForm;
+export default OpenCart;

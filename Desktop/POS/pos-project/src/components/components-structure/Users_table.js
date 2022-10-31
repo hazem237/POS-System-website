@@ -38,16 +38,41 @@ const Users_table = () => {
     setOpenAdd(true);
   };
 
+  const isMale = (gender) => {
+    return gender === "Male";
+  };
   /* Return The Component */
 
   return (
     <div className="table-container">
-      <input
-        type="text"
-        placeholder="Search .. "
-        className="search"
-        onChange={(e) => setQuery(e.target.value)}
-      />
+      <nav className="table-nav">
+        <div className="table-nav-buttons-container">
+          <Button
+            text="Add"
+            buttonStyle="btn--outline add"
+            buttonSize="btn--small"
+            onClick={() => openAddModule()}
+          />
+          <Button
+            text="Delete "
+            buttonStyle="btn--outline"
+            buttonSize="but--small"
+          />
+          <Button
+            text="Edit "
+            buttonStyle="btn--outline"
+            buttonSize="but--small"
+          />
+        </div>
+        <div className="search-div-container">
+          <input
+            type="text"
+            placeholder="Search .. "
+            className="search"
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </div>
+      </nav>
       <table>
         <thead>
           <tr>
@@ -55,27 +80,42 @@ const Users_table = () => {
             <th>First Name</th>
             <th>Last Name</th>
             <th>Gender</th>
-            <th>Phone</th>
             <th>Subscription Date</th>
             <th>Discount percentage</th>
           </tr>
         </thead>
         <tbody>
-          {(query.length > 2 ? search(usersData) : currentPosts).map(
-            (user, index) => (
-              <tr key={index}>
-                <td>{user.id}</td>
-                <td>{user.first_name}</td>
-                <td>{user.last_name}</td>
-                <td>{user.gender}</td>
-                <td>{user.phone}</td>
-                <td>{user.Subscription_date}</td>
-                <td>{user.discount_percentage}</td>
-                <td>
-                  <Button text="Delete" onClick={() => removeUser(user.id)} />
-                </td>
-              </tr>
+          {usersData.length != 0 ? (
+            (query.length > 2 ? search(usersData) : currentPosts).map(
+              (user, index) => (
+                <tr key={index}>
+                  <td>{user.id}</td>
+                  <td>{user.first_name}</td>
+                  <td>{user.last_name}</td>
+                  <td className="gender-warper">
+                    <div
+                      className={`${
+                        isMale(user.gender) ? "male-blue" : "female-pink"
+                      }`}
+                    >
+                      {user.gender}
+                    </div>
+                  </td>
+                  <td>{user.Subscription_date}</td>
+                  <td>{user.discount_percentage}</td>
+                  <td>
+                    <i
+                      className="fa-solid fa-xmark delete-icon"
+                      onClick={() => removeUser(user.id)}
+                    ></i>
+                  </td>
+                </tr>
+              )
             )
+          ) : (
+            <tr>
+              <td colSpan="6"> No Users</td>
+            </tr>
           )}
         </tbody>
       </table>
@@ -83,12 +123,6 @@ const Users_table = () => {
         postsPerPage={postsPerPage}
         totalPosts={usersData.length}
         paginate={paginate}
-      />
-      <Button
-        text="Add User"
-        buttonStyle="btn--outline add"
-        buttonSize="btn--small"
-        onClick={() => openAddModule()}
       />
       {openAdd && (
         <AddUserForm

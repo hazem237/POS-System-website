@@ -14,7 +14,7 @@ const Categories_table = () => {
 
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(6);
+  const [postsPerPage] = useState(4);
   const [openForm, setOpenForm] = useState(false);
   const keys = ["category"];
   const indexOfLastPost = currentPage * postsPerPage;
@@ -36,22 +36,38 @@ const Categories_table = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  const UpdateData = () => {
-    console.log(categoriesData);
-    setCategoriesData(localStorage.getItem(JSON.stringify("categories")));
-    console.log(categoriesData);
-  };
-
   /* Return The Component */
 
   return (
     <div className="table-container">
-      <input
-        type="text"
-        placeholder="Search .. "
-        className="search"
-        onChange={(e) => setQuery(e.target.value)}
-      />
+      <nav className="table-nav">
+        <div className="table-nav-buttons-container">
+          <Button
+            text="Add"
+            buttonStyle="btn--outline add"
+            buttonSize="btn--small"
+            onClick={() => setOpenForm(true)}
+          />
+          <Button
+            text="Delete "
+            buttonStyle="btn--outline add"
+            buttonSize="but--small"
+          />
+          <Button
+            text="Edit "
+            buttonStyle="btn--outline"
+            buttonSize="but--small"
+          />
+        </div>
+        <div className="search-div-container">
+          <input
+            type="text"
+            placeholder="Search .. "
+            className="search"
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </div>
+      </nav>
       <table>
         <thead>
           <tr>
@@ -60,21 +76,27 @@ const Categories_table = () => {
           </tr>
         </thead>
         <tbody>
-          {(query.length > 2 ? search(categoriesData) : currentPosts).map(
-            (category) => (
-              <tr>
-                <td>{category.category}</td>
-                <td>
-                  <img src={category.image} />
-                </td>
-                <td>
-                  <Button
-                    onClick={() => removeCategories(category.category)}
-                    text="Delete"
-                  />
-                </td>
-              </tr>
+          {categoriesData.length != 0 ? (
+            (query.length > 2 ? search(categoriesData) : currentPosts).map(
+              (category) => (
+                <tr>
+                  <td>{category.category}</td>
+                  <td>
+                    <img src={category.image} />
+                  </td>
+                  <td>
+                    <i
+                      className="fa-solid fa-xmark delete-icon"
+                      onClick={() => removeCategories(category.category)}
+                    ></i>
+                  </td>
+                </tr>
+              )
             )
+          ) : (
+            <tr>
+              <td colSpan="3">No Categories</td>
+            </tr>
           )}
         </tbody>
       </table>
@@ -83,12 +105,7 @@ const Categories_table = () => {
         totalPosts={categoriesData.length}
         paginate={paginate}
       />
-      <Button
-        text="Add category "
-        buttonStyle="btn--outline"
-        buttonSize="but--small"
-        onClick={() => setOpenForm(true)}
-      />
+
       {openForm && (
         <AddCategoryForm
           setOppen={setOpenForm}

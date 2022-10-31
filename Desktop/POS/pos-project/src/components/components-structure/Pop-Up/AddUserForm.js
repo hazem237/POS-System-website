@@ -1,11 +1,38 @@
 import React from "react";
 import "../../components-style/Add_Form.css";
 import { Button } from "../Reusable components/Button";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const AddUserForm = ({ setOppen, userData, setUserData }) => {
   const closeForm = () => {
     setOppen(false);
   };
+  const userForm = useFormik({
+    initialValues: {
+      id:Math.floor(Math.random() * 1000 + 1),
+      first_name: "",
+      last_name: "",
+      phone: "",
+      Subscription_date: new Date().toJSON().slice(0, 10),
+      discount_percentage: "",
+      gender: "",
+    },
+    validationSchema: Yup.object({
+      first_name: Yup.string(" First Name should be string").required(
+        "Required"
+      ),
+      last_name: Yup.string(" Last Name should be string").required("Required"),
+      // phone: Yup.number("Phone should be number").required("Required"),
+      // gender : Yup.string().required(),
+      // discount_percentage: Yup.number().required("Required"),
+    }),
+    onSubmit: (value) => {
+      setUserData([...userData, value]);
+      closeForm();
+    },
+  });
+
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -18,7 +45,7 @@ const AddUserForm = ({ setOppen, userData, setUserData }) => {
           </h2>
         </div>
         <div className="body">
-          <form>
+          <form onSubmit={userForm.handleSubmit}>
             <div className="providerUserName">
               <div className="first-name-container">
                 <label>First Name</label>
@@ -28,8 +55,15 @@ const AddUserForm = ({ setOppen, userData, setUserData }) => {
                   name="first_name"
                   placeholder="First Name "
                   className="login-input"
+                  onChange={userForm.handleChange}
+                  onBlur={userForm.handleBlur}
+                  value={userForm.values.first_name}
                 />
+                {userForm.touched.first_name && userForm.errors.first_name ? (
+                  <p style={{ color: "red" }}>{userForm.errors.first_name}</p>
+                ) : null}
               </div>
+
               <div className="last-name-container">
                 <label>Last Name</label>
                 <input
@@ -38,18 +72,31 @@ const AddUserForm = ({ setOppen, userData, setUserData }) => {
                   name="last_name"
                   placeholder="Last Name "
                   className="login-input"
+                  onChange={userForm.handleChange}
+                  onBlur={userForm.handleBlur}
+                  value={userForm.values.last_name}
                 />
+                {userForm.touched.last_name && userForm.errors.last_name ? (
+                  <p style={{ color: "red" }}>{userForm.errors.last_name}</p>
+                ) : null}
               </div>
             </div>
+
             <div className="providerUserPhone">
               <label>Phone</label>
               <input
-                type="number"
+                type="text"
                 id="phone"
                 name="phone"
                 placeholder="Phone "
                 className="login-input"
+                onChange={userForm.handleChange}
+                onBlur={userForm.handleBlur}
+                value={userForm.values.phone}
               />
+              {userForm.touched.phone && userForm.errors.phone ? (
+                <p style={{ color: "red" }}>{userForm.errors.phone}</p>
+              ) : null}
             </div>
             <div className="providerUserDiscount">
               <div className="dis-container">
@@ -60,7 +107,16 @@ const AddUserForm = ({ setOppen, userData, setUserData }) => {
                   id="discount_percentage"
                   name="discount_percentage"
                   className="login-input discount_percentage"
+                  onChange={userForm.handleChange}
+                  onBlur={userForm.handleBlur}
+                  value={userForm.values.discount_percentage}
                 />
+                {userForm.touched.discount_percentage &&
+                userForm.errors.discount_percentage ? (
+                  <p style={{ color: "red" }}>
+                    {userForm.errors.discount_percentage}
+                  </p>
+                ) : null}
               </div>
               <div className="percentage">%</div>
             </div>
@@ -71,7 +127,11 @@ const AddUserForm = ({ setOppen, userData, setUserData }) => {
                   id="gender"
                   name="gender"
                   className="login-input"
+                  onChange={userForm.handleChange}
+                  onBlur={userForm.handleBlur}
+                  value={userForm.values.gender}
                 />
+
                 <label>Male</label>
               </div>
               <div className="female">
@@ -80,6 +140,9 @@ const AddUserForm = ({ setOppen, userData, setUserData }) => {
                   id="gender"
                   name="gender"
                   className="login-input"
+                  onChange={userForm.handleChange}
+                  onBlur={userForm.handleBlur}
+                  value={userForm.values.gender}
                 />
                 <label>Female</label>
               </div>
