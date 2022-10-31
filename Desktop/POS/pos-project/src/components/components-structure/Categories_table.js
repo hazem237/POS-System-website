@@ -37,6 +37,8 @@ const Categories_table = () => {
   };
   const openAddModule = () => {
     setOpenAdd(true);
+    setOpenRemove(false);
+    setOpenEdit(false);
   };
   const openDeleteModule = () => {
     setOpenRemove(true);

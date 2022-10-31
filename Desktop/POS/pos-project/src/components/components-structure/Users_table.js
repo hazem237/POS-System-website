@@ -5,6 +5,7 @@ import Pagination from "./Reusable components/Pagination";
 import AddUserForm from "./Pop-Up/AddUserForm";
 import { DataContext } from "../../DataBase/DataContext";
 import Table_nav from "./Reusable components/Table_nav";
+import EditUserForm from "./Pop-Up/EditUserForm";
 
 const Users_table = () => {
   /*  Get the Data From DataContext */
@@ -17,6 +18,9 @@ const Users_table = () => {
   const [openAdd, setOpenAdd] = useState(false);
   const [openRemove, setOpenRemove] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
+  const [openEditForm, setOpenEditForm] = useState(false);
+  const [currentEditableUser, setCurrentEditableUser] = useState(null);
+  const[currentIndex , setCurrentIndex]=useState(false);
   const keys = ["first_name", "last_name", "phone", "Subscription_date"];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -37,6 +41,8 @@ const Users_table = () => {
 
   const openAddModule = () => {
     setOpenAdd(true);
+    setOpenRemove(false);
+    setOpenEdit(false);
   };
   const openDeleteModule = () => {
     setOpenRemove(true);
@@ -50,7 +56,19 @@ const Users_table = () => {
   const isMale = (gender) => {
     return gender === "Male";
   };
+  const updateFieldChanged = (id, index) => (e) => {
+    console.log("index: " + id);
+    console.log("property name: " + e.target.id);
+    let newArr = [...usersData];
+    newArr[index].gender = e.target.value;
+    setUsersData(usersData);
+  };
 
+  const handlerEditUser = (user ,index) => {
+    setCurrentEditableUser(user)
+    setCurrentIndex(index)
+    setOpenEditForm(true)
+  };
   return (
     <div className="table-container">
       <nav className="table-nav">
@@ -102,7 +120,15 @@ const Users_table = () => {
                 <tr key={index}>
                   <td>{user.id}</td>
                   <td>{user.first_name}</td>
-                  <td>{user.last_name}</td>
+                  <td>
+                    {user.last_name}
+                    {/* <input
+                      type="text"
+                      name="name"
+                      // value={user.last_name}
+                      onChange={updateFieldChanged(user.id ,index )}
+                    /> */}
+                  </td>
                   <td className="gender-warper">
                     <div
                       className={`${
@@ -124,7 +150,10 @@ const Users_table = () => {
                   )}
                   {openEdit && (
                     <td>
-                      <i class="fa-solid fa-pen-to-square" ></i>
+                      <i
+                        class="fa-solid fa-pen-to-square"
+                        onClick={() => handlerEditUser(user ,index)}
+                      ></i>
                     </td>
                   )}
                 </tr>
@@ -147,6 +176,15 @@ const Users_table = () => {
           setOppen={setOpenAdd}
           userData={usersData}
           setUserData={setUsersData}
+        />
+      )}
+      {openEditForm && (
+        <EditUserForm
+          Editable_user={currentEditableUser}
+          setOppen={setOpenEditForm}
+          userData={usersData}
+          setUserData={setUsersData}
+          index={currentIndex}
         />
       )}
     </div>

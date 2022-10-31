@@ -330,3 +330,9 @@
     justify-content: center;
     align-items: center;
 }
+/*Edit User */
+.EditUser
+{
+    height: max-content;
+    padding-bottom: 6%;
+}
