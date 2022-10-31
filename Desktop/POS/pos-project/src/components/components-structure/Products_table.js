@@ -5,6 +5,7 @@ import Pagination from "./Reusable components/Pagination";
 import AddProductForm from "./Pop-Up/AddProductForm";
 import { DataContext } from "../../DataBase/DataContext";
 import Table_nav from "./Reusable components/Table_nav";
+import EditProductForm from "./Pop-Up/EditProductForm";
 
 const Products_table = () => {
   /*  Get the Data From DataContex */
@@ -18,9 +19,12 @@ const Products_table = () => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(4);
-   const [openAdd, setOpenAdd] = useState(false);
-   const [openRemove, setOpenRemove] = useState(false);
-   const [openEdit, setOpenEdit] = useState(false);
+  const [openAdd, setOpenAdd] = useState(false);
+  const [openRemove, setOpenRemove] = useState(false);
+  const [openEdit, setOpenEdit] = useState(false);
+  const [openEditForm, setOpenEditForm] = useState(false);
+  const [currentEditableProduct, setCurrentEditableProduct] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(false);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = productsData.slice(indexOfFirstPost, indexOfLastPost);
@@ -41,8 +45,8 @@ const Products_table = () => {
 
   const openAddModule = () => {
     setOpenAdd(true);
-     setOpenRemove(false);
-     setOpenEdit(false);
+    setOpenRemove(false);
+    setOpenEdit(false);
   };
   const openDeleteModule = () => {
     setOpenRemove(true);
@@ -51,6 +55,11 @@ const Products_table = () => {
   const openEditModule = () => {
     setOpenRemove(false);
     setOpenEdit(true);
+  };
+  const handlerEditUser = (product, index) => {
+    setCurrentEditableProduct(product);
+    setCurrentIndex(index);
+    setOpenEditForm(true);
   };
 
   /* Return The Component */
@@ -101,7 +110,7 @@ const Products_table = () => {
         </thead>
         <tbody>
           {(query.length > 2 ? search(productsData) : currentPosts).map(
-            (product) => (
+            (product, index) => (
               <tr key={product.id}>
                 <td>{product.id}</td>
                 <td>
@@ -118,6 +127,14 @@ const Products_table = () => {
                     ></i>
                   </td>
                 )}
+                {openEdit && (
+                  <td>
+                    <i
+                      class="fa-solid fa-pen-to-square"
+                      onClick={() => handlerEditUser(product, index)}
+                    ></i>
+                  </td>
+                )}
               </tr>
             )
           )}
@@ -131,6 +148,15 @@ const Products_table = () => {
       {openAdd && (
         <AddProductForm
           setOppen={setOpenAdd}
+          productsData={productsData}
+          setProductsData={setProductsData}
+        />
+      )}
+      {openEditForm && (
+        <EditProductForm
+          setOppen={setOpenEditForm}
+          Editable_product={currentEditableProduct}
+          index={currentIndex}
           productsData={productsData}
           setProductsData={setProductsData}
         />

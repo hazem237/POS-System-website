@@ -5,7 +5,13 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { DataContext } from "../../../DataBase/DataContext";
 
-const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
+const EditProductForm = ({
+  setOppen,
+  productsData,
+  setProductsData,
+  Editable_product,
+  index,
+}) => {
   const { categoriesData } = useContext(DataContext);
 
   /* Functions*/
@@ -15,11 +21,10 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
 
   const productForm = useFormik({
     initialValues: {
-      id: Math.floor(Math.random() * 1000 + 1),
-      title: "",
-      price: "",
-      category: "",
-      thumbnail: "",
+      title: Editable_product.title,
+      price: Editable_product.price,
+      category: Editable_product.category,
+      thumbnail: Editable_product.thumbnail,
     },
     validationSchema: Yup.object({
       title: Yup.string().required("Required"),
@@ -27,8 +32,13 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
       // categories: Yup.string().required("Required"),
       thumbnail: Yup.string().url().required("Required"),
     }),
-    onSubmit: () => {
-      
+    onSubmit: (value) => {
+      let newArr = [...productsData];
+      newArr[index].title = value.title;
+      newArr[index].price = value.price;
+      newArr[index].category = value.category;
+      newArr[index].thumbnail = value.thumbnail;
+      setProductsData(newArr);
       closeForm();
     },
   });
@@ -41,13 +51,13 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
         </div>
         <div className="title">
           <h2>
-            Add new Product <i className="fa-solid fa-box-open"></i>{" "}
+            Edit Product <i className="fa-solid fa-box-open"></i>{" "}
           </h2>
         </div>
         <div className="body">
           <form onSubmit={productForm.handleSubmit}>
             <div className="providerProductName">
-              <div >
+              <div>
                 <label>Product Name</label>
                 <input
                   type="text"
@@ -133,4 +143,4 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
   );
 };
 
-export default AddProductForm;
+export default EditProductForm;

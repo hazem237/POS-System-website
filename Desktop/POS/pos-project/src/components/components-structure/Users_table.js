@@ -20,7 +20,7 @@ const Users_table = () => {
   const [openEdit, setOpenEdit] = useState(false);
   const [openEditForm, setOpenEditForm] = useState(false);
   const [currentEditableUser, setCurrentEditableUser] = useState(null);
-  const[currentIndex , setCurrentIndex]=useState(false);
+  const [currentIndex, setCurrentIndex] = useState(false);
   const keys = ["first_name", "last_name", "phone", "Subscription_date"];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -38,7 +38,6 @@ const Users_table = () => {
   };
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
   const openAddModule = () => {
     setOpenAdd(true);
     setOpenRemove(false);
@@ -52,22 +51,13 @@ const Users_table = () => {
     setOpenRemove(false);
     setOpenEdit(true);
   };
-
   const isMale = (gender) => {
     return gender === "Male";
   };
-  const updateFieldChanged = (id, index) => (e) => {
-    console.log("index: " + id);
-    console.log("property name: " + e.target.id);
-    let newArr = [...usersData];
-    newArr[index].gender = e.target.value;
-    setUsersData(usersData);
-  };
-
-  const handlerEditUser = (user ,index) => {
-    setCurrentEditableUser(user)
-    setCurrentIndex(index)
-    setOpenEditForm(true)
+  const handlerEditUser = (user, index) => {
+    setCurrentEditableUser(user);
+    setCurrentIndex(index);
+    setOpenEditForm(true);
   };
   return (
     <div className="table-container">
@@ -122,12 +112,6 @@ const Users_table = () => {
                   <td>{user.first_name}</td>
                   <td>
                     {user.last_name}
-                    {/* <input
-                      type="text"
-                      name="name"
-                      // value={user.last_name}
-                      onChange={updateFieldChanged(user.id ,index )}
-                    /> */}
                   </td>
                   <td className="gender-warper">
                     <div
@@ -139,7 +123,7 @@ const Users_table = () => {
                     </div>
                   </td>
                   <td>{user.Subscription_date}</td>
-                  <td>{user.discount_percentage}</td>
+                  <td>{user.discount_percentage} %</td>
                   {openRemove && (
                     <td>
                       <i
@@ -152,7 +136,7 @@ const Users_table = () => {
                     <td>
                       <i
                         class="fa-solid fa-pen-to-square"
-                        onClick={() => handlerEditUser(user ,index)}
+                        onClick={() => handlerEditUser(user, index)}
                       ></i>
                     </td>
                   )}
