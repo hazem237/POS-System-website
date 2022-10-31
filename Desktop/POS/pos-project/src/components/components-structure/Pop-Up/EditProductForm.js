@@ -29,7 +29,6 @@ const EditProductForm = ({
     validationSchema: Yup.object({
       title: Yup.string().required("Required"),
       price: Yup.number().required("Required"),
-      // categories: Yup.string().required("Required"),
       thumbnail: Yup.string().url().required("Required"),
     }),
     onSubmit: (value) => {
@@ -123,12 +122,11 @@ const EditProductForm = ({
             <div className="button-container">
               <Button
                 typeButton="submit"
-                text="Add"
+                text="Save"
                 buttonStyle="btn--outline add"
                 buttonSize="btn--medium "
                 // onClick={() => handleSubmit()}
               />
-
               <Button
                 text="Cancel"
                 buttonStyle="btn--outline cancel"

@@ -4,6 +4,7 @@ import Pagination from "./Reusable components/Pagination";
 import AddCategoryForm from "./Pop-Up/AddCategoryForm";
 import { DataContext } from "../../DataBase/DataContext";
 import Table_nav from "./Reusable components/Table_nav";
+import EditCategoryForm from "./Pop-Up/EditCategoryForm";
 
 const Categories_table = () => {
   /* Get Categories from DataContex */
@@ -19,6 +20,9 @@ const Categories_table = () => {
   const [openRemove, setOpenRemove] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const keys = ["category"];
+  const [openEditForm, setOpenEditForm] = useState(false);
+  const [currentEditableCategory, setCurrentEditableCategory] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(false);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = categoriesData.slice(indexOfFirstPost, indexOfLastPost);
@@ -27,7 +31,6 @@ const Categories_table = () => {
 
   const removeCategories = (category) => {
     setCategoriesData(categoriesData.filter((c) => c.category !== category));
-    localStorage.setItem("categories", JSON.stringify(categoriesData));
   };
 
   const search = (data) => {
@@ -47,6 +50,11 @@ const Categories_table = () => {
   const openEditModule = () => {
     setOpenRemove(false);
     setOpenEdit(true);
+  };
+  const handlerEditCategory = (category, index) => {
+    setCurrentEditableCategory(category);
+    setCurrentIndex(index);
+    setOpenEditForm(true);
   };
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -96,7 +104,7 @@ const Categories_table = () => {
         <tbody>
           {categoriesData.length != 0 ? (
             (query.length > 2 ? search(categoriesData) : currentPosts).map(
-              (category) => (
+              (category, index) => (
                 <tr>
                   <td>{category.category}</td>
                   <td>
@@ -112,7 +120,10 @@ const Categories_table = () => {
                   )}
                   {openEdit && (
                     <td>
-                      <i class="fa-solid fa-pen-to-square"></i>
+                      <i
+                        class="fa-solid fa-pen-to-square"
+                        onClick={() => handlerEditCategory(category, index)}
+                      ></i>
                     </td>
                   )}
                 </tr>
@@ -136,6 +147,15 @@ const Categories_table = () => {
           setOppen={setOpenAdd}
           categoriesData={categoriesData}
           setCategoriesData={setCategoriesData}
+        />
+      )}
+      {openEditForm && (
+        <EditCategoryForm
+          setOppen={setOpenEditForm}
+          categoriesData={categoriesData}
+          setCategoriesData={setCategoriesData}
+          Editable_category={currentEditableCategory}
+          index={currentIndex}
         />
       )}
     </div>

@@ -56,7 +56,7 @@ const Products_table = () => {
     setOpenRemove(false);
     setOpenEdit(true);
   };
-  const handlerEditUser = (product, index) => {
+  const handlerEditProduct = (product, index) => {
     setCurrentEditableProduct(product);
     setCurrentIndex(index);
     setOpenEditForm(true);
@@ -131,7 +131,7 @@ const Products_table = () => {
                   <td>
                     <i
                       class="fa-solid fa-pen-to-square"
-                      onClick={() => handlerEditUser(product, index)}
+                      onClick={() => handlerEditProduct(product, index)}
                     ></i>
                   </td>
                 )}

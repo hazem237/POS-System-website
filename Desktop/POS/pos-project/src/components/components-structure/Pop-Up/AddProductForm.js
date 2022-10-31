@@ -27,8 +27,8 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
       // categories: Yup.string().required("Required"),
       thumbnail: Yup.string().url().required("Required"),
     }),
-    onSubmit: () => {
-      
+    onSubmit: (value) => {
+       setProductsData([...productsData, value]);
       closeForm();
     },
   });
