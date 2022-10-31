@@ -4,6 +4,7 @@ import { Button } from "./Reusable components/Button";
 import Pagination from "./Reusable components/Pagination";
 import AddProductForm from "./Pop-Up/AddProductForm";
 import { DataContext } from "../../DataBase/DataContext";
+import Table_nav from "./Reusable components/Table_nav";
 
 const Products_table = () => {
   /*  Get the Data From DataContex */
@@ -45,24 +46,7 @@ const Products_table = () => {
   return (
     <div className="table-container">
       <nav className="table-nav">
-        <div className="table-nav-buttons-container">
-          <Button
-            text="Add"
-            buttonStyle="btn--outline add"
-            buttonSize="btn--small"
-            onClick={() => openAddModule()}
-          />
-          <Button
-            text="Delete "
-            buttonStyle="btn--outline"
-            buttonSize="but--small"
-          />
-          <Button
-            text="Edit "
-            buttonStyle="btn--outline"
-            buttonSize="but--small"
-          />
-        </div>
+        <Table_nav addButtonHandler={openAddModule} />
         <div className="search-div-container">
           <input
             type="text"
@@ -95,7 +79,10 @@ const Products_table = () => {
                 <td>{product.category}</td>
                 <td>{product.price}</td>
                 <td>
-                  <i className="fa-solid fa-xmark delete-icon"></i>
+                  <i
+                    className="fa-solid fa-xmark delete-icon"
+                    onClick={() => removeProduct(product.id)}
+                  ></i>
                 </td>
               </tr>
             )

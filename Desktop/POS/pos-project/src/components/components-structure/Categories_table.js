@@ -1,9 +1,9 @@
 import "../components-style/Table.css";
-import { useState, useEffect, useContext } from "react";
-import { Button } from "./Reusable components/Button";
+import { useState, useContext } from "react";
 import Pagination from "./Reusable components/Pagination";
 import AddCategoryForm from "./Pop-Up/AddCategoryForm";
 import { DataContext } from "../../DataBase/DataContext";
+import Table_nav from "./Reusable components/Table_nav";
 
 const Categories_table = () => {
   /* Get Categories from DataContex */
@@ -33,6 +33,9 @@ const Categories_table = () => {
       keys.some((key) => item[key].toLowerCase().includes(query))
     );
   };
+  const openAddModule = () => {
+    setOpenForm(true);
+  };
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -41,24 +44,7 @@ const Categories_table = () => {
   return (
     <div className="table-container">
       <nav className="table-nav">
-        <div className="table-nav-buttons-container">
-          <Button
-            text="Add"
-            buttonStyle="btn--outline add"
-            buttonSize="btn--small"
-            onClick={() => setOpenForm(true)}
-          />
-          <Button
-            text="Delete "
-            buttonStyle="btn--outline add"
-            buttonSize="but--small"
-          />
-          <Button
-            text="Edit "
-            buttonStyle="btn--outline"
-            buttonSize="but--small"
-          />
-        </div>
+        <Table_nav addButtonHandler={openAddModule} />
         <div className="search-div-container">
           <input
             type="text"

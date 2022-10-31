@@ -8,6 +8,7 @@ export const Button = ({
   buttonStyle,
   buttonSize,
   disable,
+  icon
 }) => {
   return (
     <button
@@ -16,7 +17,7 @@ export const Button = ({
       type={typeButton}
       disabled={disable}
     >
-      {text}
+      {text} {icon}
     </button>
   );
 };

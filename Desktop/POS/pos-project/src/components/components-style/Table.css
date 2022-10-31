@@ -1,5 +1,27 @@
-.table-container {
+/* General CSS For Whole Table*/
+table,
+th,
+td {
+    border: 1px solid rgba(128, 128, 128, 0.315);
+    border-collapse: collapse;
+    width: 888px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+}
 
+thead {
+    background-color: rgb(196, 195, 195);
+    height: 35px;
+    border: none;
+}
+
+img {
+    width: 100px;
+    object-fit: fill;
+}
+
+.table-container {
     width: 80%;
     margin-left: 16%;
     height: 100%;
@@ -10,39 +32,7 @@
     padding: 15px;
 }
 
-table,
-th,
-td {
-    border: 1px solid rgba(128, 128, 128, 0.315);
-    border-collapse: collapse;
-    width: 888px;
-    text-align: center;
-    padding: 5px;
-}
-
-thead {
-    background-color: rgb(196, 195, 195);
-    height: 35px;
-}
-
-img {
-    width: 100px;
-    object-fit: fill;
-}
-
-.search {
-
-    background-position: 10px center;
-    background-repeat: no-repeat;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px 5px 10px 20px;
-    text-indent: 20px;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 2s;
-    transition: all 0.2s;
-    width: 100%;
-}
+/* Pagination Part */
 
 .pagination-container {
     display: flex;
@@ -50,6 +40,7 @@ img {
     justify-content: center;
     list-style: none;
     margin: 3px 3px 3px 3px;
+    margin-top: 15px;
 }
 
 .pagination-container>button {
@@ -58,11 +49,12 @@ img {
     border-radius: 3px;
     border: none;
     cursor: pointer;
-    background-color: rgba(146, 146, 146, 0.466);
+    background-color: rgb(196, 195, 195);
 }
 
 .pagination-container>button:hover {
-    background-color: rgb(160, 159, 159);
+    background-color: transparent;
+    border: 1px solid black;
 }
 
 .pagination {
@@ -71,30 +63,80 @@ img {
     justify-content: center;
 }
 
+/* Table Nav Part */
+
 .table-nav {
-    width: 90%;
+    width: 870px;
     height: 100px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 15px;
-  
 }
 
-.table-nav-buttons-container {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
+.search {
+    background-position: 10px center;
+    background-repeat: no-repeat;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px 5px 10px 20px;
+    text-indent: 20px;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 2s;
+    transition: all 0.2s;
+    width: 100%;
 }
 
 .search-div-container {
-
     width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.table-nav-buttons-container {
+    height: max-content;
+    width: max-content;
+}
+
+.table-nav-buttons-container>button {
+    margin-right: 9px;
+    color: black;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.table-nav-buttons-container>button:first-child {
+    background-color: rgba(47, 151, 47, 0.425);
+}
+
+.table-nav-buttons-container>button:nth-child(2) {
+    background-color: rgba(245, 50, 50, 0.438);
+}
+
+.table-nav-buttons-container>button:nth-child(3) {
+    background-color: rgba(119, 120, 121, 0.281);
+}
+
+.table-nav-buttons-container>button:first-child:hover {
+    background-color: transparent;
+    color: green;
+    border: 1px solid green;
+}
+
+.table-nav-buttons-container>button:nth-child(2):hover {
+    background-color: transparent;
+    color: red;
+    border: 1px solid red;
+}
+
+.table-nav-buttons-container>button:nth-child(3):hover {
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+}
+
+/* Some Details */
 
 .gender-warper {
     display: flex;
