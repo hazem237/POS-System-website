@@ -1,11 +1,10 @@
-import "../components-style/Table.css";
-import { useState, useEffect, useContext } from "react";
-import { Button } from "./Reusable components/Button";
-import Pagination from "./Reusable components/Pagination";
-import AddProductForm from "./Pop-Up/AddProductForm";
-import { DataContext } from "../../DataBase/DataContext";
-import Table_nav from "./Reusable components/Table_nav";
-import EditProductForm from "./Pop-Up/EditProductForm";
+import "../../../components-style/Table.css";
+import { useState, useContext } from "react";
+import Pagination from "../../Reusable components/Pagination";
+import AddProductForm from "../../Pop-Up/AddProductForm";
+import { DataContext } from "../../../../DataBase/DataContext";
+import Table_nav from "../../Reusable components/TableNav";
+import EditProductForm from "../../Pop-Up/EditProductForm";
 
 const Products_table = () => {
   /*  Get the Data From DataContex */
@@ -134,7 +133,9 @@ const Products_table = () => {
                       onClick={() =>
                         handlerEditProduct(
                           product,
-                          productsData.findIndex(p => p.title === product.title)
+                          productsData.findIndex(
+                            (p) => p.title === product.title
+                          )
                         )
                       }
                     ></i>

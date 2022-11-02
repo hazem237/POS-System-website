@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import { DataContext } from "../../DataBase/DataContext";
-import "../components-style/Products_Gallery.css";
-import { Button } from "./Reusable components/Button";
-import Pagination from "./Reusable components/Pagination";
-import POS_Gallery from "./POS_Gallery";
+import { DataContext } from "../../../../DataBase/DataContext";
+import "../../../components-style/Products_Gallery.css";
+import { Button } from "../../Reusable components/Button";
+import Pagination from "../../Reusable components/Pagination";
+import POSGallery from "./POSGallery"
 
 const ProductsGallery = () => {
   /* The Required Data */
@@ -240,7 +240,7 @@ const ProductsGallery = () => {
       {/* Ends of Gallery Bar , Stating with POS Bar  */}
 
       <div className="POS-operator">
-        <POS_Gallery
+        <POSGallery
           clickedProduct={dataRiver}
           setClickProduct={setDataRiver}
         />

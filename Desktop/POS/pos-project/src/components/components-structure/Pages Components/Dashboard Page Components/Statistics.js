@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import { DataContext } from "../../DataBase/DataContext";
-import "../components-style/Statistics.css";
+import { DataContext } from "../../../../DataBase/DataContext";
+import "../../../components-style/Statistics.css";
 
 const Statistics = () => {
   const [buttonWelcome, setButtonWelcome] = useState(true);

@@ -1,16 +1,14 @@
-import React from 'react'
-import Products_Gallery from '../components/components-structure/Products_Gallery'
-
-import Navbar from '../components/components-structure/Reusable components/NavBar'
+import React from "react";
+import ProductsGallery from "../components/components-structure/Pages Components/POS Page Components/ProductsGallery";
+import Navbar from "../components/components-structure/Reusable components/NavBar";
 
 const POS = () => {
-   
   return (
-    <div className='Pos-page'>
+    <div className="Pos-page">
       <Navbar />
-      <Products_Gallery/>
-    </ div>
-  )
-}
+      <ProductsGallery />
+    </div>
+  );
+};
 
-export default POS
+export default POS;

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import { DataContext } from "../../DataBase/DataContext";
-import { Button } from "./Reusable components/Button";
-import OpenCart from "../../components/components-structure/Pop-Up/OpenCart";
+import { DataContext } from "../../../../DataBase/DataContext";
+import { Button } from "../../Reusable components/Button";
+import OpenCart from "../../Pop-Up/OpenCart"
 
 const POS_Gallery = ({ clickedProduct, setClickProduct }) => {
   const { usersData } = useContext(DataContext);
@@ -58,7 +58,11 @@ const POS_Gallery = ({ clickedProduct, setClickProduct }) => {
           </p>
 
           <div className="money-numbers">
-            {clickedProduct.reduce((acc, curr) => acc + curr.price * curr.quantity, 0)} $
+            {clickedProduct.reduce(
+              (acc, curr) => acc + curr.price * curr.quantity,
+              0
+            )}{" "}
+            $
           </div>
           <div className="cart-slider">
             <i

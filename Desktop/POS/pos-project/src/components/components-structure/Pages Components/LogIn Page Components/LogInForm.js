@@ -1,15 +1,10 @@
-import React, { useState } from "react";
-import { Button } from "./Reusable components/Button";
+import { Button } from "../../Reusable components/Button";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import "../components-style/LogIn_Form.css";
+import "../../../components-style/LogIn_Form.css"
 import { Link } from "react-router-dom";
 
 const LogIn_Form = () => {
-  const [defaultEmail, setDefaultEmail] = useState("hazem-pos@gmail.com");
-  const [defaultPassword, setDefualtPassword] = useState("123123");
-  const [success, setSuccess] = useState(false);
-
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -17,16 +12,12 @@ const LogIn_Form = () => {
     },
     validationSchema: Yup.object({
       email: Yup.string().email().required("Required"),
-      // password:Yup.required("Required"),
     }),
     onSubmit: (value) => {
-      value.email === defaultEmail && value.password === defaultPassword
-        ? setSuccess(true)
-        : setSuccess(false);
+      Link.call("/test");
     },
   });
 
-  console.log(formik.values);
   return (
     <form className="login-form" onSubmit={formik.handleSubmit}>
       {/* {success ? <a href="/dashboard">Go to Home</a> : null} */}
@@ -63,7 +54,6 @@ const LogIn_Form = () => {
             text="log in"
             type="submit"
             buttonStyle="btn--form"
-            // onClick={() => alert(`${formik.values.email}`)}
             buttonSize="btn--large"
           />
         </Link>

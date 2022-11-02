@@ -1,33 +1,36 @@
-import "../components-style/Table.css";
+import "../../../components-style/Table.css";
 import { useState, useContext } from "react";
-import Pagination from "./Reusable components/Pagination";
-import AddUserForm from "./Pop-Up/AddUserForm";
-import { DataContext } from "../../DataBase/DataContext";
-import Table_nav from "./Reusable components/Table_nav";
-import EditUserForm from "./Pop-Up/EditUserForm";
+import Pagination from "../../Reusable components/Pagination";
+import AddCategoryForm from "../../Pop-Up/AddCategoryForm";
+import { DataContext } from "../../../../DataBase/DataContext";
+import Table_nav from "../../Reusable components/TableNav";
+import EditCategoryForm from "../../Pop-Up/EditCategoryForm";
 
-const Users_table = () => {
-  /*  Get the Data From DataContext */
-  const { usersData, setUsersData } = useContext(DataContext);
+const Categories_table = () => {
+  /* Get Categories from DataContex */
 
-  /* Variables used by Users Table */
+  const { categoriesData, setCategoriesData } = useContext(DataContext);
+
+  /* The Variables used By Category Table */
+
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(5);
+  const [postsPerPage] = useState(4);
   const [openAdd, setOpenAdd] = useState(false);
   const [openRemove, setOpenRemove] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
+  const keys = ["category"];
   const [openEditForm, setOpenEditForm] = useState(false);
-  const [currentEditableUser, setCurrentEditableUser] = useState(null);
+  const [currentEditableCategory, setCurrentEditableCategory] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(false);
-  const keys = ["first_name", "last_name", "phone", "Subscription_date"];
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = usersData.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPosts = categoriesData.slice(indexOfFirstPost, indexOfLastPost);
 
   /* Functions  */
-  const removeUser = (id) => {
-    setUsersData(usersData.filter((user) => user.id !== id));
+
+  const removeCategories = (category) => {
+    setCategoriesData(categoriesData.filter((c) => c.category !== category));
   };
 
   const search = (data) => {
@@ -35,9 +38,6 @@ const Users_table = () => {
       keys.some((key) => item[key].toLowerCase().includes(query))
     );
   };
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
   const openAddModule = () => {
     setOpenAdd(true);
     setOpenRemove(false);
@@ -51,14 +51,16 @@ const Users_table = () => {
     setOpenRemove(false);
     setOpenEdit(true);
   };
-  const isMale = (gender) => {
-    return gender === "Male";
-  };
-  const handlerEditUser = (user, index) => {
-    setCurrentEditableUser(user);
+  const handlerEditCategory = (category, index) => {
+    setCurrentEditableCategory(category);
     setCurrentIndex(index);
     setOpenEditForm(true);
   };
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  /* Return The Component */
+
   return (
     <div className="table-container">
       <nav className="table-nav">
@@ -79,12 +81,8 @@ const Users_table = () => {
       <table>
         <thead>
           <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Gender</th>
-            <th>Subscription Date</th>
-            <th>Discount percentage</th>
+            <th>Category</th>
+            <th>Image</th>
             {openRemove && (
               <th>
                 <i
@@ -104,29 +102,19 @@ const Users_table = () => {
           </tr>
         </thead>
         <tbody>
-          {usersData.length != 0 ? (
-            (query.length > 2 ? search(usersData) : currentPosts).map(
-              (user, index) => (
-                <tr key={index}>
-                  <td>{user.id}</td>
-                  <td>{user.first_name}</td>
-                  <td>{user.last_name}</td>
-                  <td className="gender-warper">
-                    <div
-                      className={`${
-                        isMale(user.gender) ? "male-blue" : "female-pink"
-                      }`}
-                    >
-                      {user.gender}
-                    </div>
+          {categoriesData.length != 0 ? (
+            (query.length > 2 ? search(categoriesData) : currentPosts).map(
+              (category, index) => (
+                <tr>
+                  <td>{category.category}</td>
+                  <td>
+                    <img src={category.image} />
                   </td>
-                  <td>{user.Subscription_date}</td>
-                  <td>{user.discount_percentage} %</td>
                   {openRemove && (
                     <td>
                       <i
                         className="fa-solid fa-xmark delete-icon"
-                        onClick={() => removeUser(user.id)}
+                        onClick={() => removeCategories(category.category)}
                       ></i>
                     </td>
                   )}
@@ -135,9 +123,11 @@ const Users_table = () => {
                       <i
                         class="fa-solid fa-pen-to-square"
                         onClick={() =>
-                          handlerEditUser(
-                            user,
-                            usersData.findIndex((u) => u.id === user.id)
+                          handlerEditCategory(
+                            category,
+                            categoriesData.findIndex(
+                              (c) => c.category === category.category
+                            )
                           )
                         }
                       ></i>
@@ -148,29 +138,30 @@ const Users_table = () => {
             )
           ) : (
             <tr>
-              <td colSpan="6"> No Users</td>
+              <td colSpan="3">No Categories</td>
             </tr>
           )}
         </tbody>
       </table>
       <Pagination
         postsPerPage={postsPerPage}
-        totalPosts={usersData.length}
+        totalPosts={categoriesData.length}
         paginate={paginate}
       />
+
       {openAdd && (
-        <AddUserForm
+        <AddCategoryForm
           setOppen={setOpenAdd}
-          userData={usersData}
-          setUserData={setUsersData}
+          categoriesData={categoriesData}
+          setCategoriesData={setCategoriesData}
         />
       )}
       {openEditForm && (
-        <EditUserForm
-          Editable_user={currentEditableUser}
+        <EditCategoryForm
           setOppen={setOpenEditForm}
-          userData={usersData}
-          setUserData={setUsersData}
+          categoriesData={categoriesData}
+          setCategoriesData={setCategoriesData}
+          Editable_category={currentEditableCategory}
           index={currentIndex}
         />
       )}
@@ -178,4 +169,4 @@ const Users_table = () => {
   );
 };
 
-export default Users_table;
+export default Categories_table;

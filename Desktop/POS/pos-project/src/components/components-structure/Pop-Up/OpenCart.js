@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import "../../components-style/Add_Form.css";
+import "../../components-style/Form.css";
 import { Button } from "../Reusable components/Button";
 import Pagination from "../Reusable components/Pagination";
 

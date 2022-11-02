@@ -1,14 +1,14 @@
-import React from 'react'
-import LogIn_Form from "../components/components-structure/LogIn_Form";
-import Logo_header from '../components/components-structure/Reusable components/Logo_header';
+import React from "react";
+import LogIn_Form from "../components/components-structure/Pages Components/LogIn Page Components/LogInForm";
+import Logo_header from "../components/components-structure/Reusable components/LogoHeader";
 
-const LogIn= () => {
+const LogIn = () => {
   return (
     <div className="LogIn-page">
-      <Logo_header/>
+      <Logo_header />
       <LogIn_Form />
     </div>
   );
-}
+};
 
-export default LogIn
+export default LogIn;

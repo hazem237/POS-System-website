@@ -1,12 +1,12 @@
 import React from "react";
-import Categories_table from "../components/components-structure/Categories_table";
+import Categories_Table from "../components/components-structure/Pages Components/Categories Page Components/CategoriesTable"
 import Navbar from "../components/components-structure/Reusable components/NavBar";
 
 const Categories = ({ categoriesData }) => {
   return (
     <div className="Categories-page">
       <Navbar />
-      <Categories_table categoriesData={categoriesData} />
+      <Categories_Table categoriesData={categoriesData} />
     </div>
   );
 };

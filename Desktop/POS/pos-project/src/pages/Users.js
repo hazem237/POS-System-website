@@ -1,10 +1,8 @@
 import React from "react";
-import Users_table from "../../src/components/components-structure/Users_table";
+import Users_table from "../components/components-structure/Pages Components/Users Page Components/UsersTable";
 import Navbar from "../components/components-structure/Reusable components/NavBar";
 
-const Users = ({userData}) => {
-
-
+const Users = ({ userData }) => {
   return (
     <div className="User-page">
       <Navbar />
