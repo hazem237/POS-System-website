@@ -131,7 +131,12 @@ const Products_table = () => {
                   <td>
                     <i
                       class="fa-solid fa-pen-to-square"
-                      onClick={() => handlerEditProduct(product, index)}
+                      onClick={() =>
+                        handlerEditProduct(
+                          product,
+                          productsData.findIndex(p => p.title === product.title)
+                        )
+                      }
                     ></i>
                   </td>
                 )}

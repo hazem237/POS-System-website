@@ -122,7 +122,14 @@ const Categories_table = () => {
                     <td>
                       <i
                         class="fa-solid fa-pen-to-square"
-                        onClick={() => handlerEditCategory(category, index)}
+                        onClick={() =>
+                          handlerEditCategory(
+                            category,
+                            categoriesData.findIndex(
+                              (c) => c.category === category.category
+                            )
+                          )
+                        }
                       ></i>
                     </td>
                   )}

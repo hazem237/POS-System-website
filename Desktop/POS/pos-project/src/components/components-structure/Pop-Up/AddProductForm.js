@@ -20,6 +20,7 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
       price: "",
       category: "",
       thumbnail: "",
+      quantity: 1,
     },
     validationSchema: Yup.object({
       title: Yup.string().required("Required"),
@@ -28,7 +29,7 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
       thumbnail: Yup.string().url().required("Required"),
     }),
     onSubmit: (value) => {
-       setProductsData([...productsData, value]);
+      setProductsData([...productsData, value]);
       closeForm();
     },
   });

@@ -58,7 +58,7 @@ const POS_Gallery = ({ clickedProduct, setClickProduct }) => {
           </p>
 
           <div className="money-numbers">
-            {clickedProduct.reduce((acc, curr) => acc + curr.price, 0)} $
+            {clickedProduct.reduce((acc, curr) => acc + curr.price * curr.quantity, 0)} $
           </div>
           <div className="cart-slider">
             <i

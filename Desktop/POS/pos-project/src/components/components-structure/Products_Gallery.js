@@ -69,8 +69,16 @@ const ProductsGallery = () => {
     setOpenCategoryWindow(true);
     setOpenCustomProductWindow(false);
   };
-  const handlerProductClick = (productObject) => {
-    setDataRiver([...dataRiver, productObject]);
+  const handlerProductClick = (productObject, index) => {
+    if (dataRiver.includes(productObject)) {
+      let newArr = [...dataRiver];
+      newArr[dataRiver.indexOf(dataRiver.find((p) => p === productObject))]
+        .quantity++;
+      setDataRiver(newArr);
+    } else {
+      setDataRiver([...dataRiver, productObject]);
+    }
+    // console.log(productObject);
   };
   const searchForProduct = (data) => {
     return data.filter((item) =>
@@ -142,7 +150,7 @@ const ProductsGallery = () => {
                 <img src={product.thumbnail} className="gallery-img" />
                 <div
                   className="overlay"
-                  onClick={() => handlerProductClick(product)}
+                  onClick={() => handlerProductClick(product, index)}
                 >
                   <div className="content">
                     <h3>{product.title}</h3>

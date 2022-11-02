@@ -10,12 +10,6 @@ import FetchedData from "./DataBase/FetchedData";
 import { DataContext } from "./DataBase/DataContext";
 
 function App() {
-  /* Making The Data a global for all pages Using LS*/
-
-  // localStorage.setItem("categories", JSON.stringify(categories));
-  // localStorage.setItem("users", JSON.stringify(users));
-  // localStorage.setItem("products", JSON.stringify(products));
-
   return (
     <>
       <Router>

@@ -1,6 +1,5 @@
 import "../components-style/Table.css";
-import { Button } from "./Reusable components/Button";
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import Pagination from "./Reusable components/Pagination";
 import AddUserForm from "./Pop-Up/AddUserForm";
 import { DataContext } from "../../DataBase/DataContext";
@@ -38,6 +37,7 @@ const Users_table = () => {
   };
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   const openAddModule = () => {
     setOpenAdd(true);
     setOpenRemove(false);
@@ -110,9 +110,7 @@ const Users_table = () => {
                 <tr key={index}>
                   <td>{user.id}</td>
                   <td>{user.first_name}</td>
-                  <td>
-                    {user.last_name}
-                  </td>
+                  <td>{user.last_name}</td>
                   <td className="gender-warper">
                     <div
                       className={`${
@@ -136,7 +134,12 @@ const Users_table = () => {
                     <td>
                       <i
                         class="fa-solid fa-pen-to-square"
-                        onClick={() => handlerEditUser(user, index)}
+                        onClick={() =>
+                          handlerEditUser(
+                            user,
+                            usersData.findIndex((u) => u.id === user.id)
+                          )
+                        }
                       ></i>
                     </td>
                   )}

@@ -10,7 +10,7 @@ const AddUserForm = ({ setOppen, userData, setUserData }) => {
   };
   const userForm = useFormik({
     initialValues: {
-      id:Math.floor(Math.random() * 1000 + 1),
+      id: Math.floor(Math.random() * 1000 + 1),
       first_name: "",
       last_name: "",
       phone: "",
@@ -32,7 +32,7 @@ const AddUserForm = ({ setOppen, userData, setUserData }) => {
       closeForm();
     },
   });
-
+  console.log(userForm.values);
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -121,31 +121,16 @@ const AddUserForm = ({ setOppen, userData, setUserData }) => {
               <div className="percentage">%</div>
             </div>
             <div className="providerUserGender">
-              <div className="male">
-                <input
-                  type="radio"
-                  id="gender"
-                  name="gender"
-                  className="login-input"
-                  onChange={userForm.handleChange}
-                  onBlur={userForm.handleBlur}
-                  value={userForm.values.gender}
-                />
-
-                <label>Male</label>
-              </div>
-              <div className="female">
-                <input
-                  type="radio"
-                  id="gender"
-                  name="gender"
-                  className="login-input"
-                  onChange={userForm.handleChange}
-                  onBlur={userForm.handleBlur}
-                  value={userForm.values.gender}
-                />
-                <label>Female</label>
-              </div>
+              <select
+                id="gender"
+                name="gender"
+                onChange={userForm.handleChange}
+                onBlur={userForm.handleBlur}
+                value={userForm.values.gender}
+              >
+                <option>Male</option>
+                <option>Female</option>
+              </select>
             </div>
             <div className="button-container">
               <Button

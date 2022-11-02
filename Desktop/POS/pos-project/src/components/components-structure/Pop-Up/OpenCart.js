@@ -11,7 +11,6 @@ const OpenCart = ({
   productCost,
 }) => {
   const quantityArray = Array(clickedProduct.length).fill(1);
-  const [test, setTest] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5);
   const indexOfLastPost = currentPage * postsPerPage;
@@ -26,13 +25,21 @@ const OpenCart = ({
     setClickProduct([]);
   };
   const handlerPlusClick = (index) => {
-    const a = test + 1;
-    setTest(a);
+    let newArr = [...clickedProduct];
+    newArr[index].quantity++;
+    setClickProduct(newArr);
   };
-  const getQuantity = (index) => {
-    return quantityArray[index];
+  const handlerSubtractClick = (product, index) => {
+    if (clickedProduct[index].quantity === 1) {
+      handlerDeleteProduct(product.id, product.price);
+    }
+    let newArr = [...clickedProduct];
+    newArr[index].quantity--;
+    setClickProduct(newArr);
   };
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  console.log(clickedProduct);
   return (
     <div className="modalBackgroundCart">
       <div className="modalContainer modalCartContainer">
@@ -54,7 +61,11 @@ const OpenCart = ({
               <p>Cart Size : {clickedProduct.length}</p>
               <p>
                 Cart Bill :{" "}
-                {clickedProduct.reduce((acc, curr) => acc + curr.price, 0)} $
+                {clickedProduct.reduce(
+                  (acc, curr) => acc + curr.price * curr.quantity,
+                  0
+                )}{" "}
+                $
               </p>
             </div>
             <Button
@@ -79,13 +90,16 @@ const OpenCart = ({
                   ></i>
                 </div>
                 <div className="quantity-container">
-                  <Button text="-" />
-                  <p>{test}</p>
+                  <Button
+                    text="-"
+                    onClick={() => handlerSubtractClick(product, index)}
+                  />
+                  <p>{product.quantity}</p>
                   <Button text="+" onClick={() => handlerPlusClick(index)} />
                 </div>
                 <div className="product-price-container">
                   {" "}
-                  {product.price * test} $
+                  {product.price * product.quantity} $
                 </div>
                 <div className="product-name-container">{product.title}</div>
               </div>
