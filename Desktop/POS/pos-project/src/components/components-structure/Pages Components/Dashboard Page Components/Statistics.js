@@ -3,6 +3,7 @@ import { DataContext } from "../../../../DataBase/DataContext";
 import "../../../components-style/Statistics.css";
 
 const Statistics = () => {
+  /* Get The whole Data Using Context to present it's Statistics   */
   const { usersData, productsData, categoriesData } = useContext(DataContext);
   const [buttonWelcome, setButtonWelcome] = useState(true);
 

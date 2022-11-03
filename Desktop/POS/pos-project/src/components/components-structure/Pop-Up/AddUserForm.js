@@ -4,9 +4,9 @@ import { Button } from "../Reusable components/Button";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-const AddUserForm = ({ setOppen, userData, setUserData }) => {
+const AddUserForm = ({ setOpen, userData, setUserData }) => {
   const closeForm = () => {
-    setOppen(false);
+    setOpen(false);
   };
   const userForm = useFormik({
     initialValues: {

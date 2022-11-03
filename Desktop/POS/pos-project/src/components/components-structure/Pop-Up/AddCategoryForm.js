@@ -4,7 +4,7 @@ import { Button } from "../Reusable components/Button";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-const AddCategoryForm = ({ setOppen, categoriesData, setCategoriesData }) => {
+const AddCategoryForm = ({ setOpen, categoriesData, setCategoriesData }) => {
  
   const categoryForm = useFormik({
     initialValues: {
@@ -19,7 +19,7 @@ const AddCategoryForm = ({ setOppen, categoriesData, setCategoriesData }) => {
     }),
     onSubmit: (value) => {
       setCategoriesData([...categoriesData, value]);
-      setOppen(false)
+      setOpen(false)
     },
   });
 
@@ -27,7 +27,7 @@ const AddCategoryForm = ({ setOppen, categoriesData, setCategoriesData }) => {
     <div className="modalBackground">
       <div className="modalContainer modalCategoryContainer">
         <div className="titleCloseBtn ">
-          <Button text="X" onClick={() => setOppen(false)} />
+          <Button text="X" onClick={() => setOpen(false)} />
         </div>
         <div className="title">
           <h2>
@@ -82,7 +82,7 @@ const AddCategoryForm = ({ setOppen, categoriesData, setCategoriesData }) => {
                 text="Cancel"
                 buttonStyle="btn--outline cancel"
                 buttonSize="btn--medium"
-                onClick={() => setOppen(false)}
+                onClick={() => setOpen(false)}
               />
             </div>
           </form>

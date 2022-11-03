@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { DataContext } from "../../../DataBase/DataContext";
 
 const EditProductForm = ({
-  setOppen,
+  setOpen,
   productsData,
   setProductsData,
   Editable_product,
@@ -16,7 +16,7 @@ const EditProductForm = ({
 
   /* Functions*/
   const closeForm = () => {
-    setOppen(false);
+    setOpen(false);
   };
 
   const productForm = useFormik({

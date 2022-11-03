@@ -5,12 +5,12 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { DataContext } from "../../../DataBase/DataContext";
 
-const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
+const AddProductForm = ({ setOpen, productsData, setProductsData }) => {
   const { categoriesData } = useContext(DataContext);
 
   /* Functions*/
   const closeForm = () => {
-    setOppen(false);
+    setOpen(false);
   };
 
   const productForm = useFormik({
@@ -48,7 +48,7 @@ const AddProductForm = ({ setOppen, productsData, setProductsData }) => {
         <div className="body">
           <form onSubmit={productForm.handleSubmit}>
             <div className="providerProductName">
-              <div >
+              <div>
                 <label>Product Name</label>
                 <input
                   type="text"

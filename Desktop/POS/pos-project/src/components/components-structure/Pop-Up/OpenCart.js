@@ -10,13 +10,14 @@ const OpenCart = ({
   setProductCose,
   productCost,
 }) => {
-  const quantityArray = Array(clickedProduct.length).fill(1);
+ /* Pagination For the Cart */
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = clickedProduct.slice(indexOfFirstPost, indexOfLastPost);
-  console.log(quantityArray);
+ 
+  /* Cart Handler */
   const handlerDeleteProduct = (id, price) => {
     setClickProduct(clickedProduct.filter((user) => user.id !== id));
     setProductCose(productCost - price);

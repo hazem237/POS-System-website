@@ -7,15 +7,12 @@ import Table_nav from "../../Reusable components/TableNav";
 import EditProductForm from "../../Pop-Up/EditProductForm";
 
 const Products_table = () => {
-  /*  Get the Data From DataContex */
-
+  /*  Get the Data From DataContext */
   const { productsData, setProductsData } = useContext(DataContext);
 
   /* Variables used by Products Table */
-
   const [query, setQuery] = useState("");
   const keys = ["title", "category"];
-  const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(4);
   const [openAdd, setOpenAdd] = useState(false);
@@ -29,7 +26,6 @@ const Products_table = () => {
   const currentPosts = productsData.slice(indexOfFirstPost, indexOfLastPost);
 
   /* Functions */
-
   const removeProduct = (id) => {
     setProductsData(productsData.filter((user) => user.id !== id));
   };
@@ -47,14 +43,17 @@ const Products_table = () => {
     setOpenRemove(false);
     setOpenEdit(false);
   };
+  
   const openDeleteModule = () => {
     setOpenRemove(true);
     setOpenEdit(false);
   };
+
   const openEditModule = () => {
     setOpenRemove(false);
     setOpenEdit(true);
   };
+
   const handlerEditProduct = (product, index) => {
     setCurrentEditableProduct(product);
     setCurrentIndex(index);
@@ -62,7 +61,6 @@ const Products_table = () => {
   };
 
   /* Return The Component */
-
   return (
     <div className="table-container">
       <nav className="table-nav">
@@ -153,14 +151,14 @@ const Products_table = () => {
       />
       {openAdd && (
         <AddProductForm
-          setOppen={setOpenAdd}
+          setOpen={setOpenAdd}
           productsData={productsData}
           setProductsData={setProductsData}
         />
       )}
       {openEditForm && (
         <EditProductForm
-          setOppen={setOpenEditForm}
+          setOpen={setOpenEditForm}
           Editable_product={currentEditableProduct}
           index={currentIndex}
           productsData={productsData}

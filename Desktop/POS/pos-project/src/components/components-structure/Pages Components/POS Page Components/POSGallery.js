@@ -4,19 +4,25 @@ import { Button } from "../../Reusable components/Button";
 import OpenCart from "../../Pop-Up/OpenCart"
 
 const POS_Gallery = ({ clickedProduct, setClickProduct }) => {
+  /* clickedProduct && setClickProduct are  array with all clicked product  */
+
+  /* Get userData to select The current selected user's Discount */
   const { usersData } = useContext(DataContext);
+
+  /*Control variables  */
   const [openCartWindow, setOpenCartWindow] = useState(false);
   const [openEditTax, setOpenEditTax] = useState(false);
-  const [taxValue, setTaxtValue] = useState(4.5);
+  const [taxValue, setTaxValue] = useState(4.5);
   const [keyCheckDiscount, setKeyCheckDiscount] = useState(null);
 
+  /* Handlers && Functions */
   const handleEditTax = () => {
     setOpenEditTax(false);
   };
   const handleCancelPurchase = () => {
     setClickProduct([]);
     setKeyCheckDiscount(null);
-    setTaxtValue(4.5);
+    setTaxValue(4.5);
   };
   const isEmpty = () => {
     return clickedProduct.length === 0;
@@ -82,7 +88,7 @@ const POS_Gallery = ({ clickedProduct, setClickProduct }) => {
                 <input
                   type="number"
                   placeholder="Edit"
-                  onChange={(e) => setTaxtValue(e.target.value)}
+                  onChange={(e) => setTaxValue(e.target.value)}
                 />
                 <Button
                   text="Done"

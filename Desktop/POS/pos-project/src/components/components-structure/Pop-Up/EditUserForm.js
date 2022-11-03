@@ -5,14 +5,14 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const EditUserForm = ({
-  setOppen,
+  setOpen,
   userData,
   setUserData,
   Editable_user,
   index,
 }) => {
   const closeForm = () => {
-    setOppen(false);
+    setOpen(false);
   };
   console.log(Editable_user);
 

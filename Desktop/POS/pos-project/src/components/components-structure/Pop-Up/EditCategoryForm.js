@@ -5,7 +5,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const EditCategoryForm = ({
-  setOppen,
+  setOpen,
   categoriesData,
   setCategoriesData,
   Editable_category,
@@ -27,7 +27,7 @@ const EditCategoryForm = ({
       newArr[index].category = value.category;
       newArr[index].image = value.image;
       setCategoriesData(newArr);
-      setOppen(false);
+      setOpen(false);
     },
   });
 
@@ -35,7 +35,7 @@ const EditCategoryForm = ({
     <div className="modalBackground">
       <div className="modalContainer modalCategoryContainer">
         <div className="titleCloseBtn ">
-          <Button text="X" onClick={() => setOppen(false)} />
+          <Button text="X" onClick={() => setOpen(false)} />
         </div>
         <div className="title">
           <h2>
@@ -89,7 +89,7 @@ const EditCategoryForm = ({
                 text="Cancel"
                 buttonStyle="btn--outline cancel"
                 buttonSize="btn--medium"
-                onClick={() => setOppen(false)}
+                onClick={() => setOpen(false)}
               />
             </div>
           </form>

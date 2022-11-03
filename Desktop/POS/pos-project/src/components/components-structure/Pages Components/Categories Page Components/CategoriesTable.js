@@ -150,14 +150,14 @@ const Categories_table = () => {
 
       {openAdd && (
         <AddCategoryForm
-          setOppen={setOpenAdd}
+          setOpen={setOpenAdd}
           categoriesData={categoriesData}
           setCategoriesData={setCategoriesData}
         />
       )}
       {openEditForm && (
         <EditCategoryForm
-          setOppen={setOpenEditForm}
+          setOpen={setOpenEditForm}
           categoriesData={categoriesData}
           setCategoriesData={setCategoriesData}
           Editable_category={currentEditableCategory}

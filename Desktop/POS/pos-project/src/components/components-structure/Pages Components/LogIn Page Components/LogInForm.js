@@ -5,11 +5,13 @@ import "../../../components-style/LogIn_Form.css";
 import { useState } from "react";
 
 const LogIn_Form = () => {
+  /* Pre-defined account's data */
   const default_account = {
     email: "hazem-pos@gmail.com",
     password: "123123",
   };
 
+  /* Log In Form use Formik */
   const logInForm = useFormik({
     initialValues: {
       email: "",

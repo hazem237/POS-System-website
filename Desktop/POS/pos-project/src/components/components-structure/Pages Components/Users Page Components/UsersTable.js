@@ -160,7 +160,7 @@ const Users_table = () => {
       />
       {openAdd && (
         <AddUserForm
-          setOppen={setOpenAdd}
+          setOpen={setOpenAdd}
           userData={usersData}
           setUserData={setUsersData}
         />
@@ -168,7 +168,7 @@ const Users_table = () => {
       {openEditForm && (
         <EditUserForm
           Editable_user={currentEditableUser}
-          setOppen={setOpenEditForm}
+          setOpen={setOpenEditForm}
           userData={usersData}
           setUserData={setUsersData}
           index={currentIndex}
