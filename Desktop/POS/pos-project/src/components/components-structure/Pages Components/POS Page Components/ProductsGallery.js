@@ -78,7 +78,6 @@ const ProductsGallery = () => {
     } else {
       setDataRiver([...dataRiver, productObject]);
     }
-    // console.log(productObject);
   };
   const searchForProduct = (data) => {
     return data.filter((item) =>
@@ -169,7 +168,6 @@ const ProductsGallery = () => {
             ).map((category, index) => (
               <div className="productContainer" key={index}>
                 <img src={category.image} className="gallery-img" />
-                {/* <h6 className="Category-name-guide">{category.category}</h6> */}
                 <div
                   className="overlay"
                   onClick={() => handleCategoryClicked(category.category)}

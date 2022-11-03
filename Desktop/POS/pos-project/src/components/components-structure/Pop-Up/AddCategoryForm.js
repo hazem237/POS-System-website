@@ -6,7 +6,6 @@ import * as Yup from "yup";
 
 const AddCategoryForm = ({ setOppen, categoriesData, setCategoriesData }) => {
  
-
   const categoryForm = useFormik({
     initialValues: {
       category: "",

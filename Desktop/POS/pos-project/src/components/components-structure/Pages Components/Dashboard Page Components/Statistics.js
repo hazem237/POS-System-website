@@ -3,16 +3,14 @@ import { DataContext } from "../../../../DataBase/DataContext";
 import "../../../components-style/Statistics.css";
 
 const Statistics = () => {
-  const [buttonWelcome, setButtonWelcome] = useState(true);
-
   const { usersData, productsData, categoriesData } = useContext(DataContext);
+  const [buttonWelcome, setButtonWelcome] = useState(true);
 
   return (
     <div className="DashBoard">
       <div className="statistics-container">
         <div className="Data-catcher">
           {/* Greeting Part */}
-
           <section className="hey-part">
             {buttonWelcome && (
               <div className="welcome-dashboard">
@@ -28,11 +26,9 @@ const Statistics = () => {
                 </p>
               </div>
             )}
-            {/* <div className="greeting"></div> */}
           </section>
 
           {/*  System Information Part*/}
-
           <section className="information-part">
             <div className="Data-wrapper">
               <div className="Data-container users-number">

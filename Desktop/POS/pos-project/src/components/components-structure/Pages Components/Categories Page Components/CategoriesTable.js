@@ -7,12 +7,11 @@ import Table_nav from "../../Reusable components/TableNav";
 import EditCategoryForm from "../../Pop-Up/EditCategoryForm";
 
 const Categories_table = () => {
-  /* Get Categories from DataContex */
 
+  /* Get Categories from DataContex */
   const { categoriesData, setCategoriesData } = useContext(DataContext);
 
   /* The Variables used By Category Table */
-
   const [query, setQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(4);

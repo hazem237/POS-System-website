@@ -12,7 +12,7 @@
         0 12px 12px rgba(128, 128, 128, 0.35);
 
     width: 35%;
-   
+
 }
 
 .login-form>h1 {
@@ -36,7 +36,7 @@
 
     width: 95%;
     padding: 12px;
-    
+
 }
 
 .login-label {
@@ -47,7 +47,7 @@
 }
 
 .login-input {
-   
+
     color: #333;
     font-size: 1.1rem;
     margin-top: 4px;
@@ -64,6 +64,11 @@
 .login-input :hover {
     background-color: red;
     /* transition: all 0.3s; */
+}
+
+.LogIn-failed-message {
+    color: rgb(255, 0, 0);
+    margin-top: 20px;
 }
 
 @media screen and (max-width: 992px) {

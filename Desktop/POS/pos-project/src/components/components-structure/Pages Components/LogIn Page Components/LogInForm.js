@@ -1,11 +1,16 @@
 import { Button } from "../../Reusable components/Button";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import "../../../components-style/LogIn_Form.css"
-import { Link } from "react-router-dom";
+import "../../../components-style/LogIn_Form.css";
+import { useState } from "react";
 
 const LogIn_Form = () => {
-  const formik = useFormik({
+  const default_account = {
+    email: "hazem-pos@gmail.com",
+    password: "123123",
+  };
+
+  const logInForm = useFormik({
     initialValues: {
       email: "",
       password: "",
@@ -14,14 +19,20 @@ const LogIn_Form = () => {
       email: Yup.string().email().required("Required"),
     }),
     onSubmit: (value) => {
-      Link.call("/test");
+      if (
+        value.email === default_account.email &&
+        value.password === default_account.password
+      ) {
+        window.location = "/dashboard";
+      } else {
+        setShowFailedLogInMessage(true);
+      }
     },
   });
+  const [showFailedLogInMessage, setShowFailedLogInMessage] = useState(false);
 
   return (
-    <form className="login-form" onSubmit={formik.handleSubmit}>
-      {/* {success ? <a href="/dashboard">Go to Home</a> : null} */}
-
+    <form className="login-form" onSubmit={logInForm.handleSubmit}>
       <h1>Log in</h1>
       <div className="login-wrapper">
         <div className="login-input-container">
@@ -30,33 +41,37 @@ const LogIn_Form = () => {
             type="text"
             id="email"
             name="email"
-            placeholder="Email"
+            placeholder="Email // hazem-pos@gmail.com "
             className="login-input"
-            onChange={formik.handleChange}
-            value={formik.values.email}
+            onChange={logInForm.handleChange}
+            value={logInForm.values.email}
           />
-          {formik.errors.email ? (
-            <p style={{ color: "red" }}>{formik.errors.email}</p>
+          {logInForm.errors.email ? (
+            <p style={{ color: "red" }}>{logInForm.errors.email}</p>
           ) : null}
           <label className="login-label">Password</label>
           <input
             type="password"
             id="password"
             name="password"
-            placeholder="Password"
+            placeholder="Password // 123123"
             className="login-input"
-            onChange={formik.handleChange}
-            value={formik.values.password}
+            onChange={logInForm.handleChange}
+            value={logInForm.values.password}
           />
         </div>
-        <Link to="/dashboard">
-          <Button
-            text="log in"
-            type="submit"
-            buttonStyle="btn--form"
-            buttonSize="btn--large"
-          />
-        </Link>
+        <Button
+          text="log in"
+          type="submit"
+          buttonStyle="btn--form"
+          buttonSize="btn--large"
+        />
+        {showFailedLogInMessage && (
+          <p className="LogIn-failed-message">
+            {" "}
+            The Password or Email is incorrect
+          </p>
+        )}
       </div>
     </form>
   );
