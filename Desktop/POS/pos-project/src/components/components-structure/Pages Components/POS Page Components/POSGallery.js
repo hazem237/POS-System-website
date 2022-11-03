@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { DataContext } from "../../../../DataBase/DataContext";
 import { Button } from "../../Reusable components/Button";
 import OpenCart from "../../Pop-Up/OpenCart"
+import Bill from "../../Pop-Up/Bill";
 
 const POS_Gallery = ({ clickedProduct, setClickProduct }) => {
   /* clickedProduct && setClickProduct are  array with all clicked product  */
@@ -13,7 +14,8 @@ const POS_Gallery = ({ clickedProduct, setClickProduct }) => {
   const [openCartWindow, setOpenCartWindow] = useState(false);
   const [openEditTax, setOpenEditTax] = useState(false);
   const [taxValue, setTaxValue] = useState(4.5);
-  const [keyCheckDiscount, setKeyCheckDiscount] = useState(null);
+  const [keyCheckDiscount, setKeyCheckDiscount] = useState("No User");
+  const [openBillWindow , setOpenBillWindow]=useState(false);
 
   /* Handlers && Functions */
   const handleEditTax = () => {
@@ -21,7 +23,7 @@ const POS_Gallery = ({ clickedProduct, setClickProduct }) => {
   };
   const handleCancelPurchase = () => {
     setClickProduct([]);
-    setKeyCheckDiscount(null);
+    setKeyCheckDiscount("No User");
     setTaxValue(4.5);
   };
   const isEmpty = () => {
@@ -128,6 +130,7 @@ const POS_Gallery = ({ clickedProduct, setClickProduct }) => {
           text="Purchase"
           buttonStyle="btn--outline btn--purchase"
           buttonSize="btn--medium "
+          onClick={()=> setOpenBillWindow(true)}
         />
       </div>
       {openCartWindow && (
@@ -137,6 +140,20 @@ const POS_Gallery = ({ clickedProduct, setClickProduct }) => {
           clickedProduct={clickedProduct}
         />
       )}
+      { openBillWindow &&
+        <Bill
+          userName={keyCheckDiscount}
+          Bill={clickedProduct.reduce(
+            (acc, curr) => acc + curr.price * curr.quantity,
+            0
+          )}
+          Discount={getDiscount()}
+          Tax={taxValue}
+          Total={getTotal()}
+          setOpenBillWindow ={setOpenBillWindow}
+          cancelProccess ={handleCancelPurchase}
+        />
+      }
     </div>
   );
 };

@@ -46,10 +46,7 @@ function Navbar() {
                 onClick={closeMobileMenu}
               >
                 Dashboard{" "}
-                <i
-                  className="fa-solid fa-gauge"
-                  style={{ color: "white" }}
-                ></i>
+                <i className="fa-solid fa-gauge" style={{ color: "white" }}></i>
               </Link>
             </li>
             <li className="nav-item">
@@ -91,6 +88,7 @@ function Navbar() {
               buttonStyle="btn--primary log-out"
               buttonSize="btn--medium"
               onClick={closeMobileMenu}
+              icon=<i className="fa-solid fa-right-from-bracket"></i>
             />
           </Link>
         </div>
