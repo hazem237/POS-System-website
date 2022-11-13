@@ -1,19 +1,18 @@
-import React, { useContext, useState } from "react";
-import { DataContext } from "../../../../DataBase/DataContext";
+import React, { useState } from "react";
 import "../../../components-style/Products_Gallery.css";
 import { Button } from "../../Reusable components/Button";
-import Pagination from "../../Reusable components/Pagination";
-import POSGallery from "./POSGallery"
+import ProductsBar from "./ProductsBar";
+import POSGallery from "./POSGallery";
+import CategoriesBar from "./CategoriesBar";
+import CustomProductBar from "./CustomProductBar";
 
 const ProductsGallery = () => {
   /* The Required Data */
-  const { productsData } = useContext(DataContext);
-  const { categoriesData } = useContext(DataContext);
+
 
   /* States For Gallery Bar Pagination */
   const [currentPage, setCurrentPage] = useState(1);
-  const [productPerPage] = useState(10);
-  const [categoryPerPage] = useState(6);
+
 
   /* States to control all the windows inside Product Gallery Bar */
   const [openProductsWindow, setOpenProductWindow] = useState(true);
@@ -26,24 +25,7 @@ const ProductsGallery = () => {
 
   /* Search variables */
   const [searchQuery, setSearchQuery] = useState("");
-  const productKey = ["title", "category"];
-  const categoryKey = ["category"];
 
-  /* Pagination For Product Bar  */
-  const indexOfLastProduct = currentPage * productPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - productPerPage;
-  const currentProduct = productsData.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct
-  );
-
-  /* Pagination For Category Bar  */
-  const indexOfLastCategory = currentPage * productPerPage;
-  const indexOfFirstCategory = indexOfLastProduct - productPerPage;
-  const currentCategory = categoriesData.slice(
-    indexOfFirstCategory,
-    indexOfLastCategory
-  );
 
   /* Handler Functions */
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -59,35 +41,18 @@ const ProductsGallery = () => {
     setOpenCustomProductWindow(false);
     setCurrentPage(1);
   };
+
   const handleCategoryClicked = (clickedCategory) => {
     setRequiredCategory(clickedCategory);
     setOpenCustomProductWindow(true);
     setOpenProductWindow(false);
     setOpenCategoryWindow(false);
+    console.log(clickedCategory);
   };
+
   const handleBackToCategory = () => {
     setOpenCategoryWindow(true);
     setOpenCustomProductWindow(false);
-  };
-  const handlerProductClick = (productObject, index) => {
-    if (dataRiver.includes(productObject)) {
-      let newArr = [...dataRiver];
-      newArr[dataRiver.indexOf(dataRiver.find((p) => p === productObject))]
-        .quantity++;
-      setDataRiver(newArr);
-    } else {
-      setDataRiver([...dataRiver, productObject]);
-    }
-  };
-  const searchForProduct = (data) => {
-    return data.filter((item) =>
-      productKey.some((key) => item[key].toLowerCase().includes(searchQuery))
-    );
-  };
-  const searchForCategory = (data) => {
-    return data.filter((item) =>
-      categoryKey.some((key) => item[key].toLowerCase().includes(searchQuery))
-    );
   };
 
   return (
@@ -95,34 +60,14 @@ const ProductsGallery = () => {
       <div className="catalogs">
         <div className="productGallery-nav">
           {/* Search For Each Gallery Window Case (Product , Category , Custom Product) */}
-
-          {openProductsWindow && (
-            <input
-              type="text"
-              placeholder="Search for Product .. "
-              className="search"
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          )}
-          {openCategoryWindow && (
-            <input
-              type="text"
-              placeholder="Search for Category .. "
-              className="search"
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          )}
-          {openCustomProductWindow && (
-            <input
-              type="text"
-              placeholder="Search for Product .. "
-              className="search"
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          )}
+          <input
+            type="text"
+            placeholder="Search .. "
+            className="search"
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
 
           {/* Nav Button Container  */}
-
           <div className="buttons-container">
             <Button
               text="All Products"
@@ -138,110 +83,32 @@ const ProductsGallery = () => {
         </div>
 
         {/* Gallery Items Based on Each Window Case (Product , Category , Custom Product)  */}
-
         {openProductsWindow && (
-          <div className="products-container">
-            {(searchQuery.length > 2
-              ? searchForProduct(productsData)
-              : currentProduct
-            ).map((product, index) => (
-              <div className="productContainer" key={index}>
-                <img src={product.thumbnail} className="gallery-img" />
-                <div
-                  className="overlay"
-                  onClick={() => handlerProductClick(product, index)}
-                >
-                  <div className="content">
-                    <h3>{product.title}</h3>
-                    <p> Price :{product.price} $</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-        {openCategoryWindow && (
-          <div className="categories-container">
-            {(searchQuery.length > 2
-              ? searchForCategory(categoriesData)
-              : currentCategory
-            ).map((category, index) => (
-              <div className="productContainer" key={index}>
-                <img src={category.image} className="gallery-img" />
-                <div
-                  className="overlay"
-                  onClick={() => handleCategoryClicked(category.category)}
-                >
-                  <div className="content">
-                    <h3>{category.category}</h3>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-        {openCustomProductWindow && (
-          <div className="custom-container">
-            <div className="custom-Window-nav">
-              <Button
-                text="Back"
-                buttonStyle="btn--outline"
-                onClick={() => handleBackToCategory()}
-              />
-              <p> Category : {requiredCategory}</p>
-            </div>
-            {searchForProduct(productsData)
-              .filter((p) => p.category == requiredCategory)
-              .map((product, index) => (
-                <div className="productContainer" key={index}>
-                  <img src={product.thumbnail} className="gallery-img" />
-                  <div
-                    className="overlay"
-                    onClick={() => handlerProductClick(product)}
-                  >
-                    <div className="content">
-                      <h3>{product.title}</h3>
-                      <p> Price :{product.price} $</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-          </div>
-        )}
-        {/* Pagenation Handler For Gallery  */}
-
-        {openProductsWindow && (
-          <Pagination
-            postsPerPage={productPerPage}
-            totalPosts={productsData.length}
-            paginate={paginate}
+          <ProductsBar
+            clickedProduct={dataRiver}
+            setClickProduct={setDataRiver}
+            query={searchQuery}
           />
         )}
         {openCategoryWindow && (
-          <Pagination
-            postsPerPage={categoryPerPage}
-            totalPosts={categoriesData.length}
-            paginate={paginate}
+          <CategoriesBar
+            searchQuery={searchQuery}
+            handleCategoryClicked={handleCategoryClicked}
           />
         )}
         {openCustomProductWindow && (
-          <Pagination
-            postsPerPage={productPerPage}
-            totalPosts={
-              productsData.filter((p) => p.category === requiredCategory).length
-            }
-            paginate={paginate}
+          <CustomProductBar
+            handleBackToCategory={handleBackToCategory}
+            requiredCategory={requiredCategory}
+            query={searchQuery}
+            clickedProduct={dataRiver}
+            setClickProduct={setDataRiver}
           />
         )}
       </div>
-
       {/* Ends of Gallery Bar , Stating with POS Bar  */}
-
       <div className="POS-operator">
-        <POSGallery
-          clickedProduct={dataRiver}
-          setClickProduct={setDataRiver}
-        />
+        <POSGallery clickedProduct={dataRiver} setClickProduct={setDataRiver} />
       </div>
     </div>
   );

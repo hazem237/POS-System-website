@@ -9,13 +9,13 @@ import POS from "./pages/POS";
 import FetchedData from "./DataBase/FetchedData";
 import { DataContext } from "./DataBase/DataContext";
 
+
 function App() {
   return (
     <>
       <Router>
         <DataContext.Provider value={FetchedData()}>
           <Routes>
-            s
             <Route path="/" element={<LogIn />} />
             <Route path="/dashboard" element={<DashBoard />} />
             <Route path="/product" element={<Products />} />

@@ -18,16 +18,6 @@ const FetchedData = () => {
       const data = await res.json();
       return data;
     };
-    // const getProducts = async () => {
-    //   const userFromServer = await fetchProducts();
-    //   setProductsData(userFromServer);
-    // };
-
-    // const fetchProducts = async () => {
-    //   const res = await fetch("http://localhost:5000/products");
-    //   const data = await res.json();
-    //   return data;
-    // };
     fetch("http://localhost:5000/products")
       .then((res) => {
         return res.json();
