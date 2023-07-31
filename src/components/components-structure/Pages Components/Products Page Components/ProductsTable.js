@@ -106,7 +106,7 @@ const Products_table = () => {
           </tr>
         </thead>
         <tbody>
-          {(query.length > 2 ? search(productsData) : currentPosts).map(
+         {productsData.length > 0 ?  (query.length > 2 ? search(productsData) : currentPosts).map(
             (product, index) => (
               <tr key={product.id}>
                 <td>{product.id}</td>
@@ -141,7 +141,9 @@ const Products_table = () => {
                 )}
               </tr>
             )
-          )}
+          ): <tr>
+              <td colSpan="5">No Products</td>
+            </tr>}
         </tbody>
       </table>
       <Pagination

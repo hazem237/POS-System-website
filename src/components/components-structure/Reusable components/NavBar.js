@@ -41,7 +41,7 @@ function Navbar() {
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
               <Link
-                to="/dashboard"
+                to="/"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
@@ -82,7 +82,7 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          <Link to="/">
+          {/* <Link to="/">
             <Button
               text="Log Out"
               buttonStyle="btn--primary log-out"
@@ -90,7 +90,7 @@ function Navbar() {
               onClick={closeMobileMenu}
               icon=<i className="fa-solid fa-right-from-bracket"></i>
             />
-          </Link>
+          </Link> */}
         </div>
       </nav>
     </>

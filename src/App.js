@@ -16,8 +16,8 @@ function App() {
       <Router>
         <DataContext.Provider value={FetchedData()}>
           <Routes>
-            <Route path="/" element={<LogIn />} />
-            <Route path="/dashboard" element={<DashBoard />} />
+            {/* <Route path="/" element={<LogIn />} /> */}
+            <Route path="/" element={<DashBoard />} />
             <Route path="/product" element={<Products />} />
             <Route path="/catagories" element={<Categories />} />
             <Route path="/users" element={<Users />} />
